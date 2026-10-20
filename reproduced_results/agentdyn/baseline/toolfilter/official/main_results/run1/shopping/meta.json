@@ -1,0 +1,7 @@
+{
+ "benchmark": "agentdyn",
+ "condition": "toolfilter-official",
+ "environment": "shopping",
+ "model": "gpt_4_1",
+ "run": "run1"
+}

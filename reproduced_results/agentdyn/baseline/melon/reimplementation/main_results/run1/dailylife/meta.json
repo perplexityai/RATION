@@ -1,0 +1,7 @@
+{
+ "benchmark": "agentdyn",
+ "condition": "melon-reimplementation",
+ "environment": "dailylife",
+ "model": "gpt_4_1",
+ "run": "run1"
+}

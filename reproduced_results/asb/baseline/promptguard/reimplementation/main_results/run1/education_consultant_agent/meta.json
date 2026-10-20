@@ -1,0 +1,7 @@
+{
+ "benchmark": "asb",
+ "condition": "promptguard-reimplementation",
+ "environment": "education_consultant_agent",
+ "model": "gpt_4_1",
+ "run": "run1"
+}

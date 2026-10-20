@@ -1,0 +1,34 @@
+{
+ "environment": "workflow",
+ "dataset_mounts": [
+  "atlassian",
+  "bigquery",
+  "calendar",
+  "databricks",
+  "github",
+  "gmail",
+  "google-form",
+  "googledocs",
+  "paypal",
+  "slack",
+  "snowflake",
+  "whatsapp",
+  "zoom"
+ ],
+ "services": [
+  "atlassian",
+  "bigquery",
+  "calendar",
+  "databricks",
+  "github",
+  "gmail",
+  "google_form",
+  "googledocs",
+  "paypal",
+  "slack",
+  "snowflake",
+  "whatsapp",
+  "zoom"
+ ],
+ "benign_categories": {}
+}

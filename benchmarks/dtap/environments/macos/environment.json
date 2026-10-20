@@ -1,0 +1,10 @@
+{
+ "environment": "macos",
+ "dataset_mounts": [
+  "macos-os"
+ ],
+ "services": [
+  "macos"
+ ],
+ "benign_categories": {}
+}

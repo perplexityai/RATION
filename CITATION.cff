@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use RATION, please cite the paper."
+title: "RATION"
+url: "https://github.com/perplexityai/RATION"
+authors:
+  - name: "Perplexity AI, Inc."
+preferred-citation:
+  type: article
+  title: "RATION: Towards Quantitative Risk-Based Access Control for AI Agents"
+  authors:
+    - {family-names: Du, given-names: Yuntao}
+    - {family-names: Chaudhari, given-names: Harsh}
+    - {family-names: Chen, given-names: Yuetian}
+    - {family-names: Heichman, given-names: Ron}
+    - {family-names: Jayamohan, given-names: Ashish}
+    - {family-names: Pallav, given-names: Kumar}
+    - {family-names: Patel, given-names: Mahim}
+    - {family-names: Zhang, given-names: Kaiyuan}
+    - {family-names: Polley, given-names: Kyle}
+    - {family-names: Ma, given-names: Jerry}
+    - {family-names: Li, given-names: Ninghui}
+  year: 2026
+  journal: "arXiv preprint arXiv:2610.24311"
+  url: "https://arxiv.org/abs/2610.24311"
+  identifiers:
+    - {type: other, value: "arXiv:2610.24311", description: "arXiv identifier"}

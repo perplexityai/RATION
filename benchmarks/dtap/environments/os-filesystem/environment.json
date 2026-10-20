@@ -1,0 +1,14 @@
+{
+ "environment": "os-filesystem",
+ "dataset_mounts": [
+  "OS-filesystem",
+  "gmail",
+  "slack"
+ ],
+ "services": [
+  "gmail",
+  "os-filesystem",
+  "slack"
+ ],
+ "benign_categories": {}
+}

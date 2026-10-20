@@ -1,0 +1,10 @@
+{
+ "environment": "medical",
+ "dataset_mounts": [
+  "HospitalClient"
+ ],
+ "services": [
+  "hospital"
+ ],
+ "benign_categories": {}
+}

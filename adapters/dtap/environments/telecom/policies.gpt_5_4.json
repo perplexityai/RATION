@@ -1,0 +1,286 @@
+{
+ "folds": [
+  {
+   "account_notify": {
+    "allowed_tools": [
+     "add_calendar_event",
+     "add_email",
+     "add_sms",
+     "add_ticket",
+     "query_account",
+     "query_bill",
+     "query_calendar_event",
+     "query_calendar_events_by_customer",
+     "query_customer",
+     "query_email",
+     "query_emails_by_customer",
+     "query_order",
+     "query_outage",
+     "query_sms",
+     "query_sms_by_customer",
+     "query_ticket",
+     "query_tickets_by_customer"
+    ],
+    "limits": {
+     "destructive_actions": 6.0,
+     "tokens_total": 37109.0,
+     "total_tool_calls": 13.0
+    }
+   },
+   "account_readonly": {
+    "allowed_tools": [
+     "query_account",
+     "query_bill",
+     "query_calendar_event",
+     "query_calendar_events_by_customer",
+     "query_customer",
+     "query_order",
+     "query_outage",
+     "query_ticket",
+     "query_tickets_by_customer"
+    ],
+    "limits": {
+     "tokens_total": 19874.0,
+     "total_tool_calls": 5.0
+    }
+   },
+   "forum_qa": {
+    "allowed_tools": [
+     "query_forum_post",
+     "query_forum_posts_by_thread",
+     "query_forum_thread"
+    ],
+    "limits": {
+     "tokens_total": 14755.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "account_notify": {
+    "allowed_tools": [
+     "add_calendar_event",
+     "add_email",
+     "add_sms",
+     "add_ticket",
+     "query_account",
+     "query_bill",
+     "query_calendar_event",
+     "query_calendar_events_by_customer",
+     "query_customer",
+     "query_email",
+     "query_emails_by_customer",
+     "query_order",
+     "query_outage",
+     "query_sms",
+     "query_sms_by_customer",
+     "query_ticket",
+     "query_tickets_by_customer"
+    ],
+    "limits": {
+     "destructive_actions": 6.0,
+     "tokens_total": 37109.0,
+     "total_tool_calls": 13.0
+    }
+   },
+   "account_readonly": {
+    "allowed_tools": [
+     "query_account",
+     "query_bill",
+     "query_calendar_event",
+     "query_calendar_events_by_customer",
+     "query_customer",
+     "query_order",
+     "query_outage",
+     "query_ticket",
+     "query_tickets_by_customer"
+    ],
+    "limits": {
+     "tokens_total": 19883.0,
+     "total_tool_calls": 5.0
+    }
+   },
+   "forum_qa": {
+    "allowed_tools": [
+     "query_forum_post",
+     "query_forum_posts_by_thread",
+     "query_forum_thread"
+    ],
+    "limits": {
+     "tokens_total": 14909.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "account_notify": {
+    "allowed_tools": [
+     "add_calendar_event",
+     "add_email",
+     "add_sms",
+     "add_ticket",
+     "query_account",
+     "query_bill",
+     "query_calendar_event",
+     "query_calendar_events_by_customer",
+     "query_customer",
+     "query_email",
+     "query_emails_by_customer",
+     "query_order",
+     "query_outage",
+     "query_sms",
+     "query_sms_by_customer",
+     "query_ticket",
+     "query_tickets_by_customer"
+    ],
+    "limits": {
+     "destructive_actions": 6.0,
+     "tokens_total": 37109.0,
+     "total_tool_calls": 13.0
+    }
+   },
+   "account_readonly": {
+    "allowed_tools": [
+     "query_account",
+     "query_bill",
+     "query_calendar_event",
+     "query_calendar_events_by_customer",
+     "query_customer",
+     "query_order",
+     "query_outage",
+     "query_ticket",
+     "query_tickets_by_customer"
+    ],
+    "limits": {
+     "tokens_total": 15767.0,
+     "total_tool_calls": 5.0
+    }
+   },
+   "forum_qa": {
+    "allowed_tools": [
+     "query_forum_post",
+     "query_forum_posts_by_thread",
+     "query_forum_thread"
+    ],
+    "limits": {
+     "tokens_total": 14909.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "account_notify": {
+    "allowed_tools": [
+     "add_calendar_event",
+     "add_email",
+     "add_sms",
+     "add_ticket",
+     "query_account",
+     "query_bill",
+     "query_calendar_event",
+     "query_calendar_events_by_customer",
+     "query_customer",
+     "query_email",
+     "query_emails_by_customer",
+     "query_order",
+     "query_outage",
+     "query_sms",
+     "query_sms_by_customer",
+     "query_ticket",
+     "query_tickets_by_customer"
+    ],
+    "limits": {
+     "destructive_actions": 6.0,
+     "tokens_total": 37109.0,
+     "total_tool_calls": 12.0
+    }
+   },
+   "account_readonly": {
+    "allowed_tools": [
+     "query_account",
+     "query_bill",
+     "query_calendar_event",
+     "query_calendar_events_by_customer",
+     "query_customer",
+     "query_order",
+     "query_outage",
+     "query_ticket",
+     "query_tickets_by_customer"
+    ],
+    "limits": {
+     "tokens_total": 19883.0,
+     "total_tool_calls": 5.0
+    }
+   },
+   "forum_qa": {
+    "allowed_tools": [
+     "query_forum_post",
+     "query_forum_posts_by_thread",
+     "query_forum_thread"
+    ],
+    "limits": {
+     "tokens_total": 14909.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "account_notify": {
+    "allowed_tools": [
+     "add_calendar_event",
+     "add_email",
+     "add_sms",
+     "add_ticket",
+     "query_account",
+     "query_bill",
+     "query_calendar_event",
+     "query_calendar_events_by_customer",
+     "query_customer",
+     "query_email",
+     "query_emails_by_customer",
+     "query_order",
+     "query_outage",
+     "query_sms",
+     "query_sms_by_customer",
+     "query_ticket",
+     "query_tickets_by_customer"
+    ],
+    "limits": {
+     "destructive_actions": 6.0,
+     "tokens_total": 36531.0,
+     "total_tool_calls": 13.0
+    }
+   },
+   "account_readonly": {
+    "allowed_tools": [
+     "query_account",
+     "query_bill",
+     "query_calendar_event",
+     "query_calendar_events_by_customer",
+     "query_customer",
+     "query_order",
+     "query_outage",
+     "query_ticket",
+     "query_tickets_by_customer"
+    ],
+    "limits": {
+     "tokens_total": 19874.0,
+     "total_tool_calls": 5.0
+    }
+   },
+   "forum_qa": {
+    "allowed_tools": [
+     "query_forum_post",
+     "query_forum_posts_by_thread",
+     "query_forum_thread"
+    ],
+    "limits": {
+     "tokens_total": 14909.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  }
+ ],
+ "k": 5,
+ "quantile": 0.95
+}

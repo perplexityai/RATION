@@ -1,0 +1,12 @@
+{
+ "environment": "browser",
+ "dataset_mounts": [
+  "browser",
+  "gmail"
+ ],
+ "services": [
+  "browser",
+  "gmail"
+ ],
+ "benign_categories": {}
+}

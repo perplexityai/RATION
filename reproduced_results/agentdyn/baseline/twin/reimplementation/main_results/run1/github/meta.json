@@ -1,0 +1,7 @@
+{
+ "benchmark": "agentdyn",
+ "condition": "twin-reimplementation",
+ "environment": "github",
+ "model": "gpt_4_1",
+ "run": "run1"
+}

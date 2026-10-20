@@ -1,0 +1,915 @@
+{
+ "telecom": {
+  "add_account": {
+   "description": "Add a new account record.\n\nArgs:\n    data: Dictionary with account record fields. Required fields typically include:\n        - customer_id (str): Customer ID (foreign key, required)\n        - account_number (str): Account number\n        - account_type (str): Type of account (e.g., \"mobile\", \"internet\", \"landline\")\n        - plan (str): Service plan name\n        - status (str): Account status (e.g., \"active\", \"suspended\", \"cancelled\")\n        - activation_date (str): Account activation date\n        - balance (str/float): Current account balance\n        Additional fields may be required based on the CSV schema.\n\nReturns:\n    Dictionary with success or error message\n\nExample:\n    add_account({\n        \"customer_id\": \"CUST001\",\n        \"account_number\": \"ACC123456\",\n        \"account_type\": \"mobile\",\n        \"plan\": \"Premium\",\n        \"status\": \"active\",\n        \"activation_date\": \"2024-01-15\",\n        \"balance\": \"0.00\"\n    })",
+   "input_schema": {
+    "properties": {
+     "data": {
+      "additionalProperties": true,
+      "type": "object"
+     }
+    },
+    "required": [
+     "data"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "add_bill": {
+   "description": "Add a new bill record.\n\nArgs:\n    data: Dictionary with bill record fields. Required fields typically include:\n        - customer_id (str): Customer ID (foreign key, required)\n        - bill_id (str): Bill ID (unique identifier)\n        - bill_date (str): Bill date\n        - due_date (str): Due date\n        - amount (str/float): Bill amount\n        - status (str): Payment status (e.g., \"paid\", \"unpaid\", \"overdue\")\n        - service_period (str): Service period covered by the bill\n        Additional fields may be required based on the CSV schema.\n\nReturns:\n    Dictionary with success or error message\n\nExample:\n    add_bill({\n        \"customer_id\": \"CUST001\",\n        \"bill_id\": \"BILL001\",\n        \"bill_date\": \"2024-01-01\",\n        \"due_date\": \"2024-01-31\",\n        \"amount\": \"99.99\",\n        \"status\": \"unpaid\",\n        \"service_period\": \"2024-01\"\n    })",
+   "input_schema": {
+    "properties": {
+     "data": {
+      "additionalProperties": true,
+      "type": "object"
+     }
+    },
+    "required": [
+     "data"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "add_calendar_event": {
+   "description": "Add a new calendar event record.\n\nArgs:\n    data: Dictionary with calendar event record fields. Required fields typically include:\n        - id (str): Event ID (unique identifier)\n        - title (str): Event title\n        - description (str): Event description\n        - start_date (str): Event start date/time\n        - end_date (str): Event end date/time\n        - location (str): Event location\n        - attendees (str): Comma-separated list of attendees\n        - event_type (str): Type of event (e.g., \"meeting\", \"appointment\", \"call\")\n        Additional fields may be required based on the CSV schema.\n\nReturns:\n    Dictionary with success or error message\n\nExample:\n    add_calendar_event({\n        \"id\": \"EVT001\",\n        \"title\": \"Customer Meeting\",\n        \"description\": \"Discuss service upgrade\",\n        \"start_date\": \"2024-02-01 10:00:00\",\n        \"end_date\": \"2024-02-01 11:00:00\",\n        \"location\": \"Office\",\n        \"attendees\": \"john@example.com,jane@example.com\",\n        \"event_type\": \"meeting\"\n    })",
+   "input_schema": {
+    "properties": {
+     "data": {
+      "additionalProperties": true,
+      "type": "object"
+     }
+    },
+    "required": [
+     "data"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "add_customer": {
+   "description": "Add a new customer record.\n\nArgs:\n    data: Dictionary with customer record fields. Required fields typically include:\n        - id (str): Customer ID (unique identifier)\n        - name (str): Customer name\n        - email (str): Customer email address\n        - phone (str): Customer phone number\n        - address (str): Customer address\n        - city (str): City\n        - state (str): State\n        - zip_code (str): ZIP code\n        - country (str): Country\n        - status (str): Customer status (e.g., \"active\", \"inactive\")\n        Additional fields may be required based on the CSV schema.\n\nReturns:\n    Dictionary with success or error message\n\nExample:\n    add_customer({\n        \"id\": \"CUST001\",\n        \"name\": \"John Doe\",\n        \"email\": \"john@example.com\",\n        \"phone\": \"555-1234\",\n        \"address\": \"123 Main St\",\n        \"city\": \"San Francisco\",\n        \"state\": \"CA\",\n        \"zip_code\": \"94102\",\n        \"country\": \"USA\",\n        \"status\": \"active\"\n    })",
+   "input_schema": {
+    "properties": {
+     "data": {
+      "additionalProperties": true,
+      "type": "object"
+     }
+    },
+    "required": [
+     "data"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "add_email": {
+   "description": "Add a new email record.\n\nArgs:\n    data: Dictionary with email record fields. Required fields typically include:\n        - id (str): Email ID (unique identifier)\n        - from_address (str): Sender email address\n        - to_address (str): Recipient email address(es)\n        - subject (str): Email subject\n        - body (str): Email body/content\n        - date (str): Email date/time\n        - status (str): Email status (e.g., \"sent\", \"received\", \"draft\")\n        - customer_id (str): Associated customer ID (if applicable)\n        Additional fields may be required based on the CSV schema.\n\nReturns:\n    Dictionary with success or error message\n\nExample:\n    add_email({\n        \"id\": \"EMAIL001\",\n        \"from_address\": \"support@telecom.com\",\n        \"to_address\": \"customer@example.com\",\n        \"subject\": \"Service Update\",\n        \"body\": \"Your service has been updated.\",\n        \"date\": \"2024-01-15 14:30:00\",\n        \"status\": \"sent\",\n        \"customer_id\": \"CUST001\"\n    })",
+   "input_schema": {
+    "properties": {
+     "data": {
+      "additionalProperties": true,
+      "type": "object"
+     }
+    },
+    "required": [
+     "data"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "add_order": {
+   "description": "Add a new order record.\n\nArgs:\n    data: Dictionary with order record fields. Required fields typically include:\n        - order_id (str): Order ID (unique identifier)\n        - customer_id (str): Customer ID (foreign key)\n        - order_date (str): Order date\n        - product (str): Product/service ordered\n        - quantity (str/int): Quantity ordered\n        - price (str/float): Order price\n        - status (str): Order status (e.g., \"pending\", \"completed\", \"cancelled\")\n        - delivery_date (str): Expected delivery date\n        Additional fields may be required based on the CSV schema.\n\nReturns:\n    Dictionary with success or error message\n\nExample:\n    add_order({\n        \"order_id\": \"ORD001\",\n        \"customer_id\": \"CUST001\",\n        \"order_date\": \"2024-01-15\",\n        \"product\": \"Premium Plan\",\n        \"quantity\": \"1\",\n        \"price\": \"99.99\",\n        \"status\": \"pending\",\n        \"delivery_date\": \"2024-01-20\"\n    })",
+   "input_schema": {
+    "properties": {
+     "data": {
+      "additionalProperties": true,
+      "type": "object"
+     }
+    },
+    "required": [
+     "data"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "add_outage": {
+   "description": "Add a new outage record.\n\nArgs:\n    data: Dictionary with outage record fields. Required fields typically include:\n        - area (str): Affected area (unique identifier)\n        - start_time (str): Outage start time\n        - end_time (str): Outage end time (if resolved)\n        - status (str): Outage status (e.g., \"active\", \"resolved\", \"scheduled\")\n        - description (str): Outage description\n        - affected_customers (str/int): Number of affected customers\n        - severity (str): Severity level (e.g., \"low\", \"medium\", \"high\", \"critical\")\n        Additional fields may be required based on the CSV schema.\n\nReturns:\n    Dictionary with success or error message\n\nExample:\n    add_outage({\n        \"area\": \"Downtown\",\n        \"start_time\": \"2024-01-15 10:00:00\",\n        \"end_time\": \"2024-01-15 12:00:00\",\n        \"status\": \"resolved\",\n        \"description\": \"Power outage affecting service\",\n        \"affected_customers\": \"150\",\n        \"severity\": \"high\"\n    })",
+   "input_schema": {
+    "properties": {
+     "data": {
+      "additionalProperties": true,
+      "type": "object"
+     }
+    },
+    "required": [
+     "data"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "add_sms": {
+   "description": "Add a new SMS log record.\n\nArgs:\n    data: Dictionary with SMS record fields. Required fields typically include:\n        - id (str): SMS ID (unique identifier)\n        - from_number (str): Sender phone number\n        - to_number (str): Recipient phone number\n        - message (str): SMS message content\n        - date (str): SMS date/time\n        - status (str): SMS status (e.g., \"sent\", \"received\", \"delivered\", \"failed\")\n        - customer_id (str): Associated customer ID (if applicable)\n        Additional fields may be required based on the CSV schema.\n\nReturns:\n    Dictionary with success or error message\n\nExample:\n    add_sms({\n        \"id\": \"SMS001\",\n        \"from_number\": \"+15551234567\",\n        \"to_number\": \"+15559876543\",\n        \"message\": \"Your service has been activated.\",\n        \"date\": \"2024-01-15 14:30:00\",\n        \"status\": \"sent\",\n        \"customer_id\": \"CUST001\"\n    })",
+   "input_schema": {
+    "properties": {
+     "data": {
+      "additionalProperties": true,
+      "type": "object"
+     }
+    },
+    "required": [
+     "data"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "add_ticket": {
+   "description": "Add a new ticket record.\n\nArgs:\n    data: Dictionary with ticket record fields. Required fields typically include:\n        - id (str): Ticket ID (unique identifier)\n        - customer_id (str): Customer ID (foreign key)\n        - subject (str): Ticket subject\n        - description (str): Ticket description/issue details\n        - status (str): Ticket status (e.g., \"open\", \"in_progress\", \"resolved\", \"closed\")\n        - priority (str): Priority level (e.g., \"low\", \"medium\", \"high\", \"urgent\")\n        - created_date (str): Ticket creation date/time\n        - assigned_to (str): Agent/user assigned to the ticket\n        - resolution (str): Resolution details (if resolved)\n        Additional fields may be required based on the CSV schema.\n\nReturns:\n    Dictionary with success or error message\n\nExample:\n    add_ticket({\n        \"id\": \"TKT001\",\n        \"customer_id\": \"CUST001\",\n        \"subject\": \"Service interruption\",\n        \"description\": \"Customer experiencing service outage\",\n        \"status\": \"open\",\n        \"priority\": \"high\",\n        \"created_date\": \"2024-01-15 10:00:00\",\n        \"assigned_to\": \"agent1\",\n        \"resolution\": \"\"\n    })",
+   "input_schema": {
+    "properties": {
+     "data": {
+      "additionalProperties": true,
+      "type": "object"
+     }
+    },
+    "required": [
+     "data"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "query_account": {
+   "description": "Query account information by customer ID.\n\nArgs:\n    customer_id: The customer ID to query account for\n\nReturns:\n    Dictionary with account information or error message",
+   "input_schema": {
+    "properties": {
+     "customer_id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "customer_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "query_bill": {
+   "description": "Query bill information by customer ID.\n\nArgs:\n    customer_id: The customer ID to query bills for\n\nReturns:\n    Dictionary with bill information or error message",
+   "input_schema": {
+    "properties": {
+     "customer_id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "customer_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "query_calendar_event": {
+   "description": "Query calendar event information by event ID.\n\nArgs:\n    event_id: The calendar event ID to query\n\nReturns:\n    Dictionary with calendar event information or error message",
+   "input_schema": {
+    "properties": {
+     "event_id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "event_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "query_calendar_events_by_customer": {
+   "description": "List all calendar events for a customer, sorted by start time.\n\nArgs:\n    customer_id: The customer ID to look up calendar events for\n\nReturns:\n    Dictionary with list of events: id, customer_id, start_time_iso, end_time_iso, title, description",
+   "input_schema": {
+    "properties": {
+     "customer_id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "customer_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "query_customer": {
+   "description": "Query customer information by customer ID.\n\nArgs:\n    customer_id: The customer ID to query\n\nReturns:\n    Dictionary with customer information or error message",
+   "input_schema": {
+    "properties": {
+     "customer_id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "customer_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "query_email": {
+   "description": "Query email information by email ID.\n\nArgs:\n    email_id: The email ID to query\n\nReturns:\n    Dictionary with email information or error message",
+   "input_schema": {
+    "properties": {
+     "email_id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "email_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "query_emails_by_customer": {
+   "description": "List all email records for a customer, sorted by sent time (newest first).\n\nArgs:\n    customer_id: The customer ID to look up email records for\n\nReturns:\n    Dictionary with list of emails: id, customer_id, subject, body, sent_at_iso",
+   "input_schema": {
+    "properties": {
+     "customer_id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "customer_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "query_forum_post": {
+   "description": "Query a single forum post by its post ID.\n\nArgs:\n    post_id: The forum post ID (e.g., \"FPOST001\")\n\nReturns:\n    Dictionary with post information: id, thread_id, author_id, author_type, content, created_at_iso",
+   "input_schema": {
+    "properties": {
+     "post_id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "post_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "query_forum_posts_by_thread": {
+   "description": "List all posts in a forum thread, sorted by creation time.\n\nArgs:\n    thread_id: The forum thread ID whose posts to retrieve (e.g., \"FTHR001\")\n\nReturns:\n    Dictionary with list of posts: id, thread_id, author_id, author_type, content, created_at_iso",
+   "input_schema": {
+    "properties": {
+     "thread_id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "thread_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "query_forum_thread": {
+   "description": "Query a forum thread by its thread ID.\n\nArgs:\n    thread_id: The forum thread ID (e.g., \"FTHR001\")\n\nReturns:\n    Dictionary with thread information: id, title, topic, created_at_iso, status, author_id, author_type",
+   "input_schema": {
+    "properties": {
+     "thread_id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "thread_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "query_order": {
+   "description": "Query order information by order ID.\n\nArgs:\n    order_id: The order ID to query\n\nReturns:\n    Dictionary with order information or error message",
+   "input_schema": {
+    "properties": {
+     "order_id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "order_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "query_outage": {
+   "description": "Query outage information by area.\n\nArgs:\n    area: The area to query outages for\n\nReturns:\n    Dictionary with outage information or error message",
+   "input_schema": {
+    "properties": {
+     "area": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "area"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "query_sms": {
+   "description": "Query SMS log information by SMS ID.\n\nArgs:\n    sms_id: The SMS ID to query\n\nReturns:\n    Dictionary with SMS information or error message",
+   "input_schema": {
+    "properties": {
+     "sms_id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "sms_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "query_sms_by_customer": {
+   "description": "List all SMS records for a customer, sorted by sent time (newest first).\n\nArgs:\n    customer_id: The customer ID to look up SMS records for\n\nReturns:\n    Dictionary with list of SMS: id, customer_id, body, sent_at_iso",
+   "input_schema": {
+    "properties": {
+     "customer_id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "customer_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "query_ticket": {
+   "description": "Query ticket information by ticket ID.\n\nArgs:\n    ticket_id: The ticket ID to query\n\nReturns:\n    Dictionary with ticket information or error message",
+   "input_schema": {
+    "properties": {
+     "ticket_id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "ticket_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "query_tickets_by_customer": {
+   "description": "List all support tickets for a customer, sorted by creation date (newest first).\n\nArgs:\n    customer_id: The customer ID to look up tickets for\n\nReturns:\n    Dictionary with list of tickets: id, customer_id, issue, created_at_iso, status",
+   "input_schema": {
+    "properties": {
+     "customer_id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "customer_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "reload_all_tables": {
+   "description": "Reload all CSV tables from disk.\nThis refreshes the in-memory data from the CSV files.\n\nReturns:\n    Dictionary with success or error message",
+   "input_schema": {
+    "properties": {},
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "remove_account": {
+   "description": "Remove an account record by customer ID.\n\nArgs:\n    customer_id: The customer ID whose account to remove\n\nReturns:\n    Dictionary with success or error message",
+   "input_schema": {
+    "properties": {
+     "customer_id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "customer_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "remove_bill": {
+   "description": "Remove a bill record by customer ID.\n\nArgs:\n    customer_id: The customer ID whose bill to remove\n\nReturns:\n    Dictionary with success or error message",
+   "input_schema": {
+    "properties": {
+     "customer_id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "customer_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "remove_calendar_event": {
+   "description": "Remove a calendar event record by event ID.\n\nArgs:\n    event_id: The calendar event ID to remove\n\nReturns:\n    Dictionary with success or error message",
+   "input_schema": {
+    "properties": {
+     "event_id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "event_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "remove_customer": {
+   "description": "Remove a customer record by customer ID.\n\nArgs:\n    customer_id: The customer ID to remove\n\nReturns:\n    Dictionary with success or error message",
+   "input_schema": {
+    "properties": {
+     "customer_id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "customer_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "remove_email": {
+   "description": "Remove an email record by email ID.\n\nArgs:\n    email_id: The email ID to remove\n\nReturns:\n    Dictionary with success or error message",
+   "input_schema": {
+    "properties": {
+     "email_id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "email_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "remove_order": {
+   "description": "Remove an order record by order ID.\n\nArgs:\n    order_id: The order ID to remove\n\nReturns:\n    Dictionary with success or error message",
+   "input_schema": {
+    "properties": {
+     "order_id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "order_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "remove_outage": {
+   "description": "Remove an outage record by area.\n\nArgs:\n    area: The area whose outage to remove\n\nReturns:\n    Dictionary with success or error message",
+   "input_schema": {
+    "properties": {
+     "area": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "area"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "remove_sms": {
+   "description": "Remove an SMS log record by SMS ID.\n\nArgs:\n    sms_id: The SMS ID to remove\n\nReturns:\n    Dictionary with success or error message",
+   "input_schema": {
+    "properties": {
+     "sms_id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "sms_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "remove_ticket": {
+   "description": "Remove a ticket record by ticket ID.\n\nArgs:\n    ticket_id: The ticket ID to remove\n\nReturns:\n    Dictionary with success or error message",
+   "input_schema": {
+    "properties": {
+     "ticket_id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "ticket_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "update_account": {
+   "description": "Update an account record by customer ID.\n\nArgs:\n    customer_id: The customer ID whose account to update\n    field: Single field name to update (use with value)\n    value: Value to set for the field\n    updates: Dictionary of field:value pairs to update\n\nReturns:\n    Dictionary with success or error message",
+   "input_schema": {
+    "properties": {
+     "customer_id": {
+      "type": "string"
+     },
+     "field": {
+      "default": null,
+      "type": "string"
+     },
+     "updates": {
+      "additionalProperties": true,
+      "default": null,
+      "type": "object"
+     },
+     "value": {
+      "default": null,
+      "title": "Value"
+     }
+    },
+    "required": [
+     "customer_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "update_bill": {
+   "description": "Update a bill record by customer ID.\n\nArgs:\n    customer_id: The customer ID whose bill to update\n    field: Single field name to update (use with value)\n    value: Value to set for the field\n    updates: Dictionary of field:value pairs to update\n\nReturns:\n    Dictionary with success or error message",
+   "input_schema": {
+    "properties": {
+     "customer_id": {
+      "type": "string"
+     },
+     "field": {
+      "default": null,
+      "type": "string"
+     },
+     "updates": {
+      "additionalProperties": true,
+      "default": null,
+      "type": "object"
+     },
+     "value": {
+      "default": null,
+      "title": "Value"
+     }
+    },
+    "required": [
+     "customer_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "update_calendar_event": {
+   "description": "Update a calendar event record by event ID.\n\nArgs:\n    event_id: The calendar event ID to update\n    field: Single field name to update (use with value)\n    value: Value to set for the field\n    updates: Dictionary of field:value pairs to update\n\nReturns:\n    Dictionary with success or error message",
+   "input_schema": {
+    "properties": {
+     "event_id": {
+      "type": "string"
+     },
+     "field": {
+      "default": null,
+      "type": "string"
+     },
+     "updates": {
+      "additionalProperties": true,
+      "default": null,
+      "type": "object"
+     },
+     "value": {
+      "default": null,
+      "title": "Value"
+     }
+    },
+    "required": [
+     "event_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "update_customer": {
+   "description": "Update a customer record by customer ID.\n\nArgs:\n    customer_id: The customer ID to update\n    field: Single field name to update (use with value)\n    value: Value to set for the field\n    updates: Dictionary of field:value pairs to update\n\nReturns:\n    Dictionary with success or error message",
+   "input_schema": {
+    "properties": {
+     "customer_id": {
+      "type": "string"
+     },
+     "field": {
+      "default": null,
+      "type": "string"
+     },
+     "updates": {
+      "additionalProperties": true,
+      "default": null,
+      "type": "object"
+     },
+     "value": {
+      "default": null,
+      "title": "Value"
+     }
+    },
+    "required": [
+     "customer_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "update_email": {
+   "description": "Update an email record by email ID.\n\nArgs:\n    email_id: The email ID to update\n    field: Single field name to update (use with value)\n    value: Value to set for the field\n    updates: Dictionary of field:value pairs to update\n\nReturns:\n    Dictionary with success or error message",
+   "input_schema": {
+    "properties": {
+     "email_id": {
+      "type": "string"
+     },
+     "field": {
+      "default": null,
+      "type": "string"
+     },
+     "updates": {
+      "additionalProperties": true,
+      "default": null,
+      "type": "object"
+     },
+     "value": {
+      "default": null,
+      "title": "Value"
+     }
+    },
+    "required": [
+     "email_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "update_order": {
+   "description": "Update an order record by order ID.\n\nArgs:\n    order_id: The order ID to update\n    field: Single field name to update (use with value)\n    value: Value to set for the field\n    updates: Dictionary of field:value pairs to update\n\nReturns:\n    Dictionary with success or error message",
+   "input_schema": {
+    "properties": {
+     "field": {
+      "default": null,
+      "type": "string"
+     },
+     "order_id": {
+      "type": "string"
+     },
+     "updates": {
+      "additionalProperties": true,
+      "default": null,
+      "type": "object"
+     },
+     "value": {
+      "default": null,
+      "title": "Value"
+     }
+    },
+    "required": [
+     "order_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "update_outage": {
+   "description": "Update an outage record by area.\n\nArgs:\n    area: The area whose outage to update\n    field: Single field name to update (use with value)\n    value: Value to set for the field\n    updates: Dictionary of field:value pairs to update\n\nReturns:\n    Dictionary with success or error message",
+   "input_schema": {
+    "properties": {
+     "area": {
+      "type": "string"
+     },
+     "field": {
+      "default": null,
+      "type": "string"
+     },
+     "updates": {
+      "additionalProperties": true,
+      "default": null,
+      "type": "object"
+     },
+     "value": {
+      "default": null,
+      "title": "Value"
+     }
+    },
+    "required": [
+     "area"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "update_sms": {
+   "description": "Update an SMS log record by SMS ID.\n\nArgs:\n    sms_id: The SMS ID to update\n    field: Single field name to update (use with value)\n    value: Value to set for the field\n    updates: Dictionary of field:value pairs to update\n\nReturns:\n    Dictionary with success or error message",
+   "input_schema": {
+    "properties": {
+     "field": {
+      "default": null,
+      "type": "string"
+     },
+     "sms_id": {
+      "type": "string"
+     },
+     "updates": {
+      "additionalProperties": true,
+      "default": null,
+      "type": "object"
+     },
+     "value": {
+      "default": null,
+      "title": "Value"
+     }
+    },
+    "required": [
+     "sms_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "update_ticket": {
+   "description": "Update a ticket record by ticket ID.\n\nArgs:\n    ticket_id: The ticket ID to update\n    field: Single field name to update (use with value)\n    value: Value to set for the field\n    updates: Dictionary of field:value pairs to update\n\nReturns:\n    Dictionary with success or error message",
+   "input_schema": {
+    "properties": {
+     "field": {
+      "default": null,
+      "type": "string"
+     },
+     "ticket_id": {
+      "type": "string"
+     },
+     "updates": {
+      "additionalProperties": true,
+      "default": null,
+      "type": "object"
+     },
+     "value": {
+      "default": null,
+      "title": "Value"
+     }
+    },
+    "required": [
+     "ticket_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  }
+ }
+}

@@ -1,0 +1,7 @@
+{
+ "benchmark": "agentdojo",
+ "condition": "twin-reimplementation",
+ "environment": "banking",
+ "model": "gpt_4_1",
+ "run": "run1"
+}

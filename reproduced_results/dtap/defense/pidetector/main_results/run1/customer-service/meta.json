@@ -1,0 +1,7 @@
+{
+ "benchmark": "dtap",
+ "condition": "pidetector",
+ "environment": "customer-service",
+ "model": "gpt_5_4",
+ "run": "run1"
+}

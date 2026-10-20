@@ -1,0 +1,10 @@
+{
+ "environment": "research",
+ "dataset_mounts": [
+  "Research"
+ ],
+ "services": [
+  "research"
+ ],
+ "benign_categories": {}
+}

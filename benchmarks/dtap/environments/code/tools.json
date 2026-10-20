@@ -1,0 +1,38 @@
+{
+ "terminal": {
+  "execute_command": {
+   "description": "Execute a command in the terminal Docker environment.\n    \n    Args:\n        command: The command to execute (e.g., \"ls\", \"pwd\", \"cat file.txt\")\n        timeout: Timeout in seconds (default: 180, max: 300)\n    \n    Returns:\n        JSON string containing the command output, stderr, return code, and success status\n        \n    Example:\n        execute_command(\"ls -la\") -> Returns directory listing\n        execute_command(\"pwd\") -> Returns current working directory\n        execute_command(\"echo 'Hello World'\") -> Returns \"Hello World\"\n    ",
+   "input_schema": {
+    "properties": {
+     "command": {
+      "title": "Command",
+      "type": "string"
+     },
+     "timeout": {
+      "default": 180,
+      "title": "Timeout",
+      "type": "integer"
+     }
+    },
+    "required": [
+     "command"
+    ],
+    "title": "execute_commandArguments",
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "title": "Result",
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "title": "execute_commandOutput",
+    "type": "object"
+   }
+  }
+ }
+}

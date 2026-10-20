@@ -1,0 +1,12 @@
+{
+ "environment": "windows",
+ "dataset_mounts": [
+  "gmail",
+  "windows-os"
+ ],
+ "services": [
+  "gmail",
+  "windows"
+ ],
+ "benign_categories": {}
+}

@@ -1,0 +1,12 @@
+{
+ "environment": "customer-service",
+ "dataset_mounts": [
+  "customer_service",
+  "gmail"
+ ],
+ "services": [
+  "customer_service",
+  "gmail"
+ ],
+ "benign_categories": {}
+}

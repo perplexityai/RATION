@@ -1,0 +1,20 @@
+{
+ "ASR": {
+  "ci95_half_width": 0.09577266319887917,
+  "ci95_percent": "9.6",
+  "display": "40.6 \u00b1 9.6",
+  "n": 101,
+  "percent": "40.6",
+  "value": 0.40594059405940597
+ },
+ "UA": {
+  "ci95_half_width": 0.0,
+  "ci95_percent": "0.0",
+  "display": "100.0 \u00b1 0.0",
+  "n": 101,
+  "percent": "100.0",
+  "value": 1.0
+ },
+ "n": 101,
+ "taskset": "indirect"
+}

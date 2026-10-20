@@ -1,0 +1,3 @@
+{
+  "hooks": ["drift_hook:DriftHook"]
+}

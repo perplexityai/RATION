@@ -1,0 +1,3 @@
+{
+  "hooks": ["adapters.dtap.dtap_hook:RationHook"]
+}

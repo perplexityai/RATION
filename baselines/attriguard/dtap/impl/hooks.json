@@ -1,0 +1,3 @@
+{
+  "hooks": ["attriguard_hook:AttriGuardHook"]
+}

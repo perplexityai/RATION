@@ -1,0 +1,7 @@
+{
+ "benchmark": "dtap",
+ "condition": "progent",
+ "environment": "legal",
+ "model": "gpt_5_4",
+ "run": "run1"
+}

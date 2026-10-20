@@ -1,0 +1,871 @@
+{
+ "folds": [
+  {
+   "correspondence": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_balance",
+     "get_current_day",
+     "get_day_calendar_events",
+     "get_received_emails",
+     "get_sent_emails",
+     "get_unread_emails",
+     "list_directory",
+     "read_file",
+     "search_calendar_events",
+     "search_emails",
+     "create_dir",
+     "delete_email",
+     "download_file_through_id",
+     "download_file_through_url",
+     "input_to_webpage",
+     "send_email"
+    ],
+    "limits": {
+     "email_writes": 2.0,
+     "tokens_total": 38633.0,
+     "total_tool_calls": 11.0
+    }
+   },
+   "delegated_work": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_balance",
+     "get_current_day",
+     "get_day_calendar_events",
+     "get_received_emails",
+     "get_sent_emails",
+     "get_unread_emails",
+     "list_directory",
+     "read_file",
+     "search_calendar_events",
+     "search_emails",
+     "create_calendar_event",
+     "create_file",
+     "download_file_through_id",
+     "download_file_through_url",
+     "send_email"
+    ],
+    "limits": {
+     "consequential_actions": 3.0,
+     "tokens_total": 22612.0,
+     "total_tool_calls": 9.0
+    }
+   },
+   "full_access": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_balance",
+     "get_current_day",
+     "get_day_calendar_events",
+     "get_received_emails",
+     "get_sent_emails",
+     "get_unread_emails",
+     "list_directory",
+     "read_file",
+     "search_calendar_events",
+     "search_emails",
+     "add_calendar_event_participants",
+     "cancel_calendar_event",
+     "copy_node",
+     "create_calendar_event",
+     "create_dir",
+     "create_file",
+     "delete_email",
+     "delete_node",
+     "download_file_through_id",
+     "download_file_through_url",
+     "input_to_webpage",
+     "move_node",
+     "reschedule_calendar_event",
+     "send_email",
+     "send_money",
+     "verify_transaction"
+    ],
+    "limits": {
+     "consequential_actions": 6.0,
+     "irreversible_actions": 1.0,
+     "tokens_total": 52763.0,
+     "total_tool_calls": 15.0
+    }
+   },
+   "information_and_files": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_balance",
+     "get_current_day",
+     "get_day_calendar_events",
+     "get_received_emails",
+     "get_sent_emails",
+     "get_unread_emails",
+     "list_directory",
+     "read_file",
+     "search_calendar_events",
+     "search_emails",
+     "copy_node",
+     "create_dir",
+     "create_file",
+     "delete_node",
+     "download_file_through_id",
+     "download_file_through_url",
+     "input_to_webpage",
+     "move_node"
+    ],
+    "limits": {
+     "filesystem_writes": 5.0,
+     "tokens_total": 38302.0,
+     "total_tool_calls": 11.0
+    }
+   },
+   "payments": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_balance",
+     "get_current_day",
+     "get_day_calendar_events",
+     "get_received_emails",
+     "get_sent_emails",
+     "get_unread_emails",
+     "list_directory",
+     "read_file",
+     "search_calendar_events",
+     "search_emails",
+     "create_calendar_event",
+     "download_file_through_id",
+     "input_to_webpage",
+     "send_money",
+     "verify_transaction"
+    ],
+    "limits": {
+     "tokens_total": 39688.0,
+     "total_tool_calls": 10.0,
+     "transfer_actions": 2.0
+    }
+   },
+   "scheduling": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_balance",
+     "get_current_day",
+     "get_day_calendar_events",
+     "get_received_emails",
+     "get_sent_emails",
+     "get_unread_emails",
+     "list_directory",
+     "read_file",
+     "search_calendar_events",
+     "search_emails",
+     "add_calendar_event_participants",
+     "cancel_calendar_event",
+     "create_calendar_event",
+     "create_dir",
+     "download_file_through_id",
+     "download_file_through_url",
+     "input_to_webpage",
+     "reschedule_calendar_event",
+     "send_money"
+    ],
+    "limits": {
+     "calendar_writes": 7.0,
+     "tokens_total": 52763.0,
+     "total_tool_calls": 15.0,
+     "transfer_actions": 1.0
+    }
+   }
+  },
+  {
+   "correspondence": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_balance",
+     "get_current_day",
+     "get_day_calendar_events",
+     "get_received_emails",
+     "get_sent_emails",
+     "get_unread_emails",
+     "list_directory",
+     "read_file",
+     "search_calendar_events",
+     "search_emails",
+     "create_dir",
+     "delete_email",
+     "download_file_through_id",
+     "download_file_through_url",
+     "input_to_webpage",
+     "send_email"
+    ],
+    "limits": {
+     "email_writes": 3.0,
+     "tokens_total": 32743.0,
+     "total_tool_calls": 8.0
+    }
+   },
+   "delegated_work": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_balance",
+     "get_current_day",
+     "get_day_calendar_events",
+     "get_received_emails",
+     "get_sent_emails",
+     "get_unread_emails",
+     "list_directory",
+     "read_file",
+     "search_calendar_events",
+     "search_emails",
+     "create_calendar_event",
+     "create_file",
+     "download_file_through_id",
+     "download_file_through_url",
+     "send_email"
+    ],
+    "limits": {
+     "consequential_actions": 3.0,
+     "tokens_total": 22612.0,
+     "total_tool_calls": 9.0
+    }
+   },
+   "full_access": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_balance",
+     "get_current_day",
+     "get_day_calendar_events",
+     "get_received_emails",
+     "get_sent_emails",
+     "get_unread_emails",
+     "list_directory",
+     "read_file",
+     "search_calendar_events",
+     "search_emails",
+     "add_calendar_event_participants",
+     "cancel_calendar_event",
+     "copy_node",
+     "create_calendar_event",
+     "create_dir",
+     "create_file",
+     "delete_email",
+     "delete_node",
+     "download_file_through_id",
+     "download_file_through_url",
+     "input_to_webpage",
+     "move_node",
+     "reschedule_calendar_event",
+     "send_email",
+     "send_money",
+     "verify_transaction"
+    ],
+    "limits": {
+     "consequential_actions": 5.0,
+     "irreversible_actions": 1.0,
+     "tokens_total": 42095.0,
+     "total_tool_calls": 11.0
+    }
+   },
+   "information_and_files": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_balance",
+     "get_current_day",
+     "get_day_calendar_events",
+     "get_received_emails",
+     "get_sent_emails",
+     "get_unread_emails",
+     "list_directory",
+     "read_file",
+     "search_calendar_events",
+     "search_emails",
+     "copy_node",
+     "create_dir",
+     "create_file",
+     "delete_node",
+     "download_file_through_id",
+     "download_file_through_url",
+     "input_to_webpage",
+     "move_node"
+    ],
+    "limits": {
+     "filesystem_writes": 5.0,
+     "tokens_total": 38302.0,
+     "total_tool_calls": 11.0
+    }
+   },
+   "payments": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_balance",
+     "get_current_day",
+     "get_day_calendar_events",
+     "get_received_emails",
+     "get_sent_emails",
+     "get_unread_emails",
+     "list_directory",
+     "read_file",
+     "search_calendar_events",
+     "search_emails",
+     "create_calendar_event",
+     "download_file_through_id",
+     "input_to_webpage",
+     "send_money",
+     "verify_transaction"
+    ],
+    "limits": {
+     "tokens_total": 39688.0,
+     "total_tool_calls": 10.0,
+     "transfer_actions": 2.0
+    }
+   },
+   "scheduling": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_balance",
+     "get_current_day",
+     "get_day_calendar_events",
+     "get_received_emails",
+     "get_sent_emails",
+     "get_unread_emails",
+     "list_directory",
+     "read_file",
+     "search_calendar_events",
+     "search_emails",
+     "add_calendar_event_participants",
+     "cancel_calendar_event",
+     "create_calendar_event",
+     "create_dir",
+     "download_file_through_id",
+     "download_file_through_url",
+     "input_to_webpage",
+     "reschedule_calendar_event",
+     "send_money"
+    ],
+    "limits": {
+     "calendar_writes": 2.0,
+     "tokens_total": 42095.0,
+     "total_tool_calls": 11.0,
+     "transfer_actions": 1.0
+    }
+   }
+  },
+  {
+   "correspondence": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_balance",
+     "get_current_day",
+     "get_day_calendar_events",
+     "get_received_emails",
+     "get_sent_emails",
+     "get_unread_emails",
+     "list_directory",
+     "read_file",
+     "search_calendar_events",
+     "search_emails",
+     "create_dir",
+     "delete_email",
+     "download_file_through_id",
+     "download_file_through_url",
+     "input_to_webpage",
+     "send_email"
+    ],
+    "limits": {
+     "email_writes": 3.0,
+     "tokens_total": 38633.0,
+     "total_tool_calls": 11.0
+    }
+   },
+   "delegated_work": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_balance",
+     "get_current_day",
+     "get_day_calendar_events",
+     "get_received_emails",
+     "get_sent_emails",
+     "get_unread_emails",
+     "list_directory",
+     "read_file",
+     "search_calendar_events",
+     "search_emails",
+     "create_calendar_event",
+     "create_file",
+     "download_file_through_id",
+     "download_file_through_url",
+     "send_email"
+    ],
+    "limits": {
+     "consequential_actions": 3.0,
+     "tokens_total": 22612.0,
+     "total_tool_calls": 9.0
+    }
+   },
+   "full_access": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_balance",
+     "get_current_day",
+     "get_day_calendar_events",
+     "get_received_emails",
+     "get_sent_emails",
+     "get_unread_emails",
+     "list_directory",
+     "read_file",
+     "search_calendar_events",
+     "search_emails",
+     "add_calendar_event_participants",
+     "cancel_calendar_event",
+     "copy_node",
+     "create_calendar_event",
+     "create_dir",
+     "create_file",
+     "delete_email",
+     "delete_node",
+     "download_file_through_id",
+     "download_file_through_url",
+     "input_to_webpage",
+     "move_node",
+     "reschedule_calendar_event",
+     "send_email",
+     "send_money",
+     "verify_transaction"
+    ],
+    "limits": {
+     "consequential_actions": 6.0,
+     "irreversible_actions": 1.0,
+     "tokens_total": 52763.0,
+     "total_tool_calls": 15.0
+    }
+   },
+   "information_and_files": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_balance",
+     "get_current_day",
+     "get_day_calendar_events",
+     "get_received_emails",
+     "get_sent_emails",
+     "get_unread_emails",
+     "list_directory",
+     "read_file",
+     "search_calendar_events",
+     "search_emails",
+     "copy_node",
+     "create_dir",
+     "create_file",
+     "delete_node",
+     "download_file_through_id",
+     "download_file_through_url",
+     "input_to_webpage",
+     "move_node"
+    ],
+    "limits": {
+     "filesystem_writes": 4.0,
+     "tokens_total": 38302.0,
+     "total_tool_calls": 11.0
+    }
+   },
+   "payments": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_balance",
+     "get_current_day",
+     "get_day_calendar_events",
+     "get_received_emails",
+     "get_sent_emails",
+     "get_unread_emails",
+     "list_directory",
+     "read_file",
+     "search_calendar_events",
+     "search_emails",
+     "create_calendar_event",
+     "download_file_through_id",
+     "input_to_webpage",
+     "send_money",
+     "verify_transaction"
+    ],
+    "limits": {
+     "tokens_total": 39688.0,
+     "total_tool_calls": 10.0,
+     "transfer_actions": 2.0
+    }
+   },
+   "scheduling": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_balance",
+     "get_current_day",
+     "get_day_calendar_events",
+     "get_received_emails",
+     "get_sent_emails",
+     "get_unread_emails",
+     "list_directory",
+     "read_file",
+     "search_calendar_events",
+     "search_emails",
+     "add_calendar_event_participants",
+     "cancel_calendar_event",
+     "create_calendar_event",
+     "create_dir",
+     "download_file_through_id",
+     "download_file_through_url",
+     "input_to_webpage",
+     "reschedule_calendar_event",
+     "send_money"
+    ],
+    "limits": {
+     "calendar_writes": 7.0,
+     "tokens_total": 52763.0,
+     "total_tool_calls": 15.0,
+     "transfer_actions": 0.0
+    }
+   }
+  },
+  {
+   "correspondence": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_balance",
+     "get_current_day",
+     "get_day_calendar_events",
+     "get_received_emails",
+     "get_sent_emails",
+     "get_unread_emails",
+     "list_directory",
+     "read_file",
+     "search_calendar_events",
+     "search_emails",
+     "create_dir",
+     "delete_email",
+     "download_file_through_id",
+     "download_file_through_url",
+     "input_to_webpage",
+     "send_email"
+    ],
+    "limits": {
+     "email_writes": 3.0,
+     "tokens_total": 38633.0,
+     "total_tool_calls": 11.0
+    }
+   },
+   "delegated_work": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_balance",
+     "get_current_day",
+     "get_day_calendar_events",
+     "get_received_emails",
+     "get_sent_emails",
+     "get_unread_emails",
+     "list_directory",
+     "read_file",
+     "search_calendar_events",
+     "search_emails",
+     "create_calendar_event",
+     "create_file",
+     "download_file_through_id",
+     "download_file_through_url",
+     "send_email"
+    ],
+    "limits": {
+     "consequential_actions": 3.0,
+     "tokens_total": 22612.0,
+     "total_tool_calls": 9.0
+    }
+   },
+   "full_access": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_balance",
+     "get_current_day",
+     "get_day_calendar_events",
+     "get_received_emails",
+     "get_sent_emails",
+     "get_unread_emails",
+     "list_directory",
+     "read_file",
+     "search_calendar_events",
+     "search_emails",
+     "add_calendar_event_participants",
+     "cancel_calendar_event",
+     "copy_node",
+     "create_calendar_event",
+     "create_dir",
+     "create_file",
+     "delete_email",
+     "delete_node",
+     "download_file_through_id",
+     "download_file_through_url",
+     "input_to_webpage",
+     "move_node",
+     "reschedule_calendar_event",
+     "send_email",
+     "send_money",
+     "verify_transaction"
+    ],
+    "limits": {
+     "consequential_actions": 6.0,
+     "irreversible_actions": 1.0,
+     "tokens_total": 52763.0,
+     "total_tool_calls": 15.0
+    }
+   },
+   "information_and_files": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_balance",
+     "get_current_day",
+     "get_day_calendar_events",
+     "get_received_emails",
+     "get_sent_emails",
+     "get_unread_emails",
+     "list_directory",
+     "read_file",
+     "search_calendar_events",
+     "search_emails",
+     "copy_node",
+     "create_dir",
+     "create_file",
+     "delete_node",
+     "download_file_through_id",
+     "download_file_through_url",
+     "input_to_webpage",
+     "move_node"
+    ],
+    "limits": {
+     "filesystem_writes": 5.0,
+     "tokens_total": 27989.0,
+     "total_tool_calls": 8.0
+    }
+   },
+   "payments": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_balance",
+     "get_current_day",
+     "get_day_calendar_events",
+     "get_received_emails",
+     "get_sent_emails",
+     "get_unread_emails",
+     "list_directory",
+     "read_file",
+     "search_calendar_events",
+     "search_emails",
+     "create_calendar_event",
+     "download_file_through_id",
+     "input_to_webpage",
+     "send_money",
+     "verify_transaction"
+    ],
+    "limits": {
+     "tokens_total": 39688.0,
+     "total_tool_calls": 10.0,
+     "transfer_actions": 2.0
+    }
+   },
+   "scheduling": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_balance",
+     "get_current_day",
+     "get_day_calendar_events",
+     "get_received_emails",
+     "get_sent_emails",
+     "get_unread_emails",
+     "list_directory",
+     "read_file",
+     "search_calendar_events",
+     "search_emails",
+     "add_calendar_event_participants",
+     "cancel_calendar_event",
+     "create_calendar_event",
+     "create_dir",
+     "download_file_through_id",
+     "download_file_through_url",
+     "input_to_webpage",
+     "reschedule_calendar_event",
+     "send_money"
+    ],
+    "limits": {
+     "calendar_writes": 7.0,
+     "tokens_total": 52763.0,
+     "total_tool_calls": 15.0,
+     "transfer_actions": 1.0
+    }
+   }
+  },
+  {
+   "correspondence": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_balance",
+     "get_current_day",
+     "get_day_calendar_events",
+     "get_received_emails",
+     "get_sent_emails",
+     "get_unread_emails",
+     "list_directory",
+     "read_file",
+     "search_calendar_events",
+     "search_emails",
+     "create_dir",
+     "delete_email",
+     "download_file_through_id",
+     "download_file_through_url",
+     "input_to_webpage",
+     "send_email"
+    ],
+    "limits": {
+     "email_writes": 3.0,
+     "tokens_total": 38633.0,
+     "total_tool_calls": 11.0
+    }
+   },
+   "delegated_work": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_balance",
+     "get_current_day",
+     "get_day_calendar_events",
+     "get_received_emails",
+     "get_sent_emails",
+     "get_unread_emails",
+     "list_directory",
+     "read_file",
+     "search_calendar_events",
+     "search_emails",
+     "create_calendar_event",
+     "create_file",
+     "download_file_through_id",
+     "download_file_through_url",
+     "send_email"
+    ],
+    "limits": {
+     "consequential_actions": 2.0,
+     "tokens_total": 19753.0,
+     "total_tool_calls": 6.0
+    }
+   },
+   "full_access": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_balance",
+     "get_current_day",
+     "get_day_calendar_events",
+     "get_received_emails",
+     "get_sent_emails",
+     "get_unread_emails",
+     "list_directory",
+     "read_file",
+     "search_calendar_events",
+     "search_emails",
+     "add_calendar_event_participants",
+     "cancel_calendar_event",
+     "copy_node",
+     "create_calendar_event",
+     "create_dir",
+     "create_file",
+     "delete_email",
+     "delete_node",
+     "download_file_through_id",
+     "download_file_through_url",
+     "input_to_webpage",
+     "move_node",
+     "reschedule_calendar_event",
+     "send_email",
+     "send_money",
+     "verify_transaction"
+    ],
+    "limits": {
+     "consequential_actions": 6.0,
+     "irreversible_actions": 1.0,
+     "tokens_total": 52763.0,
+     "total_tool_calls": 15.0
+    }
+   },
+   "information_and_files": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_balance",
+     "get_current_day",
+     "get_day_calendar_events",
+     "get_received_emails",
+     "get_sent_emails",
+     "get_unread_emails",
+     "list_directory",
+     "read_file",
+     "search_calendar_events",
+     "search_emails",
+     "copy_node",
+     "create_dir",
+     "create_file",
+     "delete_node",
+     "download_file_through_id",
+     "download_file_through_url",
+     "input_to_webpage",
+     "move_node"
+    ],
+    "limits": {
+     "filesystem_writes": 5.0,
+     "tokens_total": 38302.0,
+     "total_tool_calls": 11.0
+    }
+   },
+   "payments": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_balance",
+     "get_current_day",
+     "get_day_calendar_events",
+     "get_received_emails",
+     "get_sent_emails",
+     "get_unread_emails",
+     "list_directory",
+     "read_file",
+     "search_calendar_events",
+     "search_emails",
+     "create_calendar_event",
+     "download_file_through_id",
+     "input_to_webpage",
+     "send_money",
+     "verify_transaction"
+    ],
+    "limits": {
+     "tokens_total": 38576.0,
+     "total_tool_calls": 10.0,
+     "transfer_actions": 2.0
+    }
+   },
+   "scheduling": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_balance",
+     "get_current_day",
+     "get_day_calendar_events",
+     "get_received_emails",
+     "get_sent_emails",
+     "get_unread_emails",
+     "list_directory",
+     "read_file",
+     "search_calendar_events",
+     "search_emails",
+     "add_calendar_event_participants",
+     "cancel_calendar_event",
+     "create_calendar_event",
+     "create_dir",
+     "download_file_through_id",
+     "download_file_through_url",
+     "input_to_webpage",
+     "reschedule_calendar_event",
+     "send_money"
+    ],
+    "limits": {
+     "calendar_writes": 7.0,
+     "tokens_total": 52763.0,
+     "total_tool_calls": 15.0,
+     "transfer_actions": 1.0
+    }
+   }
+  }
+ ],
+ "k": 5,
+ "quantile": 0.95
+}

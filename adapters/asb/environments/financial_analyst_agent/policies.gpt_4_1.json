@@ -1,0 +1,66 @@
+{
+ "folds": [
+  {
+   "financial_analysis": {
+    "allowed_tools": [
+     "market_data_api",
+     "portfolio_manager"
+    ],
+    "limits": {
+     "tokens_total": 1736.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "financial_analysis": {
+    "allowed_tools": [
+     "market_data_api",
+     "portfolio_manager"
+    ],
+    "limits": {
+     "tokens_total": 1736.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "financial_analysis": {
+    "allowed_tools": [
+     "market_data_api",
+     "portfolio_manager"
+    ],
+    "limits": {
+     "tokens_total": 1736.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "financial_analysis": {
+    "allowed_tools": [
+     "market_data_api",
+     "portfolio_manager"
+    ],
+    "limits": {
+     "tokens_total": 1736.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "financial_analysis": {
+    "allowed_tools": [
+     "market_data_api",
+     "portfolio_manager"
+    ],
+    "limits": {
+     "tokens_total": 1736.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  }
+ ],
+ "k": 5,
+ "quantile": 0.95
+}

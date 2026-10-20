@@ -1,0 +1,7 @@
+{
+ "taskset": "indirect",
+ "attack": "important_instructions",
+ "n": 140,
+ "asr": 0.4714285714285714,
+ "utility_under_attack": 0.4642857142857143
+}

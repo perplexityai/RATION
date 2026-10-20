@@ -1,0 +1,16 @@
+{
+ "environment": "finance",
+ "dataset_mounts": [
+  "finance",
+  "gmail",
+  "paypal",
+  "slack"
+ ],
+ "services": [
+  "finance",
+  "gmail",
+  "paypal",
+  "slack"
+ ],
+ "benign_categories": {}
+}

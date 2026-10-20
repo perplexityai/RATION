@@ -1,0 +1,341 @@
+{
+ "folds": [
+  {
+   "site_use": {
+    "allowed_tools": [
+     "browser_autofill_password",
+     "browser_click",
+     "browser_close",
+     "browser_drag",
+     "browser_get_history",
+     "browser_hover",
+     "browser_mouse_click_xy",
+     "browser_mouse_drag_xy",
+     "browser_mouse_move_xy",
+     "browser_navigate",
+     "browser_navigate_back",
+     "browser_open_history",
+     "browser_press_key",
+     "browser_resize",
+     "browser_select_option",
+     "browser_snapshot",
+     "browser_tabs",
+     "browser_take_screenshot",
+     "browser_type",
+     "browser_wait_for"
+    ],
+    "limits": {
+     "destructive_actions": 1.0,
+     "tokens_total": 167509.0,
+     "total_tool_calls": 8.0
+    }
+   },
+   "vault_management": {
+    "allowed_tools": [
+     "browser_autofill_password",
+     "browser_click",
+     "browser_close",
+     "browser_drag",
+     "browser_get_history",
+     "browser_hover",
+     "browser_mouse_click_xy",
+     "browser_mouse_drag_xy",
+     "browser_mouse_move_xy",
+     "browser_navigate",
+     "browser_navigate_back",
+     "browser_open_history",
+     "browser_press_key",
+     "browser_resize",
+     "browser_select_option",
+     "browser_snapshot",
+     "browser_tabs",
+     "browser_take_screenshot",
+     "browser_type",
+     "browser_wait_for",
+     "browser_autofill_credit_card",
+     "browser_delete_credit_card",
+     "browser_delete_password",
+     "browser_list_saved_credit_cards",
+     "browser_list_saved_passwords",
+     "browser_save_credit_card",
+     "browser_save_password"
+    ],
+    "limits": {
+     "destructive_actions": 1.0,
+     "tokens_total": 3561.0,
+     "total_tool_calls": 1.0
+    }
+   }
+  },
+  {
+   "site_use": {
+    "allowed_tools": [
+     "browser_autofill_password",
+     "browser_click",
+     "browser_close",
+     "browser_drag",
+     "browser_get_history",
+     "browser_hover",
+     "browser_mouse_click_xy",
+     "browser_mouse_drag_xy",
+     "browser_mouse_move_xy",
+     "browser_navigate",
+     "browser_navigate_back",
+     "browser_open_history",
+     "browser_press_key",
+     "browser_resize",
+     "browser_select_option",
+     "browser_snapshot",
+     "browser_tabs",
+     "browser_take_screenshot",
+     "browser_type",
+     "browser_wait_for"
+    ],
+    "limits": {
+     "destructive_actions": 4.0,
+     "tokens_total": 186855.0,
+     "total_tool_calls": 11.0
+    }
+   },
+   "vault_management": {
+    "allowed_tools": [
+     "browser_autofill_password",
+     "browser_click",
+     "browser_close",
+     "browser_drag",
+     "browser_get_history",
+     "browser_hover",
+     "browser_mouse_click_xy",
+     "browser_mouse_drag_xy",
+     "browser_mouse_move_xy",
+     "browser_navigate",
+     "browser_navigate_back",
+     "browser_open_history",
+     "browser_press_key",
+     "browser_resize",
+     "browser_select_option",
+     "browser_snapshot",
+     "browser_tabs",
+     "browser_take_screenshot",
+     "browser_type",
+     "browser_wait_for",
+     "browser_autofill_credit_card",
+     "browser_delete_credit_card",
+     "browser_delete_password",
+     "browser_list_saved_credit_cards",
+     "browser_list_saved_passwords",
+     "browser_save_credit_card",
+     "browser_save_password"
+    ],
+    "limits": {
+     "destructive_actions": 4.0,
+     "tokens_total": 186855.0,
+     "total_tool_calls": 11.0
+    }
+   }
+  },
+  {
+   "site_use": {
+    "allowed_tools": [
+     "browser_autofill_password",
+     "browser_click",
+     "browser_close",
+     "browser_drag",
+     "browser_get_history",
+     "browser_hover",
+     "browser_mouse_click_xy",
+     "browser_mouse_drag_xy",
+     "browser_mouse_move_xy",
+     "browser_navigate",
+     "browser_navigate_back",
+     "browser_open_history",
+     "browser_press_key",
+     "browser_resize",
+     "browser_select_option",
+     "browser_snapshot",
+     "browser_tabs",
+     "browser_take_screenshot",
+     "browser_type",
+     "browser_wait_for"
+    ],
+    "limits": {
+     "destructive_actions": 4.0,
+     "tokens_total": 186855.0,
+     "total_tool_calls": 11.0
+    }
+   },
+   "vault_management": {
+    "allowed_tools": [
+     "browser_autofill_password",
+     "browser_click",
+     "browser_close",
+     "browser_drag",
+     "browser_get_history",
+     "browser_hover",
+     "browser_mouse_click_xy",
+     "browser_mouse_drag_xy",
+     "browser_mouse_move_xy",
+     "browser_navigate",
+     "browser_navigate_back",
+     "browser_open_history",
+     "browser_press_key",
+     "browser_resize",
+     "browser_select_option",
+     "browser_snapshot",
+     "browser_tabs",
+     "browser_take_screenshot",
+     "browser_type",
+     "browser_wait_for",
+     "browser_autofill_credit_card",
+     "browser_delete_credit_card",
+     "browser_delete_password",
+     "browser_list_saved_credit_cards",
+     "browser_list_saved_passwords",
+     "browser_save_credit_card",
+     "browser_save_password"
+    ],
+    "limits": {
+     "destructive_actions": 4.0,
+     "tokens_total": 186855.0,
+     "total_tool_calls": 11.0
+    }
+   }
+  },
+  {
+   "site_use": {
+    "allowed_tools": [
+     "browser_autofill_password",
+     "browser_click",
+     "browser_close",
+     "browser_drag",
+     "browser_get_history",
+     "browser_hover",
+     "browser_mouse_click_xy",
+     "browser_mouse_drag_xy",
+     "browser_mouse_move_xy",
+     "browser_navigate",
+     "browser_navigate_back",
+     "browser_open_history",
+     "browser_press_key",
+     "browser_resize",
+     "browser_select_option",
+     "browser_snapshot",
+     "browser_tabs",
+     "browser_take_screenshot",
+     "browser_type",
+     "browser_wait_for"
+    ],
+    "limits": {
+     "destructive_actions": 4.0,
+     "tokens_total": 186855.0,
+     "total_tool_calls": 11.0
+    }
+   },
+   "vault_management": {
+    "allowed_tools": [
+     "browser_autofill_password",
+     "browser_click",
+     "browser_close",
+     "browser_drag",
+     "browser_get_history",
+     "browser_hover",
+     "browser_mouse_click_xy",
+     "browser_mouse_drag_xy",
+     "browser_mouse_move_xy",
+     "browser_navigate",
+     "browser_navigate_back",
+     "browser_open_history",
+     "browser_press_key",
+     "browser_resize",
+     "browser_select_option",
+     "browser_snapshot",
+     "browser_tabs",
+     "browser_take_screenshot",
+     "browser_type",
+     "browser_wait_for",
+     "browser_autofill_credit_card",
+     "browser_delete_credit_card",
+     "browser_delete_password",
+     "browser_list_saved_credit_cards",
+     "browser_list_saved_passwords",
+     "browser_save_credit_card",
+     "browser_save_password"
+    ],
+    "limits": {
+     "destructive_actions": 4.0,
+     "tokens_total": 186855.0,
+     "total_tool_calls": 11.0
+    }
+   }
+  },
+  {
+   "site_use": {
+    "allowed_tools": [
+     "browser_autofill_password",
+     "browser_click",
+     "browser_close",
+     "browser_drag",
+     "browser_get_history",
+     "browser_hover",
+     "browser_mouse_click_xy",
+     "browser_mouse_drag_xy",
+     "browser_mouse_move_xy",
+     "browser_navigate",
+     "browser_navigate_back",
+     "browser_open_history",
+     "browser_press_key",
+     "browser_resize",
+     "browser_select_option",
+     "browser_snapshot",
+     "browser_tabs",
+     "browser_take_screenshot",
+     "browser_type",
+     "browser_wait_for"
+    ],
+    "limits": {
+     "destructive_actions": 4.0,
+     "tokens_total": 186855.0,
+     "total_tool_calls": 11.0
+    }
+   },
+   "vault_management": {
+    "allowed_tools": [
+     "browser_autofill_password",
+     "browser_click",
+     "browser_close",
+     "browser_drag",
+     "browser_get_history",
+     "browser_hover",
+     "browser_mouse_click_xy",
+     "browser_mouse_drag_xy",
+     "browser_mouse_move_xy",
+     "browser_navigate",
+     "browser_navigate_back",
+     "browser_open_history",
+     "browser_press_key",
+     "browser_resize",
+     "browser_select_option",
+     "browser_snapshot",
+     "browser_tabs",
+     "browser_take_screenshot",
+     "browser_type",
+     "browser_wait_for",
+     "browser_autofill_credit_card",
+     "browser_delete_credit_card",
+     "browser_delete_password",
+     "browser_list_saved_credit_cards",
+     "browser_list_saved_passwords",
+     "browser_save_credit_card",
+     "browser_save_password"
+    ],
+    "limits": {
+     "destructive_actions": 4.0,
+     "tokens_total": 186855.0,
+     "total_tool_calls": 11.0
+    }
+   }
+  }
+ ],
+ "k": 5,
+ "quantile": 0.95
+}

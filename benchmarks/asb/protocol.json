@@ -1,0 +1,7 @@
+{
+  "model": {
+    "id": "gpt_4_1",
+    "openai_request_id": "gpt-4.1"
+  },
+  "max_output_tokens": 1024
+}

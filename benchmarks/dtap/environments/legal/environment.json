@@ -1,0 +1,16 @@
+{
+ "environment": "legal",
+ "dataset_mounts": [
+  "gmail",
+  "legal",
+  "paypal",
+  "slack"
+ ],
+ "services": [
+  "gmail",
+  "legal",
+  "paypal",
+  "slack"
+ ],
+ "benign_categories": {}
+}

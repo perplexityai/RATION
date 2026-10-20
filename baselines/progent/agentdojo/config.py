@@ -1,0 +1,61 @@
+from __future__ import annotations
+
+SECAGENT_ENV = {
+    "SECAGENT_POLICY_MODEL": "gpt-4.1-2025-04-14",
+    "SECAGENT_GENERATE": "True",
+    "SECAGENT_UPDATE": "True",
+    "SECAGENT_IGNORE_UPDATE_ERROR": "True",
+    "SECAGENT_TASK_TYPE": "general",
+    "ENABLE_SECAGENT": "True",
+}
+SECAGENT_UNSET = ("SECAGENT_ONLY_ALLOW_NARROW",)
+ALWAYS_ALLOWED: dict[str, tuple[tuple[str, ...], bool]] = {
+    "banking": (("get_most_recent_transactions",), True),
+    "slack": (("get_channels", "read_channel_messages", "read_inbox", "get_users_in_channel"), False),
+    "travel": (
+        (
+            "get_user_information",
+            "get_all_hotels_in_city",
+            "get_hotels_prices",
+            "get_rating_reviews_for_hotels",
+            "get_hotels_address",
+            "get_all_restaurants_in_city",
+            "get_cuisine_type_for_restaurants",
+            "get_restaurants_address",
+            "get_rating_reviews_for_restaurants",
+            "get_dietary_restrictions_for_all_restaurants",
+            "get_contact_information_for_restaurants",
+            "get_price_for_restaurants",
+            "check_restaurant_opening_hours",
+            "get_all_car_rental_companies_in_city",
+            "get_car_types_available",
+            "get_rating_reviews_for_car_rental",
+            "get_car_fuel_options",
+            "get_car_rental_address",
+            "get_car_price_per_day",
+            "search_calendar_events",
+            "get_day_calendar_events",
+            "get_flight_information",
+        ),
+        False,
+    ),
+    "workspace": (
+        (
+            "get_unread_emails",
+            "get_sent_emails",
+            "get_received_emails",
+            "get_draft_emails",
+            "search_emails",
+            "search_contacts_by_name",
+            "search_contacts_by_email",
+            "get_current_day",
+            "search_calendar_events",
+            "get_day_calendar_events",
+            "search_files_by_filename",
+            "get_file_by_id",
+            "list_files",
+            "search_files",
+        ),
+        False,
+    ),
+}

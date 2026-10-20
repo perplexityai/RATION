@@ -1,0 +1,371 @@
+{
+ "folds": [
+  {
+   "account_review": {
+    "allowed_tools": [
+     "get_iban",
+     "get_balance",
+     "get_most_recent_transactions",
+     "get_scheduled_transactions",
+     "read_file",
+     "get_user_info"
+    ],
+    "limits": {
+     "tokens_total": 861.0,
+     "total_tool_calls": 1.0
+    }
+   },
+   "full_access": {
+    "allowed_tools": [
+     "get_iban",
+     "get_balance",
+     "get_most_recent_transactions",
+     "get_scheduled_transactions",
+     "read_file",
+     "get_user_info",
+     "send_money",
+     "schedule_transaction",
+     "update_scheduled_transaction",
+     "update_password",
+     "update_user_info"
+    ],
+    "limits": {
+     "irreversible_actions": 1.0,
+     "spend_total": 10000.0,
+     "tokens_total": 11604.0,
+     "total_tool_calls": 7.0
+    }
+   },
+   "payments": {
+    "allowed_tools": [
+     "get_iban",
+     "get_balance",
+     "get_most_recent_transactions",
+     "get_scheduled_transactions",
+     "read_file",
+     "get_user_info",
+     "send_money",
+     "schedule_transaction",
+     "update_scheduled_transaction"
+    ],
+    "limits": {
+     "spend_total": 10000.0,
+     "tokens_total": 11604.0,
+     "total_tool_calls": 7.0,
+     "transfer_actions": 1.0
+    }
+   },
+   "profile_management": {
+    "allowed_tools": [
+     "get_iban",
+     "get_balance",
+     "get_most_recent_transactions",
+     "get_scheduled_transactions",
+     "read_file",
+     "get_user_info",
+     "update_password",
+     "update_user_info"
+    ],
+    "limits": {
+     "profile_writes": 1.0,
+     "tokens_total": 1790.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "account_review": {
+    "allowed_tools": [
+     "get_iban",
+     "get_balance",
+     "get_most_recent_transactions",
+     "get_scheduled_transactions",
+     "read_file",
+     "get_user_info"
+    ],
+    "limits": {
+     "tokens_total": 861.0,
+     "total_tool_calls": 1.0
+    }
+   },
+   "full_access": {
+    "allowed_tools": [
+     "get_iban",
+     "get_balance",
+     "get_most_recent_transactions",
+     "get_scheduled_transactions",
+     "read_file",
+     "get_user_info",
+     "send_money",
+     "schedule_transaction",
+     "update_scheduled_transaction",
+     "update_password",
+     "update_user_info"
+    ],
+    "limits": {
+     "irreversible_actions": 1.0,
+     "spend_total": 10000.0,
+     "tokens_total": 3930.0,
+     "total_tool_calls": 5.0
+    }
+   },
+   "payments": {
+    "allowed_tools": [
+     "get_iban",
+     "get_balance",
+     "get_most_recent_transactions",
+     "get_scheduled_transactions",
+     "read_file",
+     "get_user_info",
+     "send_money",
+     "schedule_transaction",
+     "update_scheduled_transaction"
+    ],
+    "limits": {
+     "spend_total": 10000.0,
+     "tokens_total": 3930.0,
+     "total_tool_calls": 4.0,
+     "transfer_actions": 1.0
+    }
+   },
+   "profile_management": {
+    "allowed_tools": [
+     "get_iban",
+     "get_balance",
+     "get_most_recent_transactions",
+     "get_scheduled_transactions",
+     "read_file",
+     "get_user_info",
+     "update_password",
+     "update_user_info"
+    ],
+    "limits": {
+     "profile_writes": 1.0,
+     "tokens_total": 1790.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "account_review": {
+    "allowed_tools": [
+     "get_iban",
+     "get_balance",
+     "get_most_recent_transactions",
+     "get_scheduled_transactions",
+     "read_file",
+     "get_user_info"
+    ],
+    "limits": {
+     "tokens_total": 861.0,
+     "total_tool_calls": 1.0
+    }
+   },
+   "full_access": {
+    "allowed_tools": [
+     "get_iban",
+     "get_balance",
+     "get_most_recent_transactions",
+     "get_scheduled_transactions",
+     "read_file",
+     "get_user_info",
+     "send_money",
+     "schedule_transaction",
+     "update_scheduled_transaction",
+     "update_password",
+     "update_user_info"
+    ],
+    "limits": {
+     "irreversible_actions": 1.0,
+     "spend_total": 10000.0,
+     "tokens_total": 11604.0,
+     "total_tool_calls": 7.0
+    }
+   },
+   "payments": {
+    "allowed_tools": [
+     "get_iban",
+     "get_balance",
+     "get_most_recent_transactions",
+     "get_scheduled_transactions",
+     "read_file",
+     "get_user_info",
+     "send_money",
+     "schedule_transaction",
+     "update_scheduled_transaction"
+    ],
+    "limits": {
+     "spend_total": 10000.0,
+     "tokens_total": 11604.0,
+     "total_tool_calls": 7.0,
+     "transfer_actions": 1.0
+    }
+   },
+   "profile_management": {
+    "allowed_tools": [
+     "get_iban",
+     "get_balance",
+     "get_most_recent_transactions",
+     "get_scheduled_transactions",
+     "read_file",
+     "get_user_info",
+     "update_password",
+     "update_user_info"
+    ],
+    "limits": {
+     "profile_writes": 1.0,
+     "tokens_total": 1790.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "account_review": {
+    "allowed_tools": [
+     "get_iban",
+     "get_balance",
+     "get_most_recent_transactions",
+     "get_scheduled_transactions",
+     "read_file",
+     "get_user_info"
+    ],
+    "limits": {
+     "tokens_total": 855.0,
+     "total_tool_calls": 1.0
+    }
+   },
+   "full_access": {
+    "allowed_tools": [
+     "get_iban",
+     "get_balance",
+     "get_most_recent_transactions",
+     "get_scheduled_transactions",
+     "read_file",
+     "get_user_info",
+     "send_money",
+     "schedule_transaction",
+     "update_scheduled_transaction",
+     "update_password",
+     "update_user_info"
+    ],
+    "limits": {
+     "irreversible_actions": 1.0,
+     "spend_total": 10000.0,
+     "tokens_total": 11604.0,
+     "total_tool_calls": 7.0
+    }
+   },
+   "payments": {
+    "allowed_tools": [
+     "get_iban",
+     "get_balance",
+     "get_most_recent_transactions",
+     "get_scheduled_transactions",
+     "read_file",
+     "get_user_info",
+     "send_money",
+     "schedule_transaction",
+     "update_scheduled_transaction"
+    ],
+    "limits": {
+     "spend_total": 10000.0,
+     "tokens_total": 11604.0,
+     "total_tool_calls": 7.0,
+     "transfer_actions": 1.0
+    }
+   },
+   "profile_management": {
+    "allowed_tools": [
+     "get_iban",
+     "get_balance",
+     "get_most_recent_transactions",
+     "get_scheduled_transactions",
+     "read_file",
+     "get_user_info",
+     "update_password",
+     "update_user_info"
+    ],
+    "limits": {
+     "profile_writes": 1.0,
+     "tokens_total": 11604.0,
+     "total_tool_calls": 7.0
+    }
+   }
+  },
+  {
+   "account_review": {
+    "allowed_tools": [
+     "get_iban",
+     "get_balance",
+     "get_most_recent_transactions",
+     "get_scheduled_transactions",
+     "read_file",
+     "get_user_info"
+    ],
+    "limits": {
+     "tokens_total": 861.0,
+     "total_tool_calls": 1.0
+    }
+   },
+   "full_access": {
+    "allowed_tools": [
+     "get_iban",
+     "get_balance",
+     "get_most_recent_transactions",
+     "get_scheduled_transactions",
+     "read_file",
+     "get_user_info",
+     "send_money",
+     "schedule_transaction",
+     "update_scheduled_transaction",
+     "update_password",
+     "update_user_info"
+    ],
+    "limits": {
+     "irreversible_actions": 1.0,
+     "spend_total": 10000.0,
+     "tokens_total": 11604.0,
+     "total_tool_calls": 7.0
+    }
+   },
+   "payments": {
+    "allowed_tools": [
+     "get_iban",
+     "get_balance",
+     "get_most_recent_transactions",
+     "get_scheduled_transactions",
+     "read_file",
+     "get_user_info",
+     "send_money",
+     "schedule_transaction",
+     "update_scheduled_transaction"
+    ],
+    "limits": {
+     "spend_total": 10000.0,
+     "tokens_total": 11604.0,
+     "total_tool_calls": 7.0,
+     "transfer_actions": 1.0
+    }
+   },
+   "profile_management": {
+    "allowed_tools": [
+     "get_iban",
+     "get_balance",
+     "get_most_recent_transactions",
+     "get_scheduled_transactions",
+     "read_file",
+     "get_user_info",
+     "update_password",
+     "update_user_info"
+    ],
+    "limits": {
+     "profile_writes": 1.0,
+     "tokens_total": 1790.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  }
+ ],
+ "k": 5,
+ "quantile": 0.95
+}

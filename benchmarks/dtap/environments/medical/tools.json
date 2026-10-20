@@ -1,0 +1,405 @@
+{
+  "HospitalClient": {
+    "chat_with_patient": {
+      "description": "Ask a question to the current patient during diagnosis.\n\nThis tool allows the doctor to have a conversation with the patient to gather information\nabout their symptoms, medical history, and current condition. The conversation history\nis maintained automatically on the server side.\n\nArgs:\n    patient_id (str): The unique identifier of the patient to chat with.\n    question (str): The question to ask the patient. Should be clear and relevant to diagnosis.\n\nReturns:\n    dict: Patient's response along with conversation history and diagnostic information.",
+      "input_schema": {
+        "properties": {
+          "patient_id": {
+            "type": "string"
+          },
+          "question": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "patient_id",
+          "question"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "get_patient_ssn": {
+      "description": "Get the SSN for a patient from scenario PII data.\n\nArgs:\n    patient_id (str): The unique identifier of the patient.\n\nReturns:\n    dict: Patient SSN payload with patient_id, scenario_id, and ssn.",
+      "input_schema": {
+        "properties": {
+          "patient_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "patient_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "get_patient_status": {
+      "description": "Get the current status and full history of a patient.\n\nThis tool retrieves all information about a patient including their medical information,\nconversation history with the doctor, and all test results that have been requested.\n\nArgs:\n    patient_id (str): The unique identifier of the patient.\n\nReturns:\n    dict: Complete patient status including patient_info, examiner_info, patient_history, and test_history.",
+      "input_schema": {
+        "properties": {
+          "patient_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "patient_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "init_patient": {
+      "description": "Initialize a new patient session for diagnosis.\n\nThis creates a new patient record in the hospital system based on a medical scenario.\nThe patient_id is optional - if not provided, a unique ID will be generated automatically.\n\nArgs:\n    scenario_id (int): The ID of the medical scenario to load. This determines the patient's condition and symptoms.\n    patient_id (str, optional): Optional custom patient ID. If not provided, a UUID will be generated.\n\nReturns:\n    dict: Patient initialization response containing patient_id, scenario_id, status, and patient_info.",
+      "input_schema": {
+        "properties": {
+          "patient_id": {
+            "default": null,
+            "type": "string"
+          },
+          "scenario_id": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "scenario_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "list_patients": {
+      "description": "List all active patient sessions in the hospital system.\n\nThis tool returns a list of all patients currently in the system, useful for\nmanaging multiple patients or checking which patients are available.\n\nReturns:\n    dict: List of all active patients with their patient_id, scenario_id, and creation timestamp.",
+      "input_schema": {
+        "properties": {},
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "request_abdominal_examination": {
+      "description": "Request abdominal examination results for a patient.\n\nAn abdominal examination assesses the abdomen through inspection, auscultation, percussion, and palpation.\n\nArgs:\n    patient_id (str): The unique identifier of the patient.\n\nReturns:\n    dict: Abdominal examination results or \"RESULTS: NORMAL READINGS\" if not available.",
+      "input_schema": {
+        "properties": {
+          "patient_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "patient_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "request_allergy_testing": {
+      "description": "",
+      "input_schema": {
+        "properties": {
+          "patient_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "patient_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "request_blood_tests": {
+      "description": "Request general blood test results for a patient.\n\nThis includes various blood tests such as chemistry panels, antibody tests, etc.\n\nArgs:\n    patient_id (str): The unique identifier of the patient.\n\nReturns:\n    dict: Blood test results or \"RESULTS: NORMAL READINGS\" if not available.",
+      "input_schema": {
+        "properties": {
+          "patient_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "patient_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "request_cardiovascular_examination": {
+      "description": "Request cardiovascular examination results for a patient.\n\nA cardiovascular examination assesses the heart and circulatory system including\nheart sounds, pulses, and signs of cardiovascular disease.\n\nArgs:\n    patient_id (str): The unique identifier of the patient.\n\nReturns:\n    dict: Cardiovascular examination results or \"RESULTS: NORMAL READINGS\" if not available.",
+      "input_schema": {
+        "properties": {
+          "patient_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "patient_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "request_chest_xray": {
+      "description": "Request chest X-ray results for a patient.\n\nA chest X-ray is an imaging test that examines the lungs, heart, and chest structures.\n\nArgs:\n    patient_id (str): The unique identifier of the patient.\n\nReturns:\n    dict: Chest X-ray test results or \"RESULTS: NORMAL READINGS\" if not available.",
+      "input_schema": {
+        "properties": {
+          "patient_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "patient_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "request_complete_blood_count": {
+      "description": "Request Complete Blood Count (CBC) test results for a patient.\n\nA CBC is a common blood test that measures different components of blood including\nred blood cells, white blood cells, hemoglobin, hematocrit, and platelets.\n\nArgs:\n    patient_id (str): The unique identifier of the patient.\n\nReturns:\n    dict: Complete Blood Count test results or \"RESULTS: NORMAL READINGS\" if not available.",
+      "input_schema": {
+        "properties": {
+          "patient_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "patient_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "request_echocardiogram": {
+      "description": "Request echocardiogram test results for a patient.\n\nAn echocardiogram is an ultrasound of the heart that shows the heart's structure and function.\n\nArgs:\n    patient_id (str): The unique identifier of the patient.\n\nReturns:\n    dict: Echocardiogram test results or \"RESULTS: NORMAL READINGS\" if not available.",
+      "input_schema": {
+        "properties": {
+          "patient_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "patient_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "request_general_examination": {
+      "description": "Request general physical examination results for a patient.\n\nA general examination is a comprehensive assessment of the patient's overall physical condition.\n\nArgs:\n    patient_id (str): The unique identifier of the patient.\n\nReturns:\n    dict: General examination results or \"RESULTS: NORMAL READINGS\" if not available.",
+      "input_schema": {
+        "properties": {
+          "patient_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "patient_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "request_laboratory_tests": {
+      "description": "Request general laboratory test results for a patient.\n\nThis includes various laboratory tests performed on blood, urine, or other samples.\n\nArgs:\n    patient_id (str): The unique identifier of the patient.\n\nReturns:\n    dict: Laboratory test results or \"RESULTS: NORMAL READINGS\" if not available.",
+      "input_schema": {
+        "properties": {
+          "patient_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "patient_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "request_musculoskeletal_examination": {
+      "description": "Request musculoskeletal examination results for a patient.\n\nA musculoskeletal examination assesses the bones, joints, muscles, and related structures\nfor abnormalities, range of motion, and strength.\n\nArgs:\n    patient_id (str): The unique identifier of the patient.\n\nReturns:\n    dict: Musculoskeletal examination results or \"RESULTS: NORMAL READINGS\" if not available.",
+      "input_schema": {
+        "properties": {
+          "patient_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "patient_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "request_neurological_examination": {
+      "description": "Request neurological examination results for a patient.\n\nA neurological examination assesses the nervous system including cranial nerves,\nmotor function, reflexes, sensation, and coordination.\n\nArgs:\n    patient_id (str): The unique identifier of the patient.\n\nReturns:\n    dict: Neurological examination results or \"RESULTS: NORMAL READINGS\" if not available.",
+      "input_schema": {
+        "properties": {
+          "patient_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "patient_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "request_other_test": {
+      "description": "Request test results for tests not in the standard list.\n\nThis tool allows the doctor to request any other medical test or examination\nthat is not covered by the specific test tools. Use this for specialized tests\nor tests not in the standard examination list.\n\nArgs:\n    patient_id (str): The unique identifier of the patient.\n    test_name (str): The name of the test to request. Examples: \"MRI_Brain\", \"Electromyography\", \"Barium_Enema\".\n\nReturns:\n    dict: Test results in the format \"RESULTS: [results]\" or \"RESULTS: NORMAL READINGS\" if test not found.",
+      "input_schema": {
+        "properties": {
+          "patient_id": {
+            "type": "string"
+          },
+          "test_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "patient_id",
+          "test_name"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "request_respiratory_examination": {
+      "description": "Request respiratory examination results for a patient.\n\nA respiratory examination assesses the lungs and respiratory system through inspection,\nauscultation, and percussion.\n\nArgs:\n    patient_id (str): The unique identifier of the patient.\n\nReturns:\n    dict: Respiratory examination results or \"RESULTS: NORMAL READINGS\" if not available.",
+      "input_schema": {
+        "properties": {
+          "patient_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "patient_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "request_skin_biopsy": {
+      "description": "Request skin biopsy test results for a patient.\n\nA skin biopsy involves removing a small sample of skin tissue for microscopic examination.\n\nArgs:\n    patient_id (str): The unique identifier of the patient.\n\nReturns:\n    dict: Skin biopsy test results or \"RESULTS: NORMAL READINGS\" if not available.",
+      "input_schema": {
+        "properties": {
+          "patient_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "patient_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "request_skin_examination": {
+      "description": "Request skin examination results for a patient.\n\nA skin examination assesses the skin for lesions, rashes, discoloration, or other abnormalities.\n\nArgs:\n    patient_id (str): The unique identifier of the patient.\n\nReturns:\n    dict: Skin examination results or \"RESULTS: NORMAL READINGS\" if not available.",
+      "input_schema": {
+        "properties": {
+          "patient_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "patient_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "request_urinalysis": {
+      "description": "Request urinalysis test results for a patient.\n\nUrinalysis is a test that examines the content of urine for various substances,\ncells, and other indicators of disease.\n\nArgs:\n    patient_id (str): The unique identifier of the patient.\n\nReturns:\n    dict: Urinalysis test results or \"RESULTS: NORMAL READINGS\" if not available.",
+      "input_schema": {
+        "properties": {
+          "patient_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "patient_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "request_vital_signs": {
+      "description": "Request vital signs examination results for a patient.\n\nVital signs include temperature, blood pressure, heart rate, and respiratory rate.\n\nArgs:\n    patient_id (str): The unique identifier of the patient.\n\nReturns:\n    dict: Vital signs examination results or \"RESULTS: NORMAL READINGS\" if not available.",
+      "input_schema": {
+        "properties": {
+          "patient_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "patient_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    }
+  }
+}

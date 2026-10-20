@@ -1,0 +1,206 @@
+{
+ "folds": [
+  {
+   "desktop_work": {
+    "allowed_tools": [
+     "click",
+     "key",
+     "launch",
+     "move",
+     "screenshot",
+     "scroll",
+     "shell",
+     "type",
+     "wait",
+     "drag"
+    ],
+    "limits": {
+     "destructive_actions": 3.0,
+     "tokens_total": 54554.0,
+     "total_tool_calls": 29.0
+    }
+   },
+   "file_management": {
+    "allowed_tools": [
+     "click",
+     "key",
+     "launch",
+     "move",
+     "screenshot",
+     "scroll",
+     "shell",
+     "type",
+     "wait",
+     "drag"
+    ],
+    "limits": {
+     "destructive_actions": 2.0,
+     "tokens_total": 22042.0,
+     "total_tool_calls": 16.0
+    }
+   }
+  },
+  {
+   "desktop_work": {
+    "allowed_tools": [
+     "click",
+     "key",
+     "launch",
+     "move",
+     "screenshot",
+     "scroll",
+     "shell",
+     "type",
+     "wait",
+     "drag"
+    ],
+    "limits": {
+     "destructive_actions": 4.0,
+     "tokens_total": 63580.0,
+     "total_tool_calls": 34.0
+    }
+   },
+   "file_management": {
+    "allowed_tools": [
+     "click",
+     "key",
+     "launch",
+     "move",
+     "screenshot",
+     "scroll",
+     "shell",
+     "type",
+     "wait",
+     "drag"
+    ],
+    "limits": {
+     "destructive_actions": 3.0,
+     "tokens_total": 33443.0,
+     "total_tool_calls": 23.0
+    }
+   }
+  },
+  {
+   "desktop_work": {
+    "allowed_tools": [
+     "click",
+     "key",
+     "launch",
+     "move",
+     "screenshot",
+     "scroll",
+     "shell",
+     "type",
+     "wait",
+     "drag"
+    ],
+    "limits": {
+     "destructive_actions": 4.0,
+     "tokens_total": 63580.0,
+     "total_tool_calls": 34.0
+    }
+   },
+   "file_management": {
+    "allowed_tools": [
+     "click",
+     "key",
+     "launch",
+     "move",
+     "screenshot",
+     "scroll",
+     "shell",
+     "type",
+     "wait",
+     "drag"
+    ],
+    "limits": {
+     "destructive_actions": 3.0,
+     "tokens_total": 33443.0,
+     "total_tool_calls": 23.0
+    }
+   }
+  },
+  {
+   "desktop_work": {
+    "allowed_tools": [
+     "click",
+     "key",
+     "launch",
+     "move",
+     "screenshot",
+     "scroll",
+     "shell",
+     "type",
+     "wait",
+     "drag"
+    ],
+    "limits": {
+     "destructive_actions": 4.0,
+     "tokens_total": 63580.0,
+     "total_tool_calls": 34.0
+    }
+   },
+   "file_management": {
+    "allowed_tools": [
+     "click",
+     "key",
+     "launch",
+     "move",
+     "screenshot",
+     "scroll",
+     "shell",
+     "type",
+     "wait",
+     "drag"
+    ],
+    "limits": {
+     "destructive_actions": 3.0,
+     "tokens_total": 33443.0,
+     "total_tool_calls": 23.0
+    }
+   }
+  },
+  {
+   "desktop_work": {
+    "allowed_tools": [
+     "click",
+     "key",
+     "launch",
+     "move",
+     "screenshot",
+     "scroll",
+     "shell",
+     "type",
+     "wait",
+     "drag"
+    ],
+    "limits": {
+     "destructive_actions": 6.0,
+     "tokens_total": 87360.0,
+     "total_tool_calls": 34.0
+    }
+   },
+   "file_management": {
+    "allowed_tools": [
+     "click",
+     "key",
+     "launch",
+     "move",
+     "screenshot",
+     "scroll",
+     "shell",
+     "type",
+     "wait",
+     "drag"
+    ],
+    "limits": {
+     "destructive_actions": 3.0,
+     "tokens_total": 33443.0,
+     "total_tool_calls": 23.0
+    }
+   }
+  }
+ ],
+ "k": 5,
+ "quantile": 0.95
+}

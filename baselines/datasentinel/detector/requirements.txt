@@ -1,0 +1,7 @@
+torch
+transformers
+bitsandbytes==0.50.2
+peft==0.20.0
+accelerate==1.14.0
+huggingface-hub
+gdown

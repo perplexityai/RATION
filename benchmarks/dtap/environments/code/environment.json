@@ -1,0 +1,10 @@
+{
+ "environment": "code",
+ "dataset_mounts": [
+  "terminal"
+ ],
+ "services": [
+  "terminal"
+ ],
+ "benign_categories": {}
+}

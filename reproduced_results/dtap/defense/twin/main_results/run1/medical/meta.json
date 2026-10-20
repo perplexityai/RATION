@@ -1,0 +1,7 @@
+{
+ "benchmark": "dtap",
+ "condition": "twin",
+ "environment": "medical",
+ "model": "gpt_5_4",
+ "run": "run1"
+}

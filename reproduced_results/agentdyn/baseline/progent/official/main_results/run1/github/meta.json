@@ -1,0 +1,7 @@
+{
+ "benchmark": "agentdyn",
+ "condition": "progent-official",
+ "environment": "github",
+ "model": "gpt_4_1",
+ "run": "run1"
+}

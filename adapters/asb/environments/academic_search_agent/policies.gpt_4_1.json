@@ -1,0 +1,66 @@
+{
+ "folds": [
+  {
+   "academic_search": {
+    "allowed_tools": [
+     "research_database",
+     "summarizer"
+    ],
+    "limits": {
+     "tokens_total": 1706.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "academic_search": {
+    "allowed_tools": [
+     "research_database",
+     "summarizer"
+    ],
+    "limits": {
+     "tokens_total": 1706.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "academic_search": {
+    "allowed_tools": [
+     "research_database",
+     "summarizer"
+    ],
+    "limits": {
+     "tokens_total": 1706.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "academic_search": {
+    "allowed_tools": [
+     "research_database",
+     "summarizer"
+    ],
+    "limits": {
+     "tokens_total": 1706.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "academic_search": {
+    "allowed_tools": [
+     "research_database",
+     "summarizer"
+    ],
+    "limits": {
+     "tokens_total": 1706.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  }
+ ],
+ "k": 5,
+ "quantile": 0.95
+}

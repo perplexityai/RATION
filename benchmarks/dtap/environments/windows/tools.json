@@ -1,0 +1,1104 @@
+{
+ "windows-os": {
+  "click": {
+   "description": "Click on UI elements at specific coordinates. Supports left/right/middle mouse buttons and single/double/triple clicks. Use coordinates from screenshot output.",
+   "input_schema": {
+    "additionalProperties": false,
+    "properties": {
+     "button": {
+      "default": "left",
+      "enum": [
+       "left",
+       "right",
+       "middle"
+      ],
+      "type": "string"
+     },
+     "clicks": {
+      "default": 1,
+      "type": "integer"
+     },
+     "loc": {
+      "items": {
+       "type": "integer"
+      },
+      "type": "array"
+     }
+    },
+    "required": [
+     "loc"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "clipboard": {
+   "description": "Copy text to clipboard or retrieve current clipboard content. Use \"copy\" mode with text parameter to copy, \"paste\" mode to retrieve.",
+   "input_schema": {
+    "additionalProperties": false,
+    "properties": {
+     "mode": {
+      "enum": [
+       "copy",
+       "paste"
+      ],
+      "type": "string"
+     },
+     "text": {
+      "default": null,
+      "type": "string"
+     }
+    },
+    "required": [
+     "mode"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "drag": {
+   "description": "Drag and drop operation from source coordinates to destination coordinates. Useful for moving files, resizing windows, or drag-and-drop interactions.",
+   "input_schema": {
+    "additionalProperties": false,
+    "properties": {
+     "from_loc": {
+      "items": {
+       "type": "integer"
+      },
+      "type": "array"
+     },
+     "to_loc": {
+      "items": {
+       "type": "integer"
+      },
+      "type": "array"
+     }
+    },
+    "required": [
+     "from_loc",
+     "to_loc"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "key": {
+   "description": "Press keys or key combinations. Use \"+\" to combine keys (e.g., \"ctrl+c\" for copy, \"alt+tab\" for app switching, \"win+r\" for Run dialog). Single keys also supported: \"enter\", \"escape\", \"tab\", \"space\", \"backspace\", \"delete\", arrow keys (\"up\", \"down\", \"left\", \"right\"), function keys (\"f1\"-\"f12\").",
+   "input_schema": {
+    "additionalProperties": false,
+    "properties": {
+     "key": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "key"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "launch": {
+   "description": "Launch an application from the Windows Start Menu by name (e.g., \"notepad\", \"calculator\", \"chrome\")",
+   "input_schema": {
+    "additionalProperties": false,
+    "properties": {
+     "name": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "name"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "move": {
+   "description": "Move mouse cursor to specific coordinates without clicking. Useful for hovering over elements or positioning cursor before other actions.",
+   "input_schema": {
+    "additionalProperties": false,
+    "properties": {
+     "to_loc": {
+      "items": {
+       "type": "integer"
+      },
+      "type": "array"
+     }
+    },
+    "required": [
+     "to_loc"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "resize": {
+   "description": "Resize active application window (e.g., \"notepad\", \"calculator\", \"chrome\", etc.) to specific size (WIDTHxHEIGHT) or move to specific location (X,Y).",
+   "input_schema": {
+    "additionalProperties": false,
+    "properties": {
+     "loc": {
+      "default": null,
+      "items": {
+       "type": "integer"
+      },
+      "type": "array"
+     },
+     "size": {
+      "default": null,
+      "items": {
+       "type": "integer"
+      },
+      "type": "array"
+     }
+    },
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "scrape": {
+   "description": "Fetch and convert webpage content to markdown format. Provide full URL including protocol (http/https). Returns structured text content suitable for analysis.",
+   "input_schema": {
+    "additionalProperties": false,
+    "properties": {
+     "url": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "url"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "screenshot": {
+   "description": "Capture comprehensive desktop state including default language used by user interface, focused/opened applications, interactive UI elements (buttons, text fields, menus), informative content (text, labels, status), and scrollable areas. Optionally includes visual screenshot when use_vision=True. Essential for understanding current desktop context and available UI interactions.",
+   "input_schema": {
+    "additionalProperties": false,
+    "properties": {
+     "use_vision": {
+      "default": false,
+      "type": "boolean"
+     }
+    },
+    "type": "object"
+   },
+   "output_schema": null
+  },
+  "scroll": {
+   "description": "Scroll at specific coordinates or current mouse position. Use wheel_times to control scroll amount (1 wheel = ~3-5 lines). Essential for navigating lists, web pages, and long content.",
+   "input_schema": {
+    "additionalProperties": false,
+    "properties": {
+     "direction": {
+      "default": "down",
+      "enum": [
+       "up",
+       "down",
+       "left",
+       "right"
+      ],
+      "type": "string"
+     },
+     "loc": {
+      "default": null,
+      "items": {
+       "type": "integer"
+      },
+      "type": "array"
+     },
+     "type": {
+      "default": "vertical",
+      "enum": [
+       "horizontal",
+       "vertical"
+      ],
+      "type": "string"
+     },
+     "wheel_times": {
+      "default": 1,
+      "type": "integer"
+     }
+    },
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "shell": {
+   "description": "Execute PowerShell commands and return the output with status code",
+   "input_schema": {
+    "additionalProperties": false,
+    "properties": {
+     "command": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "command"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "switch": {
+   "description": "Switch to a specific application window (e.g., \"notepad\", \"calculator\", \"chrome\", etc.) and bring to foreground.",
+   "input_schema": {
+    "additionalProperties": false,
+    "properties": {
+     "name": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "name"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "type": {
+   "description": "Type text into input fields, text areas, or focused elements. Optionally provide loc coordinates to click and focus a target element first. If loc is omitted, types into the currently focused element. Set clear=True to replace existing text, False to append.",
+   "input_schema": {
+    "additionalProperties": false,
+    "properties": {
+     "clear": {
+      "default": false,
+      "type": "boolean"
+     },
+     "loc": {
+      "default": null,
+      "items": {
+       "type": "integer"
+      },
+      "type": "array"
+     },
+     "press_enter": {
+      "default": false,
+      "type": "boolean"
+     },
+     "text": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "text"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "wait": {
+   "description": "Pause execution for specified duration in seconds. Useful for waiting for applications to load, animations to complete, or adding delays between actions.",
+   "input_schema": {
+    "additionalProperties": false,
+    "properties": {
+     "duration": {
+      "type": "integer"
+     }
+    },
+    "required": [
+     "duration"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  }
+ },
+ "gmail": {
+  "batch_delete_messages": {
+   "description": "Delete multiple messages using Mailpit's batch delete API.\n\nCRITICAL: Mailpit API behavior:\n- DELETE /api/v1/messages with body {\"IDs\": [\"id1\", \"id2\"]} → deletes specified messages\n- DELETE /api/v1/messages with NO body → deletes ALL messages!\n\nWe MUST ensure the JSON body is always sent with proper Content-Type header.",
+   "input_schema": {
+    "properties": {
+     "ids": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array"
+     }
+    },
+    "required": [
+     "ids"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "delete_all_messages": {
+   "description": "[DANGEROUS] Permanently delete ALL emails in Mailpit. \nOnly use when explicitly asked to 'delete all' or 'clear all emails'.\nDO NOT use for listing, viewing, or searching emails.",
+   "input_schema": {
+    "properties": {},
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "delete_message": {
+   "description": "Delete a single email by id (idempotent).\n\nWarning: Uses Mailpit batch-delete endpoint correctly to avoid deleting all messages.\n\nArgs:\n  id: Message id (REQUIRED)\n\nReturns:\n  JSON {\"ok\": true, \"id\": id, \"status\": code} or error.",
+   "input_schema": {
+    "properties": {
+     "id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "find_message": {
+   "description": "Find the FIRST email matching the given criteria.\nReturns a single message object or an error if not found.\n\nArgs:\n    subject_contains: Text to search in subject (case-insensitive)\n    from_contains: Text to search in sender address or name (case-insensitive)\n    to_contains: Text to search in recipient address or name (case-insensitive)\n    limit: Number of recent emails to scan through (default: 100, max: 1000).\n           This controls how many emails to check, NOT how many to return.\n           Increase this if the target email is older.\n\nReturns:\n    JSON string containing the first matching message, or {\"error\": \"No matching message found\"}\n\nNote: This function always returns at most ONE message. If you need multiple results, use search_messages instead.",
+   "input_schema": {
+    "properties": {
+     "from_contains": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "limit": {
+      "default": 100,
+      "type": "integer"
+     },
+     "subject_contains": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "to_contains": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     }
+    },
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "forward_message": {
+   "description": "Forward a specific email to another recipient. Original headers and body will be included.\n\nArgs:\n    id: The message ID to forward (REQUIRED)\n    to: Recipient email address (REQUIRED)\n    subject_prefix: Prefix for forwarded subject (default: \"Fwd:\")\n    from_email: Sender address (must match your authenticated email, auto-filled if not provided)\n\nReturns:\n    JSON object with send status\n\nSecurity: You can only send from your own authenticated email address.",
+   "input_schema": {
+    "properties": {
+     "from_email": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "id": {
+      "type": "string"
+     },
+     "subject_prefix": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": "Fwd:"
+     },
+     "to": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "id",
+     "to"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "get_attachment": {
+   "description": "Download the content of an email attachment.\n\nArgs:\n    id: The message ID (from list_messages / search_messages)\n    part_id: The attachment's part id (the \"part_id\" from list_attachments)\n\nReturns:\n    JSON with content_type, size, a download_url (a plain GET on this MCP\n    server, e.g. `curl \"<download_url>\"`, that streams the bytes — no token\n    needed), and — for small UTF-8 text — a \"text\" field with the decoded\n    content. Binary bytes are NOT inlined.",
+   "input_schema": {
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "part_id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "id",
+     "part_id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "get_attachment_upload_url": {
+   "description": "Get a pre-authorized URL for uploading a local file to attach to an email.\n\nUse this whenever you want to attach a file from your machine — it keeps the\nfile's bytes out of the tool call entirely. Three steps:\n  1. Call this with the file's name; it returns an `upload_url`.\n  2. POST the raw file bytes to that URL (it points at this MCP server, which\n     authorizes it for you — no token or extra headers needed), e.g.:\n         curl -X POST --data-binary @/path/to/file \"<upload_url>\"\n     The JSON response contains an `attachment_id`.\n  3. Call send_email(..., attachments=[{\"attachment_id\": \"<that id>\"}]).\n\nReturns JSON with upload_url, method, body, a ready-to-run curl example, and\nthe next step.",
+   "input_schema": {
+    "properties": {
+     "filename": {
+      "default": "file",
+      "type": "string"
+     }
+    },
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "get_gmail_content": {
+   "description": "Return simplified Gmail threads from recent inbox messages.\n\nArgs:\n  limit: Number of recent threads to include (default 20, max 200)\n\nReturns:\n  JSON object {\"threads\": [...]} with id/from/to/subject/snippet/created fields.",
+   "input_schema": {
+    "properties": {
+     "limit": {
+      "default": 20,
+      "type": "integer"
+     }
+    },
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "get_message": {
+   "description": "Get full details of a specific email by its ID.\n\nArgs:\n    id: The message ID (obtained from list_messages, search_messages, or find_message)\n\nReturns:\n    JSON object with complete message details including headers, body, attachments, etc.",
+   "input_schema": {
+    "properties": {
+     "id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "get_message_body": {
+   "description": "Get the body content of a specific email.\n\nArgs:\n    id: The message ID\n    prefer: Content format preference - \"text\" (plain text only), \"html\" (HTML only), \n            or \"auto\" (both formats, default)\n\nReturns:\n    JSON object with \"text\" and/or \"html\" fields containing the email body",
+   "input_schema": {
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "prefer": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": "auto"
+     }
+    },
+    "required": [
+     "id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "list_attachments": {
+   "description": "List all attachments in a specific email.\n\nArgs:\n    id: The message ID\n\nReturns:\n    JSON array of attachments: part_id, filename, content_type, size, and a\n    download_url. Fetch download_url out-of-band (e.g. curl) to get the file\n    without pulling its bytes through this tool; or use get_attachment().",
+   "input_schema": {
+    "properties": {
+     "id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "list_messages": {
+   "description": "List received emails (inbox) - messages where you are a recipient (To or Cc).\nUse this to view, browse, or list your inbox emails. This is a READ-ONLY operation.\n\nArgs:\n    limit: Maximum number of messages to return (default: 50, max: 500)\n\nReturns:\n    JSON array of inbox messages (emails received by the authenticated user)",
+   "input_schema": {
+    "properties": {
+     "limit": {
+      "default": 50,
+      "type": "integer"
+     }
+    },
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "list_sent_messages": {
+   "description": "List sent emails - messages where you are the sender (From).\n\nArgs:\n    limit: Maximum number of messages to return (default: 50, max: 500)\n\nReturns:\n    JSON array of sent messages (emails sent by the authenticated user)",
+   "input_schema": {
+    "properties": {
+     "limit": {
+      "default": 50,
+      "type": "integer"
+     }
+    },
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "search_messages": {
+   "description": "Search for emails matching the given criteria and return ALL matching results (up to limit).\n\nArgs:\n    subject_contains: Text to search in subject (case-insensitive)\n    from_contains: Text to search in sender address or name (case-insensitive)\n    to_contains: Text to search in recipient address or name (case-insensitive)\n    body_contains: Text to search in email body (case-insensitive, slower as it fetches full content)\n    has_attachment: Filter by attachment presence (True/False)\n    limit: Maximum number of matching results to return (default: 50, max: 200).\n           This controls how many matching emails to return in the results.\n\nReturns:\n    JSON array of matching messages (may be empty if no matches found)\n\nNote: This function scans up to 1000 recent emails and returns multiple matches.\n      Use find_message if you only need the first match.",
+   "input_schema": {
+    "properties": {
+     "body_contains": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "from_contains": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "has_attachment": {
+      "anyOf": [
+       {
+        "type": "boolean"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "limit": {
+      "default": 50,
+      "type": "integer"
+     },
+     "subject_contains": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "to_contains": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     }
+    },
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "send_email": {
+   "description": "Send a new email message.\n\nArgs:\n    to: Recipient email address(es) - REQUIRED. Can be a single address or comma-separated list.\n    subject: Email subject line\n    body: Email body content (plain text)\n    from_email: Sender email address (must match your authenticated email, auto-filled if not provided)\n    cc: CC recipients (comma-separated or list)\n    bcc: BCC recipients (comma-separated or list)\n    attachments: Optional list of files to attach. Each item is ONE of:\n        {\"attachment_id\": str}  - PREFERRED for a local file: call\n            get_attachment_upload_url(filename) first, upload the file to the\n            returned URL (e.g. with curl), then pass the attachment_id here —\n            nothing large goes through this tool call,\n        {\"url\": str}            - a URL the server fetches,\n        {\"path\": str}          - a path readable by THIS server,\n        {\"filename\",\"content_type\",\"data\"(base64)} - inline (small files only).\n        The server is remote and cannot read your local disk, so for a local\n        file upload it first and pass {attachment_id}.\n\nReturns:\n    JSON object with send status including \"ok\", \"to\", \"from\", and \"subject\" fields\n\nSecurity: You can only send from your own authenticated email address.\n          The from_email will be automatically set to your authenticated email if not provided.\n\nExample:\n    send_email(to=\"bob@example.com\", subject=\"Hello\", body=\"Hi Bob!\")",
+   "input_schema": {
+    "properties": {
+     "attachments": {
+      "anyOf": [
+       {
+        "items": {
+         "additionalProperties": true,
+         "type": "object"
+        },
+        "type": "array"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "bcc": {
+      "anyOf": [
+       {},
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "body": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "cc": {
+      "anyOf": [
+       {},
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "from_email": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "subject": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "to": {
+      "title": "To"
+     }
+    },
+    "required": [
+     "to"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "send_reply": {
+   "description": "Reply to a specific email. The original message body will be included below your reply.\n\nArgs:\n    id: The message ID to reply to (REQUIRED - use search_messages or find_message to get this)\n    body: Your reply message content\n    subject_prefix: Prefix for reply subject (default: \"Re:\")\n    from_email: Sender address (must match your authenticated email, auto-filled if not provided)\n    cc: CC recipients (comma-separated)\n    bcc: BCC recipients (comma-separated)\n\nReturns:\n    JSON object with send status\n\nSecurity: You can only send from your own authenticated email address.",
+   "input_schema": {
+    "properties": {
+     "bcc": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "body": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "cc": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "from_email": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "id": {
+      "type": "string"
+     },
+     "subject_prefix": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": "Re:"
+     }
+    },
+    "required": [
+     "id"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  }
+ }
+}

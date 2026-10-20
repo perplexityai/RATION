@@ -1,0 +1,199 @@
+domain: agentdojo/workspace
+interface_artifacts:
+  tools: ../../../../benchmarks/agentdojo/environments/workspace/tools.json
+adapter_artifacts:
+  provisioner: ../../config/provisioner.yaml
+  feedback: ../../config/feedback.yaml
+description: >
+  Office productivity assistant: one email inbox with a contact list, a
+  personal calendar (events with participants), and a cloud drive file
+  store with sharing.
+
+defaults:
+  grace_factor: 1.5
+
+tools:
+
+  send_email:
+    tags: [write, email, destructive, irreversible]
+  delete_email:
+    tags: [write, email, destructive, irreversible]
+  get_unread_emails:
+    tags: [read]
+  get_sent_emails:
+    tags: [read]
+  get_received_emails:
+    tags: [read]
+  get_draft_emails:
+    tags: [read]
+  search_emails:
+    tags: [read]
+  search_contacts_by_name:
+    tags: [read]
+  search_contacts_by_email:
+    tags: [read]
+
+  get_current_day:
+    tags: [read]
+  search_calendar_events:
+    tags: [read]
+  get_day_calendar_events:
+    tags: [read]
+  create_calendar_event:
+    tags: [write, calendar, destructive]
+  cancel_calendar_event:
+    tags: [write, calendar, destructive, irreversible]
+  reschedule_calendar_event:
+    tags: [write, calendar, destructive]
+  add_calendar_event_participants:
+    tags: [write, calendar, destructive]
+
+  append_to_file:
+    tags: [write, drive, destructive]
+  search_files_by_filename:
+    tags: [read]
+  create_file:
+    tags: [write, drive, destructive]
+  delete_file:
+    tags: [write, drive, destructive, irreversible]
+  get_file_by_id:
+    tags: [read]
+  list_files:
+    tags: [read]
+  share_file:
+    tags: [write, drive, destructive, irreversible]
+  search_files:
+    tags: [read]
+
+whitelist:
+  - get_unread_emails
+  - get_sent_emails
+  - get_received_emails
+  - get_draft_emails
+  - search_emails
+  - search_contacts_by_name
+  - search_contacts_by_email
+  - get_current_day
+
+scenarios:
+  email_triage:
+    description: >
+      Read-only: read, search, and summarize emails, drafts, and contacts,
+      and answer questions about the mailbox. Nothing is changed.
+    greylist:
+    implicit_risks:
+      global:
+        - {id: total_tool_calls, kind: count,
+           description: total tool calls this task}
+        - {id: tokens_total, kind: tokens,
+           description: total LLM tokens this task}
+
+      scenario_specific: []
+  correspondence:
+    description: >
+      Act on the mailbox: send replies or new emails and delete unwanted
+      mail (plus the reads needed to do it - searching mail and resolving
+      contacts).
+    greylist:
+      - send_email
+      - delete_email
+      - search_calendar_events
+      - get_day_calendar_events
+      - search_files_by_filename
+      - get_file_by_id
+      - list_files
+      - search_files
+    implicit_risks:
+      global:
+        - {id: total_tool_calls, kind: count,
+           description: total tool calls this task}
+        - {id: tokens_total, kind: tokens,
+           description: total LLM tokens this task}
+
+      scenario_specific:
+        - {id: emails_sent, kind: count, tools: [send_email],
+           description: emails sent this task}
+  scheduling:
+    description: >
+      Manage the calendar: look up, create, cancel, reschedule events or
+      add participants (plus email/contact reads to find invitations and
+      resolve participant addresses).
+    greylist:
+      - search_calendar_events
+      - get_day_calendar_events
+      - create_calendar_event
+      - cancel_calendar_event
+      - reschedule_calendar_event
+      - add_calendar_event_participants
+      - search_files_by_filename
+      - get_file_by_id
+      - list_files
+      - search_files
+    implicit_risks:
+      global:
+        - {id: total_tool_calls, kind: count,
+           description: total tool calls this task}
+        - {id: tokens_total, kind: tokens,
+           description: total LLM tokens this task}
+
+      scenario_specific:
+        - {id: calendar_changes, kind: count, tools: "@calendar",
+           description: calendar mutations this task}
+  file_management:
+    description: >
+      Work in the cloud drive: list/search/read files, create or append
+      content, delete files, or share them.
+    greylist:
+      - search_calendar_events
+      - get_day_calendar_events
+      - append_to_file
+      - search_files_by_filename
+      - create_file
+      - delete_file
+      - get_file_by_id
+      - list_files
+      - share_file
+      - search_files
+    implicit_risks:
+      global:
+        - {id: total_tool_calls, kind: count,
+           description: total tool calls this task}
+        - {id: tokens_total, kind: tokens,
+           description: total LLM tokens this task}
+
+      scenario_specific:
+        - {id: drive_writes, kind: count, tools: "@drive",
+           description: drive mutations this task}
+  full_access:
+    description: >
+      Fallback: the request genuinely spans mail, calendar, and drive
+      (e.g. email a file, schedule from an email thread), or fits no
+      narrower scenario.
+    greylist:
+      - send_email
+      - delete_email
+      - search_calendar_events
+      - get_day_calendar_events
+      - create_calendar_event
+      - cancel_calendar_event
+      - reschedule_calendar_event
+      - add_calendar_event_participants
+      - append_to_file
+      - search_files_by_filename
+      - create_file
+      - delete_file
+      - get_file_by_id
+      - list_files
+      - share_file
+      - search_files
+    implicit_risks:
+      global:
+        - {id: total_tool_calls, kind: count,
+           description: total tool calls this task}
+        - {id: tokens_total, kind: tokens,
+           description: total LLM tokens this task}
+
+      scenario_specific:
+        - {id: irreversible_actions, kind: count, tools: "@irreversible",
+           description: irreversible actions this task}
+fallback_scenario: full_access

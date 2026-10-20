@@ -1,0 +1,7 @@
+{
+ "benchmark": "asb",
+ "condition": "ration",
+ "environment": "system_admin_agent",
+ "model": "gpt_4_1",
+ "run": "run1"
+}

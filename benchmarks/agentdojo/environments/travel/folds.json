@@ -1,0 +1,25 @@
+{
+ "k": 5,
+ "folds": {
+  "user_task_0": 0,
+  "user_task_1": 2,
+  "user_task_10": 3,
+  "user_task_11": 1,
+  "user_task_12": 2,
+  "user_task_13": 0,
+  "user_task_14": 3,
+  "user_task_15": 0,
+  "user_task_16": 4,
+  "user_task_17": 1,
+  "user_task_18": 4,
+  "user_task_19": 2,
+  "user_task_2": 3,
+  "user_task_3": 0,
+  "user_task_4": 4,
+  "user_task_5": 1,
+  "user_task_6": 4,
+  "user_task_7": 1,
+  "user_task_8": 2,
+  "user_task_9": 3
+ }
+}

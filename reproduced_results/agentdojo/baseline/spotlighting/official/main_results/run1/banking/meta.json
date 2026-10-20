@@ -1,0 +1,7 @@
+{
+ "benchmark": "agentdojo",
+ "condition": "spotlighting-official",
+ "environment": "banking",
+ "model": "gpt_4_1",
+ "run": "run1"
+}

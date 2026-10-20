@@ -1,0 +1,461 @@
+{
+ "folds": [
+  {
+   "document_work": {
+    "allowed_tools": [
+     "click",
+     "clipboard",
+     "drag",
+     "key",
+     "launch",
+     "move",
+     "resize",
+     "screenshot",
+     "scroll",
+     "switch",
+     "type",
+     "wait",
+     "shell"
+    ],
+    "limits": {
+     "destructive_actions": 19.0,
+     "tokens_total": 1793905.0,
+     "total_tool_calls": 73.0
+    }
+   },
+   "file_operations": {
+    "allowed_tools": [
+     "click",
+     "clipboard",
+     "drag",
+     "key",
+     "launch",
+     "move",
+     "resize",
+     "screenshot",
+     "scroll",
+     "switch",
+     "type",
+     "wait",
+     "shell"
+    ],
+    "limits": {
+     "destructive_actions": 2.0,
+     "tokens_total": 8253.0,
+     "total_tool_calls": 4.0
+    }
+   },
+   "system_admin": {
+    "allowed_tools": [
+     "click",
+     "clipboard",
+     "drag",
+     "key",
+     "launch",
+     "move",
+     "resize",
+     "screenshot",
+     "scroll",
+     "switch",
+     "type",
+     "wait",
+     "shell"
+    ],
+    "limits": {
+     "destructive_actions": 4.0,
+     "tokens_total": 195963.0,
+     "total_tool_calls": 20.0
+    }
+   },
+   "web_research": {
+    "allowed_tools": [
+     "click",
+     "clipboard",
+     "drag",
+     "key",
+     "launch",
+     "move",
+     "resize",
+     "screenshot",
+     "scroll",
+     "switch",
+     "type",
+     "wait",
+     "scrape",
+     "shell"
+    ],
+    "limits": {
+     "destructive_actions": 22.0,
+     "tokens_total": 4737839.0,
+     "total_tool_calls": 80.0
+    }
+   }
+  },
+  {
+   "document_work": {
+    "allowed_tools": [
+     "click",
+     "clipboard",
+     "drag",
+     "key",
+     "launch",
+     "move",
+     "resize",
+     "screenshot",
+     "scroll",
+     "switch",
+     "type",
+     "wait",
+     "shell"
+    ],
+    "limits": {
+     "destructive_actions": 15.0,
+     "tokens_total": 1590733.0,
+     "total_tool_calls": 60.0
+    }
+   },
+   "file_operations": {
+    "allowed_tools": [
+     "click",
+     "clipboard",
+     "drag",
+     "key",
+     "launch",
+     "move",
+     "resize",
+     "screenshot",
+     "scroll",
+     "switch",
+     "type",
+     "wait",
+     "shell"
+    ],
+    "limits": {
+     "destructive_actions": 2.0,
+     "tokens_total": 5622.0,
+     "total_tool_calls": 2.0
+    }
+   },
+   "system_admin": {
+    "allowed_tools": [
+     "click",
+     "clipboard",
+     "drag",
+     "key",
+     "launch",
+     "move",
+     "resize",
+     "screenshot",
+     "scroll",
+     "switch",
+     "type",
+     "wait",
+     "shell"
+    ],
+    "limits": {
+     "destructive_actions": 4.0,
+     "tokens_total": 195963.0,
+     "total_tool_calls": 20.0
+    }
+   },
+   "web_research": {
+    "allowed_tools": [
+     "click",
+     "clipboard",
+     "drag",
+     "key",
+     "launch",
+     "move",
+     "resize",
+     "screenshot",
+     "scroll",
+     "switch",
+     "type",
+     "wait",
+     "scrape",
+     "shell"
+    ],
+    "limits": {
+     "destructive_actions": 22.0,
+     "tokens_total": 4737839.0,
+     "total_tool_calls": 80.0
+    }
+   }
+  },
+  {
+   "document_work": {
+    "allowed_tools": [
+     "click",
+     "clipboard",
+     "drag",
+     "key",
+     "launch",
+     "move",
+     "resize",
+     "screenshot",
+     "scroll",
+     "switch",
+     "type",
+     "wait",
+     "shell"
+    ],
+    "limits": {
+     "destructive_actions": 15.0,
+     "tokens_total": 1390330.0,
+     "total_tool_calls": 60.0
+    }
+   },
+   "file_operations": {
+    "allowed_tools": [
+     "click",
+     "clipboard",
+     "drag",
+     "key",
+     "launch",
+     "move",
+     "resize",
+     "screenshot",
+     "scroll",
+     "switch",
+     "type",
+     "wait",
+     "shell"
+    ],
+    "limits": {
+     "destructive_actions": 2.0,
+     "tokens_total": 8253.0,
+     "total_tool_calls": 4.0
+    }
+   },
+   "system_admin": {
+    "allowed_tools": [
+     "click",
+     "clipboard",
+     "drag",
+     "key",
+     "launch",
+     "move",
+     "resize",
+     "screenshot",
+     "scroll",
+     "switch",
+     "type",
+     "wait",
+     "shell"
+    ],
+    "limits": {
+     "destructive_actions": 3.0,
+     "tokens_total": 145861.0,
+     "total_tool_calls": 18.0
+    }
+   },
+   "web_research": {
+    "allowed_tools": [
+     "click",
+     "clipboard",
+     "drag",
+     "key",
+     "launch",
+     "move",
+     "resize",
+     "screenshot",
+     "scroll",
+     "switch",
+     "type",
+     "wait",
+     "scrape",
+     "shell"
+    ],
+    "limits": {
+     "destructive_actions": 22.0,
+     "tokens_total": 4737839.0,
+     "total_tool_calls": 73.0
+    }
+   }
+  },
+  {
+   "document_work": {
+    "allowed_tools": [
+     "click",
+     "clipboard",
+     "drag",
+     "key",
+     "launch",
+     "move",
+     "resize",
+     "screenshot",
+     "scroll",
+     "switch",
+     "type",
+     "wait",
+     "shell"
+    ],
+    "limits": {
+     "destructive_actions": 11.0,
+     "tokens_total": 1590733.0,
+     "total_tool_calls": 60.0
+    }
+   },
+   "file_operations": {
+    "allowed_tools": [
+     "click",
+     "clipboard",
+     "drag",
+     "key",
+     "launch",
+     "move",
+     "resize",
+     "screenshot",
+     "scroll",
+     "switch",
+     "type",
+     "wait",
+     "shell"
+    ],
+    "limits": {
+     "destructive_actions": 2.0,
+     "tokens_total": 8253.0,
+     "total_tool_calls": 4.0
+    }
+   },
+   "system_admin": {
+    "allowed_tools": [
+     "click",
+     "clipboard",
+     "drag",
+     "key",
+     "launch",
+     "move",
+     "resize",
+     "screenshot",
+     "scroll",
+     "switch",
+     "type",
+     "wait",
+     "shell"
+    ],
+    "limits": {
+     "destructive_actions": 4.0,
+     "tokens_total": 195963.0,
+     "total_tool_calls": 20.0
+    }
+   },
+   "web_research": {
+    "allowed_tools": [
+     "click",
+     "clipboard",
+     "drag",
+     "key",
+     "launch",
+     "move",
+     "resize",
+     "screenshot",
+     "scroll",
+     "switch",
+     "type",
+     "wait",
+     "scrape",
+     "shell"
+    ],
+    "limits": {
+     "destructive_actions": 22.0,
+     "tokens_total": 3122695.0,
+     "total_tool_calls": 80.0
+    }
+   }
+  },
+  {
+   "document_work": {
+    "allowed_tools": [
+     "click",
+     "clipboard",
+     "drag",
+     "key",
+     "launch",
+     "move",
+     "resize",
+     "screenshot",
+     "scroll",
+     "switch",
+     "type",
+     "wait",
+     "shell"
+    ],
+    "limits": {
+     "destructive_actions": 15.0,
+     "tokens_total": 1590733.0,
+     "total_tool_calls": 60.0
+    }
+   },
+   "file_operations": {
+    "allowed_tools": [
+     "click",
+     "clipboard",
+     "drag",
+     "key",
+     "launch",
+     "move",
+     "resize",
+     "screenshot",
+     "scroll",
+     "switch",
+     "type",
+     "wait",
+     "shell"
+    ],
+    "limits": {
+     "destructive_actions": 2.0,
+     "tokens_total": 43138.0,
+     "total_tool_calls": 11.0
+    }
+   },
+   "system_admin": {
+    "allowed_tools": [
+     "click",
+     "clipboard",
+     "drag",
+     "key",
+     "launch",
+     "move",
+     "resize",
+     "screenshot",
+     "scroll",
+     "switch",
+     "type",
+     "wait",
+     "shell"
+    ],
+    "limits": {
+     "destructive_actions": 4.0,
+     "tokens_total": 195963.0,
+     "total_tool_calls": 20.0
+    }
+   },
+   "web_research": {
+    "allowed_tools": [
+     "click",
+     "clipboard",
+     "drag",
+     "key",
+     "launch",
+     "move",
+     "resize",
+     "screenshot",
+     "scroll",
+     "switch",
+     "type",
+     "wait",
+     "scrape",
+     "shell"
+    ],
+    "limits": {
+     "destructive_actions": 16.0,
+     "tokens_total": 4737839.0,
+     "total_tool_calls": 80.0
+    }
+   }
+  }
+ ],
+ "k": 5,
+ "quantile": 0.95
+}

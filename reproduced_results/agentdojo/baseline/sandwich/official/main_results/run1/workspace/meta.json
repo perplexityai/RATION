@@ -1,0 +1,7 @@
+{
+ "benchmark": "agentdojo",
+ "condition": "sandwich-official",
+ "environment": "workspace",
+ "model": "gpt_4_1",
+ "run": "run1"
+}

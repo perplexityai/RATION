@@ -1,0 +1,66 @@
+{
+ "folds": [
+  {
+   "psychological_counseling": {
+    "allowed_tools": [
+     "mental_health_tracker",
+     "therapy_guide"
+    ],
+    "limits": {
+     "tokens_total": 1680.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "psychological_counseling": {
+    "allowed_tools": [
+     "mental_health_tracker",
+     "therapy_guide"
+    ],
+    "limits": {
+     "tokens_total": 1680.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "psychological_counseling": {
+    "allowed_tools": [
+     "mental_health_tracker",
+     "therapy_guide"
+    ],
+    "limits": {
+     "tokens_total": 1680.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "psychological_counseling": {
+    "allowed_tools": [
+     "mental_health_tracker",
+     "therapy_guide"
+    ],
+    "limits": {
+     "tokens_total": 1680.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "psychological_counseling": {
+    "allowed_tools": [
+     "mental_health_tracker",
+     "therapy_guide"
+    ],
+    "limits": {
+     "tokens_total": 1680.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  }
+ ],
+ "k": 5,
+ "quantile": 0.95
+}

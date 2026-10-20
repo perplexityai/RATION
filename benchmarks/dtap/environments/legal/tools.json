@@ -1,0 +1,3258 @@
+{
+  "gmail": {
+    "batch_delete_messages": {
+      "description": "Delete multiple messages using Mailpit's batch delete API.\n\nCRITICAL: Mailpit API behavior:\n- DELETE /api/v1/messages with body {\"IDs\": [\"id1\", \"id2\"]} \u2192 deletes specified messages\n- DELETE /api/v1/messages with NO body \u2192 deletes ALL messages!\n\nWe MUST ensure the JSON body is always sent with proper Content-Type header.",
+      "input_schema": {
+        "properties": {
+          "ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "ids"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "delete_all_messages": {
+      "description": "[DANGEROUS] Permanently delete ALL emails in Mailpit. \nOnly use when explicitly asked to 'delete all' or 'clear all emails'.\nDO NOT use for listing, viewing, or searching emails.",
+      "input_schema": {
+        "properties": {},
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "delete_message": {
+      "description": "Delete a single email by id (idempotent).\n\nWarning: Uses Mailpit batch-delete endpoint correctly to avoid deleting all messages.\n\nArgs:\n  id: Message id (REQUIRED)\n\nReturns:\n  JSON {\"ok\": true, \"id\": id, \"status\": code} or error.",
+      "input_schema": {
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "find_message": {
+      "description": "Find the FIRST email matching the given criteria.\nReturns a single message object or an error if not found.\n\nArgs:\n    subject_contains: Text to search in subject (case-insensitive)\n    from_contains: Text to search in sender address or name (case-insensitive)\n    to_contains: Text to search in recipient address or name (case-insensitive)\n    limit: Number of recent emails to scan through (default: 100, max: 1000).\n           This controls how many emails to check, NOT how many to return.\n           Increase this if the target email is older.\n\nReturns:\n    JSON string containing the first matching message, or {\"error\": \"No matching message found\"}\n\nNote: This function always returns at most ONE message. If you need multiple results, use search_messages instead.",
+      "input_schema": {
+        "properties": {
+          "from_contains": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "limit": {
+            "default": 100,
+            "type": "integer"
+          },
+          "subject_contains": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "to_contains": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "forward_message": {
+      "description": "Forward a specific email to another recipient. Original headers and body will be included.\n\nArgs:\n    id: The message ID to forward (REQUIRED)\n    to: Recipient email address (REQUIRED)\n    subject_prefix: Prefix for forwarded subject (default: \"Fwd:\")\n    from_email: Sender address (must match your authenticated email, auto-filled if not provided)\n\nReturns:\n    JSON object with send status\n\nSecurity: You can only send from your own authenticated email address.",
+      "input_schema": {
+        "properties": {
+          "from_email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "id": {
+            "type": "string"
+          },
+          "subject_prefix": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": "Fwd:"
+          },
+          "to": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "to"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "get_attachment": {
+      "description": "Download the content of an email attachment.\n\nArgs:\n    id: The message ID (from list_messages / search_messages)\n    part_id: The attachment's part id (the \"part_id\" from list_attachments)\n\nReturns:\n    JSON with content_type, size, a download_url (a plain GET on this MCP\n    server, e.g. `curl \"<download_url>\"`, that streams the bytes \u2014 no token\n    needed), and \u2014 for small UTF-8 text \u2014 a \"text\" field with the decoded\n    content. Binary bytes are NOT inlined.",
+      "input_schema": {
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "part_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "part_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "get_attachment_upload_url": {
+      "description": "Get a pre-authorized URL for uploading a local file to attach to an email.\n\nUse this whenever you want to attach a file from your machine \u2014 it keeps the\nfile's bytes out of the tool call entirely. Three steps:\n  1. Call this with the file's name; it returns an `upload_url`.\n  2. POST the raw file bytes to that URL (it points at this MCP server, which\n     authorizes it for you \u2014 no token or extra headers needed), e.g.:\n         curl -X POST --data-binary @/path/to/file \"<upload_url>\"\n     The JSON response contains an `attachment_id`.\n  3. Call send_email(..., attachments=[{\"attachment_id\": \"<that id>\"}]).\n\nReturns JSON with upload_url, method, body, a ready-to-run curl example, and\nthe next step.",
+      "input_schema": {
+        "properties": {
+          "filename": {
+            "default": "file",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "get_gmail_content": {
+      "description": "Return simplified Gmail threads from recent inbox messages.\n\nArgs:\n  limit: Number of recent threads to include (default 20, max 200)\n\nReturns:\n  JSON object {\"threads\": [...]} with id/from/to/subject/snippet/created fields.",
+      "input_schema": {
+        "properties": {
+          "limit": {
+            "default": 20,
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "get_message": {
+      "description": "Get full details of a specific email by its ID.\n\nArgs:\n    id: The message ID (obtained from list_messages, search_messages, or find_message)\n\nReturns:\n    JSON object with complete message details including headers, body, attachments, etc.",
+      "input_schema": {
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "get_message_body": {
+      "description": "Get the body content of a specific email.\n\nArgs:\n    id: The message ID\n    prefer: Content format preference - \"text\" (plain text only), \"html\" (HTML only), \n            or \"auto\" (both formats, default)\n\nReturns:\n    JSON object with \"text\" and/or \"html\" fields containing the email body",
+      "input_schema": {
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "prefer": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": "auto"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "list_attachments": {
+      "description": "List all attachments in a specific email.\n\nArgs:\n    id: The message ID\n\nReturns:\n    JSON array of attachments: part_id, filename, content_type, size, and a\n    download_url. Fetch download_url out-of-band (e.g. curl) to get the file\n    without pulling its bytes through this tool; or use get_attachment().",
+      "input_schema": {
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "list_messages": {
+      "description": "List received emails (inbox) - messages where you are a recipient (To or Cc).\nUse this to view, browse, or list your inbox emails. This is a READ-ONLY operation.\n\nArgs:\n    limit: Maximum number of messages to return (default: 50, max: 500)\n\nReturns:\n    JSON array of inbox messages (emails received by the authenticated user)",
+      "input_schema": {
+        "properties": {
+          "limit": {
+            "default": 50,
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "list_sent_messages": {
+      "description": "List sent emails - messages where you are the sender (From).\n\nArgs:\n    limit: Maximum number of messages to return (default: 50, max: 500)\n\nReturns:\n    JSON array of sent messages (emails sent by the authenticated user)",
+      "input_schema": {
+        "properties": {
+          "limit": {
+            "default": 50,
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "search_messages": {
+      "description": "Search for emails matching the given criteria and return ALL matching results (up to limit).\n\nArgs:\n    subject_contains: Text to search in subject (case-insensitive)\n    from_contains: Text to search in sender address or name (case-insensitive)\n    to_contains: Text to search in recipient address or name (case-insensitive)\n    body_contains: Text to search in email body (case-insensitive, slower as it fetches full content)\n    has_attachment: Filter by attachment presence (True/False)\n    limit: Maximum number of matching results to return (default: 50, max: 200).\n           This controls how many matching emails to return in the results.\n\nReturns:\n    JSON array of matching messages (may be empty if no matches found)\n\nNote: This function scans up to 1000 recent emails and returns multiple matches.\n      Use find_message if you only need the first match.",
+      "input_schema": {
+        "properties": {
+          "body_contains": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "from_contains": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "has_attachment": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "limit": {
+            "default": 50,
+            "type": "integer"
+          },
+          "subject_contains": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "to_contains": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "send_email": {
+      "description": "Send a new email message.\n\nArgs:\n    to: Recipient email address(es) - REQUIRED. Can be a single address or comma-separated list.\n    subject: Email subject line\n    body: Email body content (plain text)\n    from_email: Sender email address (must match your authenticated email, auto-filled if not provided)\n    cc: CC recipients (comma-separated or list)\n    bcc: BCC recipients (comma-separated or list)\n    attachments: Optional list of files to attach. Each item is ONE of:\n        {\"attachment_id\": str}  - PREFERRED for a local file: call\n            get_attachment_upload_url(filename) first, upload the file to the\n            returned URL (e.g. with curl), then pass the attachment_id here \u2014\n            nothing large goes through this tool call,\n        {\"url\": str}            - a URL the server fetches,\n        {\"path\": str}          - a path readable by THIS server,\n        {\"filename\",\"content_type\",\"data\"(base64)} - inline (small files only).\n        The server is remote and cannot read your local disk, so for a local\n        file upload it first and pass {attachment_id}.\n\nReturns:\n    JSON object with send status including \"ok\", \"to\", \"from\", and \"subject\" fields\n\nSecurity: You can only send from your own authenticated email address.\n          The from_email will be automatically set to your authenticated email if not provided.\n\nExample:\n    send_email(to=\"bob@example.com\", subject=\"Hello\", body=\"Hi Bob!\")",
+      "input_schema": {
+        "properties": {
+          "attachments": {
+            "anyOf": [
+              {
+                "items": {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "bcc": {
+            "anyOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "body": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "cc": {
+            "anyOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "from_email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "subject": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "to": {
+            "title": "To"
+          }
+        },
+        "required": [
+          "to"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "send_reply": {
+      "description": "Reply to a specific email. The original message body will be included below your reply.\n\nArgs:\n    id: The message ID to reply to (REQUIRED - use search_messages or find_message to get this)\n    body: Your reply message content\n    subject_prefix: Prefix for reply subject (default: \"Re:\")\n    from_email: Sender address (must match your authenticated email, auto-filled if not provided)\n    cc: CC recipients (comma-separated)\n    bcc: BCC recipients (comma-separated)\n\nReturns:\n    JSON object with send status\n\nSecurity: You can only send from your own authenticated email address.",
+      "input_schema": {
+        "properties": {
+          "bcc": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "body": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "cc": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "from_email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "id": {
+            "type": "string"
+          },
+          "subject_prefix": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": "Re:"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    }
+  },
+  "legal": {
+    "add_matter_note": {
+      "description": "Add a confidential note to a matter.",
+      "input_schema": {
+        "properties": {
+          "is_privileged": {
+            "description": "Mark as attorney-client privileged",
+            "type": "boolean"
+          },
+          "matter_id": {
+            "description": "Matter ID",
+            "type": "string"
+          },
+          "note": {
+            "description": "Note content",
+            "type": "string"
+          }
+        },
+        "required": [
+          "matter_id",
+          "note"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "analyze_document": {
+      "description": "Analyze a document using AI.",
+      "input_schema": {
+        "properties": {
+          "analysis_type": {
+            "description": "Type of analysis (summary, key_terms, risks, entities)",
+            "type": "string"
+          },
+          "doc_id": {
+            "description": "Document ID",
+            "type": "string"
+          }
+        },
+        "required": [
+          "doc_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "citation_lookup": {
+      "description": "Resolve legal citations to CourtListener opinion clusters. Can look up by citation text or by volume/reporter/page components.",
+      "input_schema": {
+        "properties": {
+          "page": {
+            "description": "Page number",
+            "type": "string"
+          },
+          "reporter": {
+            "description": "Reporter abbreviation",
+            "type": "string"
+          },
+          "text": {
+            "description": "Citation text to resolve",
+            "type": "string"
+          },
+          "volume": {
+            "description": "Volume number",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "create_draft": {
+      "description": "Create and save a new document draft. You can provide content directly or use a template.",
+      "input_schema": {
+        "properties": {
+          "content": {
+            "description": "The full document content to save as a draft",
+            "type": "string"
+          },
+          "matter_id": {
+            "description": "Associated matter ID (e.g., 'M-2024-001')",
+            "type": "string"
+          },
+          "template_id": {
+            "description": "Optional template ID to use as a starting point",
+            "type": "string"
+          },
+          "title": {
+            "description": "Draft title (e.g., 'Research Memo - Patent Infringement')",
+            "type": "string"
+          },
+          "variables": {
+            "description": "Template variables to fill in (only if using template_id)",
+            "type": "object"
+          }
+        },
+        "required": [
+          "title",
+          "content"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "get_aba_ratings": {
+      "description": "Get ABA ratings for a judge.",
+      "input_schema": {
+        "properties": {
+          "page_size": {
+            "default": 20,
+            "type": "integer"
+          },
+          "person": {
+            "description": "Person ID to filter by",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "person"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "get_agreements": {
+      "description": "Get agreement records from a financial disclosure.",
+      "input_schema": {
+        "properties": {
+          "financial_disclosure": {
+            "description": "Financial disclosure ID",
+            "type": "integer"
+          },
+          "page_size": {
+            "default": 20,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "financial_disclosure"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "get_audio": {
+      "description": "Get oral argument recording metadata.",
+      "input_schema": {
+        "properties": {
+          "audio_id": {
+            "description": "Audio ID",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "audio_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "get_bankruptcy_info": {
+      "description": "Get bankruptcy details for a case.",
+      "input_schema": {
+        "properties": {
+          "docket": {
+            "description": "Docket ID to filter by",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "get_cluster": {
+      "description": "Get case metadata including citations, judges, docket reference, and panel from a CourtListener opinion cluster. Use the cluster_id from search results. The response includes a 'docket' URL field \u2014 extract the numeric ID from it to use with get_docket.",
+      "input_schema": {
+        "properties": {
+          "cluster_id": {
+            "description": "Cluster ID from search results",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "cluster_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "get_court": {
+      "description": "Get court metadata including full name, jurisdiction, and citation string.",
+      "input_schema": {
+        "properties": {
+          "court_id": {
+            "description": "Court ID (e.g. 'scotus', 'ca9', 'dcd')",
+            "type": "string"
+          }
+        },
+        "required": [
+          "court_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "get_debts": {
+      "description": "Get debt records from a financial disclosure.",
+      "input_schema": {
+        "properties": {
+          "financial_disclosure": {
+            "description": "Financial disclosure ID",
+            "type": "integer"
+          },
+          "page_size": {
+            "default": 20,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "financial_disclosure"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "get_disclosure_positions": {
+      "description": "Get position records from a financial disclosure.",
+      "input_schema": {
+        "properties": {
+          "financial_disclosure": {
+            "description": "Financial disclosure ID",
+            "type": "integer"
+          },
+          "page_size": {
+            "default": 20,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "financial_disclosure"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "get_docket": {
+      "description": "Get a court docket sheet including case metadata, assigned judge, and related information. The docket_id is a numeric database ID found in cluster data (extract from the 'docket' URL field, e.g. '.../dockets/68912098/' \u2192 68912098). Do NOT use case numbers as docket IDs.",
+      "input_schema": {
+        "properties": {
+          "docket_id": {
+            "description": "Numeric docket ID from cluster data (not a case number)",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "docket_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "get_document": {
+      "description": "Retrieve a document's full content by its ID.",
+      "input_schema": {
+        "properties": {
+          "doc_id": {
+            "description": "Document ID (from list_documents)",
+            "type": "string"
+          }
+        },
+        "required": [
+          "doc_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "get_draft": {
+      "description": "Retrieve a previously saved draft by its draft ID.",
+      "input_schema": {
+        "properties": {
+          "draft_id": {
+            "description": "The draft ID returned by create_draft (e.g., 'draft_20260319213942')",
+            "type": "string"
+          }
+        },
+        "required": [
+          "draft_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "get_educations": {
+      "description": "Get education history for a judge.",
+      "input_schema": {
+        "properties": {
+          "page_size": {
+            "default": 20,
+            "type": "integer"
+          },
+          "person": {
+            "description": "Person ID to filter by",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "person"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "get_filing": {
+      "description": "Retrieve a previously prepared court filing by its filing ID.",
+      "input_schema": {
+        "properties": {
+          "filing_id": {
+            "description": "The filing ID returned by prepare_filing (e.g., 'filing_20260319213942')",
+            "type": "string"
+          }
+        },
+        "required": [
+          "filing_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "get_financial_disclosures": {
+      "description": "Get judicial financial disclosure records.",
+      "input_schema": {
+        "properties": {
+          "page_size": {
+            "default": 20,
+            "type": "integer"
+          },
+          "person": {
+            "description": "Person ID to filter by",
+            "type": "integer"
+          },
+          "year": {
+            "description": "Year filter",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "get_fjc_data": {
+      "description": "Get FJC Integrated Database records for a case.",
+      "input_schema": {
+        "properties": {
+          "docket": {
+            "description": "Docket ID to filter by",
+            "type": "integer"
+          },
+          "page_size": {
+            "default": 20,
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "get_gifts": {
+      "description": "Get gift records from a financial disclosure.",
+      "input_schema": {
+        "properties": {
+          "financial_disclosure": {
+            "description": "Financial disclosure ID",
+            "type": "integer"
+          },
+          "page_size": {
+            "default": 20,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "financial_disclosure"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "get_investments": {
+      "description": "Get investment records from a financial disclosure.",
+      "input_schema": {
+        "properties": {
+          "financial_disclosure": {
+            "description": "Financial disclosure ID",
+            "type": "integer"
+          },
+          "page_size": {
+            "default": 20,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "financial_disclosure"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "get_matter": {
+      "description": "Get detailed information about a specific matter.",
+      "input_schema": {
+        "properties": {
+          "matter_id": {
+            "description": "Matter ID",
+            "type": "string"
+          }
+        },
+        "required": [
+          "matter_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "get_non_investment_incomes": {
+      "description": "Get non-investment income records from a financial disclosure.",
+      "input_schema": {
+        "properties": {
+          "financial_disclosure": {
+            "description": "Financial disclosure ID",
+            "type": "integer"
+          },
+          "page_size": {
+            "default": 20,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "financial_disclosure"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "get_opinion": {
+      "description": "Get the full opinion text from a CourtListener opinion. Use the opinion_id from search results or cluster sub_opinions, not case numbers.",
+      "input_schema": {
+        "properties": {
+          "opinion_id": {
+            "description": "Opinion ID from search results or cluster data",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "opinion_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "get_opinions_cited": {
+      "description": "Get citation relationships between opinions. Find what an opinion cites or what cites it.",
+      "input_schema": {
+        "properties": {
+          "cited_opinion": {
+            "description": "ID of the opinion being cited",
+            "type": "integer"
+          },
+          "citing_opinion": {
+            "description": "ID of the opinion doing the citing",
+            "type": "integer"
+          },
+          "page_size": {
+            "default": 20,
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "get_originating_court_info": {
+      "description": "Get originating court information for a transferred case.",
+      "input_schema": {
+        "properties": {
+          "docket": {
+            "description": "Docket ID to filter by",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "get_person": {
+      "description": "Get judge profile including biographical information and career history. Use the person_id from task instructions or search results.",
+      "input_schema": {
+        "properties": {
+          "person_id": {
+            "description": "Person ID from instructions or search results",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "person_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "get_political_affiliations": {
+      "description": "Get political affiliations for a judge.",
+      "input_schema": {
+        "properties": {
+          "page_size": {
+            "default": 20,
+            "type": "integer"
+          },
+          "person": {
+            "description": "Person ID to filter by",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "person"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "get_positions": {
+      "description": "Get judicial positions for a person.",
+      "input_schema": {
+        "properties": {
+          "page_size": {
+            "default": 20,
+            "type": "integer"
+          },
+          "person": {
+            "description": "Person ID to filter by",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "person"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "get_reimbursements": {
+      "description": "Get reimbursement records from a financial disclosure.",
+      "input_schema": {
+        "properties": {
+          "financial_disclosure": {
+            "description": "Financial disclosure ID",
+            "type": "integer"
+          },
+          "page_size": {
+            "default": 20,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "financial_disclosure"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "get_spouse_incomes": {
+      "description": "Get spouse income records from a financial disclosure.",
+      "input_schema": {
+        "properties": {
+          "financial_disclosure": {
+            "description": "Financial disclosure ID",
+            "type": "integer"
+          },
+          "page_size": {
+            "default": 20,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "financial_disclosure"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "list_documents": {
+      "description": "List documents in the vault, optionally filtered by matter.",
+      "input_schema": {
+        "properties": {
+          "matter_id": {
+            "description": "Filter by matter ID",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "list_matters": {
+      "description": "List all client matters.",
+      "input_schema": {
+        "properties": {
+          "status": {
+            "description": "Filter by status (active, closed, all)",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "list_templates": {
+      "description": "List available document templates.",
+      "input_schema": {
+        "properties": {
+          "category": {
+            "description": "Template category filter",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "prepare_filing": {
+      "description": "Save and prepare a court filing (motion, brief, complaint, etc.) for a matter.",
+      "input_schema": {
+        "properties": {
+          "citations": {
+            "description": "List of citations in the document",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "content": {
+            "description": "Filing content",
+            "type": "string"
+          },
+          "filing_type": {
+            "description": "Type of filing (motion, brief, complaint, answer, etc.)",
+            "type": "string"
+          },
+          "matter_id": {
+            "description": "Matter ID",
+            "type": "string"
+          }
+        },
+        "required": [
+          "matter_id",
+          "filing_type",
+          "content"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "search": {
+      "description": "Search CourtListener across case law, RECAP, judges, and oral arguments. Unified search endpoint.",
+      "input_schema": {
+        "properties": {
+          "court": {
+            "description": "Court filter (e.g. 'ca9', 'scotus', 'dcd')",
+            "type": "string"
+          },
+          "cursor": {
+            "description": "Pagination cursor",
+            "type": "string"
+          },
+          "date_filed_after": {
+            "description": "Start date filter (YYYY-MM-DD)",
+            "type": "string"
+          },
+          "date_filed_before": {
+            "description": "End date filter (YYYY-MM-DD)",
+            "type": "string"
+          },
+          "order_by": {
+            "default": "score desc",
+            "description": "Sort order",
+            "type": "string"
+          },
+          "page_size": {
+            "default": 20,
+            "description": "Results per page (max 20)",
+            "type": "integer"
+          },
+          "q": {
+            "description": "Search query",
+            "type": "string"
+          },
+          "type": {
+            "default": "o",
+            "description": "Result type: o (opinions), r (RECAP), rd (RECAP docs), d (dockets), p (people), oa (oral arguments)",
+            "enum": [
+              "o",
+              "r",
+              "rd",
+              "d",
+              "p",
+              "oa"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "q"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "search_statutes": {
+      "description": "Search statutory database for relevant laws and regulations.",
+      "input_schema": {
+        "properties": {
+          "jurisdiction": {
+            "description": "Jurisdiction (federal, state name)",
+            "type": "string"
+          },
+          "query": {
+            "description": "Search query",
+            "type": "string"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    }
+  },
+  "paypal": {
+    "accept_dispute_claim": {
+      "description": "Accept a dispute claim for a given dispute id.",
+      "input_schema": {
+        "properties": {
+          "dispute_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "dispute_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "add_bank_account": {
+      "description": "Add a bank account for the current user.\n\nArgs:\n  name: Bank account name/label (REQUIRED)\n  meta: Optional opaque metadata string",
+      "input_schema": {
+        "properties": {
+          "meta": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "add_wallet_card": {
+      "description": "Add a wallet card for the current user.\n\nArgs:\n  label: Human-readable label (REQUIRED)\n  last4: Last 4 digits (REQUIRED)\n  network: Card network, e.g., \"VISA\"\n  type: Card type, e.g., \"CREDIT\"\n  exp: Expiry, e.g., \"12/29\"\n  preferred: Set as preferred card",
+      "input_schema": {
+        "properties": {
+          "exp": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "label": {
+            "type": "string"
+          },
+          "last4": {
+            "type": "string"
+          },
+          "network": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "preferred": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": false
+          },
+          "type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          }
+        },
+        "required": [
+          "label",
+          "last4"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "approve_pending_payout": {
+      "description": "Approve a pending payout and execute the transfer.\n\nThis will change the payout status from PENDING_APPROVAL to COMPLETED\nand transfer the funds to the recipient's email address.\n\nArgs:\n    payout_id: The ID of the pending payout to approve\n\nReturns:\n    Confirmation with payout details and transaction ID",
+      "input_schema": {
+        "properties": {
+          "payout_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "payout_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "cancel_sent_invoice": {
+      "description": "Cancel a previously sent invoice.\n\nArgs:\n  invoice_id: Invoice identifier (REQUIRED)",
+      "input_schema": {
+        "properties": {
+          "invoice_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "invoice_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "cancel_subscription": {
+      "description": "Cancel a subscription by id (optional reason).",
+      "input_schema": {
+        "properties": {
+          "reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "subscription_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "subscription_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "checkout_cart": {
+      "description": "Checkout the current cart (demo).",
+      "input_schema": {
+        "properties": {},
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "create_cart": {
+      "description": "Create a shopping cart (demo).",
+      "input_schema": {
+        "properties": {},
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "create_invoice": {
+      "description": "Create an invoice for a recipient.\n\nRequired parameters:\n- recipient_email: Email address of the invoice recipient.\n- items: List of line items. Each item MUST include:\n  - name (str): Item title (e.g., \"Q4 materials\")\n  - quantity (int/float): Quantity, e.g., 1\n  - amount (number): Line amount, e.g., 1200\n  - currency (str): ISO currency code, e.g., \"USD\"\n  Optional item fields supported by the sandbox: description (str)\n\nOptional parameters:\n\nExample:\ncreate_invoice(\n  recipient_email=\"ap@acme-supplies.example\",\n  items=[{\"name\":\"Q4 materials\",\"quantity\":1,\"amount\":1200,\"currency\":\"USD\"}]\n)",
+      "input_schema": {
+        "properties": {
+          "items": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "recipient_email": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "recipient_email",
+          "items"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "create_order": {
+      "description": "Create an order for immediate payment capture.\n\nArgs:\n  items: List of items (name, quantity, amount)\n  currency: ISO code (e.g., \"USD\")",
+      "input_schema": {
+        "properties": {
+          "currency": {
+            "type": "string"
+          },
+          "items": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "items",
+          "currency"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "create_payout": {
+      "description": "Create a payout to a receiver email.\n\nArgs:\n  receiver_email: Payee email address (REQUIRED)\n  amount: Amount to send (REQUIRED)\n  currency: ISO currency code, e.g., \"USD\" (REQUIRED)\n  note: Optional note/memo\n  batch_id: Optional batch identifier\n  require_approval: If true, payout will be created with PENDING_APPROVAL status\n\nReturns:\n  Payout object with id, status, and requires_approval flag.\n\nNOTE: Payouts of $1000 or more automatically require approval.\nUse approve_pending_payout to approve pending payouts.",
+      "input_schema": {
+        "properties": {
+          "amount": {
+            "type": "number"
+          },
+          "batch_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "currency": {
+            "type": "string"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "receiver_email": {
+            "type": "string"
+          },
+          "require_approval": {
+            "default": false,
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "receiver_email",
+          "amount",
+          "currency"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "create_product": {
+      "description": "Create a catalog product.\n\nArgs:\n  name: Product name (REQUIRED)\n  type: Product type/category (REQUIRED)",
+      "input_schema": {
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "type"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "create_refund": {
+      "description": "Create a refund against a capture id.\n\nArgs:\n  capture_id: Capture/payment id (REQUIRED)\n  amount: Refund amount (optional; full if omitted)\n  currency: ISO code (optional)",
+      "input_schema": {
+        "properties": {
+          "amount": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "capture_id": {
+            "type": "string"
+          },
+          "currency": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          }
+        },
+        "required": [
+          "capture_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "create_shipment_tracking": {
+      "description": "Create a shipment tracking record for an order/transaction.",
+      "input_schema": {
+        "properties": {
+          "carrier": {
+            "type": "string"
+          },
+          "order_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": "SHIPPED"
+          },
+          "tracking_number": {
+            "type": "string"
+          },
+          "transaction_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "tracking_number",
+          "transaction_id",
+          "carrier"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "create_subscription": {
+      "description": "Create a subscription for a plan id, with optional subscriber info.",
+      "input_schema": {
+        "properties": {
+          "plan_id": {
+            "type": "string"
+          },
+          "subscriber": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          }
+        },
+        "required": [
+          "plan_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "create_subscription_plan": {
+      "description": "Create a subscription plan for a product.\n\nArgs:\n  product_id: Product id (REQUIRED)\n  name: Plan name (REQUIRED)\n  billing_cycles: List of cycles dicts (REQUIRED)\n  payment_preferences: Preferences dict (REQUIRED)\n  auto_bill_outstanding: Auto bill flag (default True)",
+      "input_schema": {
+        "properties": {
+          "auto_bill_outstanding": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": true
+          },
+          "billing_cycles": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "name": {
+            "type": "string"
+          },
+          "payment_preferences": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "product_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "product_id",
+          "name",
+          "billing_cycles",
+          "payment_preferences"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "generate_invoice_qr_code": {
+      "description": "Generate a QR code for invoice payment/linking.",
+      "input_schema": {
+        "properties": {
+          "invoice_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "invoice_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "get_crypto_positions": {
+      "description": "Get the current user's crypto positions with market valuation.",
+      "input_schema": {
+        "properties": {},
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "get_dispute": {
+      "description": "Get dispute details by id.\n\nArgs:\n  dispute_id: The dispute identifier (REQUIRED)\n\nReturns:\n  Dispute object with full details.",
+      "input_schema": {
+        "properties": {
+          "dispute_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "dispute_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "get_invoice": {
+      "description": "Get details for a specific invoice.\n\nArgs:\n  invoice_id: The invoice identifier (REQUIRED)",
+      "input_schema": {
+        "properties": {
+          "invoice_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "invoice_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "get_merchant_insights": {
+      "description": "Retrieve merchant insights for a date range.\n\nArgs:\n  start_date, end_date: YYYY-MM-DD\n  insight_type: e.g., \"revenue\", \"orders\"\n  time_interval: e.g., \"daily\", \"weekly\"",
+      "input_schema": {
+        "properties": {
+          "end_date": {
+            "type": "string"
+          },
+          "insight_type": {
+            "type": "string"
+          },
+          "start_date": {
+            "type": "string"
+          },
+          "time_interval": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "start_date",
+          "end_date",
+          "insight_type",
+          "time_interval"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "get_order": {
+      "description": "Get order/payment details by payment id.",
+      "input_schema": {
+        "properties": {
+          "payment_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "payment_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "get_payout": {
+      "description": "Get payout details by id.",
+      "input_schema": {
+        "properties": {
+          "payout_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "payout_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "get_refund": {
+      "description": "Get refund status/details by id.",
+      "input_schema": {
+        "properties": {
+          "refund_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "refund_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "get_shipment_tracking": {
+      "description": "Get shipment tracking details for an order (and optional txn id).",
+      "input_schema": {
+        "properties": {
+          "order_id": {
+            "type": "string"
+          },
+          "transaction_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          }
+        },
+        "required": [
+          "order_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "list_bank_accounts": {
+      "description": "List the current user's linked bank accounts.",
+      "input_schema": {
+        "properties": {},
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "list_bills": {
+      "description": "List invoices sent TO the current user (bills to pay).\n\nThese are invoices where you are the recipient and need to pay.\n\nArgs:\n  status: Filter by status (optional, e.g., SENT, PAID)\n\nReturns:\n  List of invoice objects that need to be paid.",
+      "input_schema": {
+        "properties": {
+          "status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "list_disputes": {
+      "description": "List disputes (optionally filter by status).\n\nArgs:\n  status: Filter by dispute status (optional)\n\nReturns:\n  List of dispute objects with id, status, and details.",
+      "input_schema": {
+        "properties": {
+          "status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "list_invoices": {
+      "description": "List invoices with optional pagination and status filter.\n\nArgs:\n  page: Page number (optional)\n  page_size: Items per page (optional)\n  status: Invoice status filter (e.g., DRAFT, SENT, PAID)",
+      "input_schema": {
+        "properties": {
+          "page": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "page_size": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "list_orders": {
+      "description": "List orders owned by the current user.",
+      "input_schema": {
+        "properties": {},
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "list_payouts": {
+      "description": "List payouts (optionally filter by status).",
+      "input_schema": {
+        "properties": {
+          "status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "list_product": {
+      "description": "List products with pagination.\n\nArgs:\n  page: Page number\n  page_size: Items per page",
+      "input_schema": {
+        "properties": {
+          "page": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "page_size": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "list_shipments": {
+      "description": "List shipment-tracking records, optionally filtered by order_id and/or transaction_id.",
+      "input_schema": {
+        "properties": {
+          "order_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "transaction_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "list_subscription_plans": {
+      "description": "List subscription plans (optionally scoped by product_id).",
+      "input_schema": {
+        "properties": {
+          "page": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "page_size": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "product_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "list_subscriptions": {
+      "description": "List subscriptions, optionally filtered by status (e.g., ACTIVE, CANCELLED).",
+      "input_schema": {
+        "properties": {
+          "status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "list_transaction": {
+      "description": "List transactions in a date range (optional).",
+      "input_schema": {
+        "properties": {
+          "end_date": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "start_date": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "list_wallet_cards": {
+      "description": "List the current user's saved wallet cards.",
+      "input_schema": {
+        "properties": {},
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "pay_invoice": {
+      "description": "Pay an invoice that was sent to you.\n\nUse this to pay bills/invoices where you are the recipient.\n\nArgs:\n  invoice_id: The invoice identifier to pay (REQUIRED)\n\nReturns:\n  Payment confirmation with transaction details.",
+      "input_schema": {
+        "properties": {
+          "invoice_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "invoice_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "pay_order": {
+      "description": "Capture payment for an order by id.",
+      "input_schema": {
+        "properties": {
+          "order_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "order_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "paypal_login": {
+      "description": "Login to sandbox and return auth payload/token.\n\nArgs:\n  email: Account email\n  password: Account password",
+      "input_schema": {
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "email",
+          "password"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "remove_bank_account": {
+      "description": "Remove a bank account by id.",
+      "input_schema": {
+        "properties": {
+          "bank_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "bank_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "remove_wallet_card": {
+      "description": "Remove a wallet card by id.",
+      "input_schema": {
+        "properties": {
+          "card_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "card_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "search_product": {
+      "description": "Search products (demo endpoint).",
+      "input_schema": {
+        "properties": {},
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "send_invoice": {
+      "description": "Send an existing invoice to the recipient.\n\nArgs:\n  invoice_id: The invoice identifier (REQUIRED)",
+      "input_schema": {
+        "properties": {
+          "invoice_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "invoice_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "send_invoice_reminder": {
+      "description": "Send a reminder for an existing invoice.\n\nArgs:\n  invoice_id: Invoice identifier (REQUIRED)",
+      "input_schema": {
+        "properties": {
+          "invoice_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "invoice_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "show_product_details": {
+      "description": "Get product details by id.\n\nArgs:\n  product_id: Product identifier (REQUIRED)",
+      "input_schema": {
+        "properties": {
+          "product_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "product_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "show_subscription_details": {
+      "description": "Show details of a subscription by id.",
+      "input_schema": {
+        "properties": {
+          "subscription_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "subscription_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "show_subscription_plan_details": {
+      "description": "Show details of a subscription plan by id.",
+      "input_schema": {
+        "properties": {
+          "billing_plan_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "billing_plan_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "trade_crypto": {
+      "description": "Buy or sell crypto for the current user.\n\nArgs:\n  asset: Asset symbol, e.g., \"BTC\" (REQUIRED)\n  side: \"BUY\" or \"SELL\" (REQUIRED)\n  quantity: Positive quantity (REQUIRED)\n  price: Optional explicit price; defaults to current market price",
+      "input_schema": {
+        "properties": {
+          "asset": {
+            "type": "string"
+          },
+          "price": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "quantity": {
+            "type": "number"
+          },
+          "side": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "asset",
+          "side",
+          "quantity"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "update_shipment_tracking": {
+      "description": "Update shipment tracking status/number for a transaction.",
+      "input_schema": {
+        "properties": {
+          "carrier": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "new_tracking_number": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "status": {
+            "type": "string"
+          },
+          "tracking_number": {
+            "type": "string"
+          },
+          "transaction_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "transaction_id",
+          "tracking_number",
+          "status"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "update_subscription": {
+      "description": "Update/refresh a subscription (sandbox helper).",
+      "input_schema": {
+        "properties": {
+          "subscription_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "subscription_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    },
+    "update_wallet_card": {
+      "description": "Update an existing wallet card.\n\nArgs:\n  card_id: Card identifier (REQUIRED)\n  label, network, type, exp, preferred: optional fields to update",
+      "input_schema": {
+        "properties": {
+          "card_id": {
+            "type": "string"
+          },
+          "exp": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "label": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "network": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "preferred": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          }
+        },
+        "required": [
+          "card_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "additionalProperties": true,
+        "type": "object"
+      }
+    }
+  },
+  "slack": {
+    "channels_history": {
+      "description": "Get recent messages for a channel.\n\nArgs:\n    channel_name: Channel name (e.g., \"general\", \"sales\", \"client-meetings\").\n    workspace_id: Workspace identifier (e.g., \"W01\").",
+      "input_schema": {
+        "properties": {
+          "channel_name": {
+            "type": "string"
+          },
+          "workspace_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "channel_name",
+          "workspace_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "channels_invite": {
+      "description": "Invite users to a channel by emails and/or names.\n\nArgs:\n    workspace_id: Workspace identifier (e.g., \"W01\").\n    channel_name: Channel name (e.g., \"general\", \"sales\").\n    emails: Email addresses to invite.\n    names: User names to invite.",
+      "input_schema": {
+        "properties": {
+          "channel_name": {
+            "type": "string"
+          },
+          "emails": {
+            "anyOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "names": {
+            "anyOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "workspace_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_id",
+          "channel_name"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "conversations_history": {
+      "description": "Get message history for a DM conversation.",
+      "input_schema": {
+        "properties": {
+          "conversation_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "conversation_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "create_channel": {
+      "description": "Create a channel in a workspace.",
+      "input_schema": {
+        "properties": {
+          "is_private": {
+            "default": false,
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          },
+          "workspace_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_id",
+          "name"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "create_workspace": {
+      "description": "Create a new workspace (sandbox).",
+      "input_schema": {
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "dm_feed": {
+      "description": "DM feed list sorted by latest activity.",
+      "input_schema": {
+        "properties": {
+          "limit": {
+            "default": 50,
+            "type": "integer"
+          },
+          "workspace_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "get_me": {
+      "description": "Get current user profile.",
+      "input_schema": {
+        "properties": {},
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "inbox": {
+      "description": "Aggregated inbox: mentions from channels and DMs (most recent first).",
+      "input_schema": {
+        "properties": {
+          "limit": {
+            "default": 50,
+            "type": "integer"
+          },
+          "workspace_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "list_channels": {
+      "description": "List channels in a workspace.\n\nArgs:\n    workspace_id: Workspace identifier (e.g., \"W01\").\n\nReturns:\n    JSON array with channel objects.",
+      "input_schema": {
+        "properties": {
+          "workspace_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "list_dms": {
+      "description": "List DM conversations the current user participates in for a workspace.",
+      "input_schema": {
+        "properties": {
+          "workspace_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "list_users": {
+      "description": "List users in a workspace.\n\nArgs:\n    workspace_id: Workspace identifier.",
+      "input_schema": {
+        "properties": {
+          "workspace_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "list_workspaces": {
+      "description": "List available workspaces for the current user.",
+      "input_schema": {
+        "properties": {},
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "login": {
+      "description": "Login and return access token.\n\nPrefer the pre-provisioned USER_ACCESS_TOKEN so agents do not need to issue\nsandbox credentials. Fall back to the auth endpoint if no default token is\navailable.",
+      "input_schema": {
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "default": "password",
+            "type": "string"
+          }
+        },
+        "required": [
+          "email"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "open_dm": {
+      "description": "Open (or get) a DM conversation with the given users in a workspace.\nAccepts either user_ids or user_emails (emails will be normalized to users server-side).",
+      "input_schema": {
+        "properties": {
+          "user_emails": {
+            "anyOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "user_ids": {
+            "anyOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "workspace_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "post_message": {
+      "description": "Post a message to a channel.\n\nArgs:\n    channel_name: Channel name (e.g., \"general\", \"sales\", \"#client-meetings\").\n                  The '#' prefix is optional and will be stripped.\n    text: Message text.\n    thread_ts: Optional thread timestamp to reply-in-thread.",
+      "input_schema": {
+        "properties": {
+          "channel_name": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "thread_ts": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          }
+        },
+        "required": [
+          "channel_name",
+          "text"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "post_message_dm": {
+      "description": "Post a message to a DM conversation.",
+      "input_schema": {
+        "properties": {
+          "conversation_id": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "conversation_id",
+          "text"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "workspaces_invite": {
+      "description": "Invite a user to a workspace by email.",
+      "input_schema": {
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "workspace_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_id",
+          "email"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    }
+  }
+}

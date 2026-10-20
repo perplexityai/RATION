@@ -1,0 +1,801 @@
+{
+ "folds": [
+  {
+   "account_security": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_github_account_user_information",
+     "get_github_linked_unread_emails",
+     "get_github_repository_information",
+     "get_logged_in_github_user_information",
+     "get_received_emails",
+     "get_sent_emails",
+     "git_get_linked_ssh_keys",
+     "list_directory",
+     "read_file",
+     "git_add_ssh_key",
+     "git_delete_ssh_key",
+     "login_github_account",
+     "send_email",
+     "update_github_account_password",
+     "verify_github_account"
+    ],
+    "limits": {
+     "credential_writes": 2.0,
+     "tokens_total": 19282.0,
+     "total_tool_calls": 5.0
+    }
+   },
+   "collaboration": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_github_account_user_information",
+     "get_github_linked_unread_emails",
+     "get_github_repository_information",
+     "get_logged_in_github_user_information",
+     "get_received_emails",
+     "get_sent_emails",
+     "git_get_linked_ssh_keys",
+     "list_directory",
+     "read_file",
+     "git_create_repo",
+     "git_invite_collaborators",
+     "git_issue",
+     "git_star",
+     "git_transfer_repo_ownership",
+     "git_unstar",
+     "login_github_account",
+     "verify_github_account"
+    ],
+    "limits": {
+     "consequential_actions": 5.0,
+     "tokens_total": 69048.0,
+     "total_tool_calls": 15.0
+    }
+   },
+   "delegated_work": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_github_account_user_information",
+     "get_github_linked_unread_emails",
+     "get_github_repository_information",
+     "get_logged_in_github_user_information",
+     "get_received_emails",
+     "get_sent_emails",
+     "git_get_linked_ssh_keys",
+     "list_directory",
+     "read_file",
+     "copy_node",
+     "download_file_through_id",
+     "git_add_ssh_key",
+     "git_clone",
+     "git_invite_collaborators",
+     "git_push",
+     "git_star",
+     "move_node",
+     "send_email",
+     "verify_github_account"
+    ],
+    "limits": {
+     "irreversible_actions": 2.0,
+     "tokens_total": 30658.0,
+     "total_tool_calls": 9.0
+    }
+   },
+   "full_access": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_github_account_user_information",
+     "get_github_linked_unread_emails",
+     "get_github_repository_information",
+     "get_logged_in_github_user_information",
+     "get_received_emails",
+     "get_sent_emails",
+     "git_get_linked_ssh_keys",
+     "list_directory",
+     "read_file",
+     "copy_node",
+     "create_dir",
+     "create_file",
+     "delete_node",
+     "download_file_through_id",
+     "download_file_through_url",
+     "git_add_ssh_key",
+     "git_clone",
+     "git_create_repo",
+     "git_delete_repo",
+     "git_delete_ssh_key",
+     "git_invite_collaborators",
+     "git_issue",
+     "git_pull",
+     "git_push",
+     "git_star",
+     "git_transfer_repo_ownership",
+     "git_unstar",
+     "input_to_webpage",
+     "login_github_account",
+     "move_node",
+     "send_email",
+     "update_github_account_password",
+     "verify_github_account"
+    ],
+    "limits": {
+     "consequential_actions": 8.0,
+     "irreversible_actions": 2.0,
+     "tokens_total": 69048.0,
+     "total_tool_calls": 15.0
+    }
+   },
+   "repository_content": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_github_account_user_information",
+     "get_github_linked_unread_emails",
+     "get_github_repository_information",
+     "get_logged_in_github_user_information",
+     "get_received_emails",
+     "get_sent_emails",
+     "git_get_linked_ssh_keys",
+     "list_directory",
+     "read_file",
+     "copy_node",
+     "create_dir",
+     "create_file",
+     "delete_node",
+     "download_file_through_id",
+     "download_file_through_url",
+     "git_clone",
+     "git_create_repo",
+     "git_pull",
+     "git_push",
+     "move_node",
+     "send_email",
+     "verify_github_account"
+    ],
+    "limits": {
+     "repository_writes": 4.0,
+     "tokens_total": 54497.0,
+     "total_tool_calls": 14.0
+    }
+   }
+  },
+  {
+   "account_security": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_github_account_user_information",
+     "get_github_linked_unread_emails",
+     "get_github_repository_information",
+     "get_logged_in_github_user_information",
+     "get_received_emails",
+     "get_sent_emails",
+     "git_get_linked_ssh_keys",
+     "list_directory",
+     "read_file",
+     "git_add_ssh_key",
+     "git_delete_ssh_key",
+     "login_github_account",
+     "send_email",
+     "update_github_account_password",
+     "verify_github_account"
+    ],
+    "limits": {
+     "credential_writes": 2.0,
+     "tokens_total": 17379.0,
+     "total_tool_calls": 4.0
+    }
+   },
+   "collaboration": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_github_account_user_information",
+     "get_github_linked_unread_emails",
+     "get_github_repository_information",
+     "get_logged_in_github_user_information",
+     "get_received_emails",
+     "get_sent_emails",
+     "git_get_linked_ssh_keys",
+     "list_directory",
+     "read_file",
+     "git_create_repo",
+     "git_invite_collaborators",
+     "git_issue",
+     "git_star",
+     "git_transfer_repo_ownership",
+     "git_unstar",
+     "login_github_account",
+     "verify_github_account"
+    ],
+    "limits": {
+     "consequential_actions": 2.0,
+     "tokens_total": 26017.0,
+     "total_tool_calls": 8.0
+    }
+   },
+   "delegated_work": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_github_account_user_information",
+     "get_github_linked_unread_emails",
+     "get_github_repository_information",
+     "get_logged_in_github_user_information",
+     "get_received_emails",
+     "get_sent_emails",
+     "git_get_linked_ssh_keys",
+     "list_directory",
+     "read_file",
+     "copy_node",
+     "download_file_through_id",
+     "git_add_ssh_key",
+     "git_clone",
+     "git_invite_collaborators",
+     "git_push",
+     "git_star",
+     "move_node",
+     "send_email",
+     "verify_github_account"
+    ],
+    "limits": {
+     "irreversible_actions": 2.0,
+     "tokens_total": 30658.0,
+     "total_tool_calls": 9.0
+    }
+   },
+   "full_access": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_github_account_user_information",
+     "get_github_linked_unread_emails",
+     "get_github_repository_information",
+     "get_logged_in_github_user_information",
+     "get_received_emails",
+     "get_sent_emails",
+     "git_get_linked_ssh_keys",
+     "list_directory",
+     "read_file",
+     "copy_node",
+     "create_dir",
+     "create_file",
+     "delete_node",
+     "download_file_through_id",
+     "download_file_through_url",
+     "git_add_ssh_key",
+     "git_clone",
+     "git_create_repo",
+     "git_delete_repo",
+     "git_delete_ssh_key",
+     "git_invite_collaborators",
+     "git_issue",
+     "git_pull",
+     "git_push",
+     "git_star",
+     "git_transfer_repo_ownership",
+     "git_unstar",
+     "input_to_webpage",
+     "login_github_account",
+     "move_node",
+     "send_email",
+     "update_github_account_password",
+     "verify_github_account"
+    ],
+    "limits": {
+     "consequential_actions": 9.0,
+     "irreversible_actions": 3.0,
+     "tokens_total": 42469.0,
+     "total_tool_calls": 11.0
+    }
+   },
+   "repository_content": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_github_account_user_information",
+     "get_github_linked_unread_emails",
+     "get_github_repository_information",
+     "get_logged_in_github_user_information",
+     "get_received_emails",
+     "get_sent_emails",
+     "git_get_linked_ssh_keys",
+     "list_directory",
+     "read_file",
+     "copy_node",
+     "create_dir",
+     "create_file",
+     "delete_node",
+     "download_file_through_id",
+     "download_file_through_url",
+     "git_clone",
+     "git_create_repo",
+     "git_pull",
+     "git_push",
+     "move_node",
+     "send_email",
+     "verify_github_account"
+    ],
+    "limits": {
+     "repository_writes": 6.0,
+     "tokens_total": 42469.0,
+     "total_tool_calls": 11.0
+    }
+   }
+  },
+  {
+   "account_security": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_github_account_user_information",
+     "get_github_linked_unread_emails",
+     "get_github_repository_information",
+     "get_logged_in_github_user_information",
+     "get_received_emails",
+     "get_sent_emails",
+     "git_get_linked_ssh_keys",
+     "list_directory",
+     "read_file",
+     "git_add_ssh_key",
+     "git_delete_ssh_key",
+     "login_github_account",
+     "send_email",
+     "update_github_account_password",
+     "verify_github_account"
+    ],
+    "limits": {
+     "credential_writes": 2.0,
+     "tokens_total": 19282.0,
+     "total_tool_calls": 5.0
+    }
+   },
+   "collaboration": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_github_account_user_information",
+     "get_github_linked_unread_emails",
+     "get_github_repository_information",
+     "get_logged_in_github_user_information",
+     "get_received_emails",
+     "get_sent_emails",
+     "git_get_linked_ssh_keys",
+     "list_directory",
+     "read_file",
+     "git_create_repo",
+     "git_invite_collaborators",
+     "git_issue",
+     "git_star",
+     "git_transfer_repo_ownership",
+     "git_unstar",
+     "login_github_account",
+     "verify_github_account"
+    ],
+    "limits": {
+     "consequential_actions": 5.0,
+     "tokens_total": 69048.0,
+     "total_tool_calls": 15.0
+    }
+   },
+   "delegated_work": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_github_account_user_information",
+     "get_github_linked_unread_emails",
+     "get_github_repository_information",
+     "get_logged_in_github_user_information",
+     "get_received_emails",
+     "get_sent_emails",
+     "git_get_linked_ssh_keys",
+     "list_directory",
+     "read_file",
+     "copy_node",
+     "download_file_through_id",
+     "git_add_ssh_key",
+     "git_clone",
+     "git_invite_collaborators",
+     "git_push",
+     "git_star",
+     "move_node",
+     "send_email",
+     "verify_github_account"
+    ],
+    "limits": {
+     "irreversible_actions": 1.0,
+     "tokens_total": 30658.0,
+     "total_tool_calls": 8.0
+    }
+   },
+   "full_access": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_github_account_user_information",
+     "get_github_linked_unread_emails",
+     "get_github_repository_information",
+     "get_logged_in_github_user_information",
+     "get_received_emails",
+     "get_sent_emails",
+     "git_get_linked_ssh_keys",
+     "list_directory",
+     "read_file",
+     "copy_node",
+     "create_dir",
+     "create_file",
+     "delete_node",
+     "download_file_through_id",
+     "download_file_through_url",
+     "git_add_ssh_key",
+     "git_clone",
+     "git_create_repo",
+     "git_delete_repo",
+     "git_delete_ssh_key",
+     "git_invite_collaborators",
+     "git_issue",
+     "git_pull",
+     "git_push",
+     "git_star",
+     "git_transfer_repo_ownership",
+     "git_unstar",
+     "input_to_webpage",
+     "login_github_account",
+     "move_node",
+     "send_email",
+     "update_github_account_password",
+     "verify_github_account"
+    ],
+    "limits": {
+     "consequential_actions": 9.0,
+     "irreversible_actions": 3.0,
+     "tokens_total": 69048.0,
+     "total_tool_calls": 15.0
+    }
+   },
+   "repository_content": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_github_account_user_information",
+     "get_github_linked_unread_emails",
+     "get_github_repository_information",
+     "get_logged_in_github_user_information",
+     "get_received_emails",
+     "get_sent_emails",
+     "git_get_linked_ssh_keys",
+     "list_directory",
+     "read_file",
+     "copy_node",
+     "create_dir",
+     "create_file",
+     "delete_node",
+     "download_file_through_id",
+     "download_file_through_url",
+     "git_clone",
+     "git_create_repo",
+     "git_pull",
+     "git_push",
+     "move_node",
+     "send_email",
+     "verify_github_account"
+    ],
+    "limits": {
+     "repository_writes": 6.0,
+     "tokens_total": 54497.0,
+     "total_tool_calls": 14.0
+    }
+   }
+  },
+  {
+   "account_security": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_github_account_user_information",
+     "get_github_linked_unread_emails",
+     "get_github_repository_information",
+     "get_logged_in_github_user_information",
+     "get_received_emails",
+     "get_sent_emails",
+     "git_get_linked_ssh_keys",
+     "list_directory",
+     "read_file",
+     "git_add_ssh_key",
+     "git_delete_ssh_key",
+     "login_github_account",
+     "send_email",
+     "update_github_account_password",
+     "verify_github_account"
+    ],
+    "limits": {
+     "credential_writes": 2.0,
+     "tokens_total": 19282.0,
+     "total_tool_calls": 5.0
+    }
+   },
+   "collaboration": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_github_account_user_information",
+     "get_github_linked_unread_emails",
+     "get_github_repository_information",
+     "get_logged_in_github_user_information",
+     "get_received_emails",
+     "get_sent_emails",
+     "git_get_linked_ssh_keys",
+     "list_directory",
+     "read_file",
+     "git_create_repo",
+     "git_invite_collaborators",
+     "git_issue",
+     "git_star",
+     "git_transfer_repo_ownership",
+     "git_unstar",
+     "login_github_account",
+     "verify_github_account"
+    ],
+    "limits": {
+     "consequential_actions": 5.0,
+     "tokens_total": 69048.0,
+     "total_tool_calls": 15.0
+    }
+   },
+   "delegated_work": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_github_account_user_information",
+     "get_github_linked_unread_emails",
+     "get_github_repository_information",
+     "get_logged_in_github_user_information",
+     "get_received_emails",
+     "get_sent_emails",
+     "git_get_linked_ssh_keys",
+     "list_directory",
+     "read_file",
+     "copy_node",
+     "download_file_through_id",
+     "git_add_ssh_key",
+     "git_clone",
+     "git_invite_collaborators",
+     "git_push",
+     "git_star",
+     "move_node",
+     "send_email",
+     "verify_github_account"
+    ],
+    "limits": {
+     "irreversible_actions": 2.0,
+     "tokens_total": 26093.0,
+     "total_tool_calls": 9.0
+    }
+   },
+   "full_access": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_github_account_user_information",
+     "get_github_linked_unread_emails",
+     "get_github_repository_information",
+     "get_logged_in_github_user_information",
+     "get_received_emails",
+     "get_sent_emails",
+     "git_get_linked_ssh_keys",
+     "list_directory",
+     "read_file",
+     "copy_node",
+     "create_dir",
+     "create_file",
+     "delete_node",
+     "download_file_through_id",
+     "download_file_through_url",
+     "git_add_ssh_key",
+     "git_clone",
+     "git_create_repo",
+     "git_delete_repo",
+     "git_delete_ssh_key",
+     "git_invite_collaborators",
+     "git_issue",
+     "git_pull",
+     "git_push",
+     "git_star",
+     "git_transfer_repo_ownership",
+     "git_unstar",
+     "input_to_webpage",
+     "login_github_account",
+     "move_node",
+     "send_email",
+     "update_github_account_password",
+     "verify_github_account"
+    ],
+    "limits": {
+     "consequential_actions": 9.0,
+     "irreversible_actions": 3.0,
+     "tokens_total": 69048.0,
+     "total_tool_calls": 15.0
+    }
+   },
+   "repository_content": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_github_account_user_information",
+     "get_github_linked_unread_emails",
+     "get_github_repository_information",
+     "get_logged_in_github_user_information",
+     "get_received_emails",
+     "get_sent_emails",
+     "git_get_linked_ssh_keys",
+     "list_directory",
+     "read_file",
+     "copy_node",
+     "create_dir",
+     "create_file",
+     "delete_node",
+     "download_file_through_id",
+     "download_file_through_url",
+     "git_clone",
+     "git_create_repo",
+     "git_pull",
+     "git_push",
+     "move_node",
+     "send_email",
+     "verify_github_account"
+    ],
+    "limits": {
+     "repository_writes": 6.0,
+     "tokens_total": 54497.0,
+     "total_tool_calls": 14.0
+    }
+   }
+  },
+  {
+   "account_security": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_github_account_user_information",
+     "get_github_linked_unread_emails",
+     "get_github_repository_information",
+     "get_logged_in_github_user_information",
+     "get_received_emails",
+     "get_sent_emails",
+     "git_get_linked_ssh_keys",
+     "list_directory",
+     "read_file",
+     "git_add_ssh_key",
+     "git_delete_ssh_key",
+     "login_github_account",
+     "send_email",
+     "update_github_account_password",
+     "verify_github_account"
+    ],
+    "limits": {
+     "credential_writes": 1.0,
+     "tokens_total": 19282.0,
+     "total_tool_calls": 5.0
+    }
+   },
+   "collaboration": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_github_account_user_information",
+     "get_github_linked_unread_emails",
+     "get_github_repository_information",
+     "get_logged_in_github_user_information",
+     "get_received_emails",
+     "get_sent_emails",
+     "git_get_linked_ssh_keys",
+     "list_directory",
+     "read_file",
+     "git_create_repo",
+     "git_invite_collaborators",
+     "git_issue",
+     "git_star",
+     "git_transfer_repo_ownership",
+     "git_unstar",
+     "login_github_account",
+     "verify_github_account"
+    ],
+    "limits": {
+     "consequential_actions": 5.0,
+     "tokens_total": 69048.0,
+     "total_tool_calls": 15.0
+    }
+   },
+   "delegated_work": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_github_account_user_information",
+     "get_github_linked_unread_emails",
+     "get_github_repository_information",
+     "get_logged_in_github_user_information",
+     "get_received_emails",
+     "get_sent_emails",
+     "git_get_linked_ssh_keys",
+     "list_directory",
+     "read_file",
+     "copy_node",
+     "download_file_through_id",
+     "git_add_ssh_key",
+     "git_clone",
+     "git_invite_collaborators",
+     "git_push",
+     "git_star",
+     "move_node",
+     "send_email",
+     "verify_github_account"
+    ],
+    "limits": {
+     "irreversible_actions": 2.0,
+     "tokens_total": 30658.0,
+     "total_tool_calls": 9.0
+    }
+   },
+   "full_access": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_github_account_user_information",
+     "get_github_linked_unread_emails",
+     "get_github_repository_information",
+     "get_logged_in_github_user_information",
+     "get_received_emails",
+     "get_sent_emails",
+     "git_get_linked_ssh_keys",
+     "list_directory",
+     "read_file",
+     "copy_node",
+     "create_dir",
+     "create_file",
+     "delete_node",
+     "download_file_through_id",
+     "download_file_through_url",
+     "git_add_ssh_key",
+     "git_clone",
+     "git_create_repo",
+     "git_delete_repo",
+     "git_delete_ssh_key",
+     "git_invite_collaborators",
+     "git_issue",
+     "git_pull",
+     "git_push",
+     "git_star",
+     "git_transfer_repo_ownership",
+     "git_unstar",
+     "input_to_webpage",
+     "login_github_account",
+     "move_node",
+     "send_email",
+     "update_github_account_password",
+     "verify_github_account"
+    ],
+    "limits": {
+     "consequential_actions": 9.0,
+     "irreversible_actions": 3.0,
+     "tokens_total": 69048.0,
+     "total_tool_calls": 15.0
+    }
+   },
+   "repository_content": {
+    "allowed_tools": [
+     "browse_webpage",
+     "get_github_account_user_information",
+     "get_github_linked_unread_emails",
+     "get_github_repository_information",
+     "get_logged_in_github_user_information",
+     "get_received_emails",
+     "get_sent_emails",
+     "git_get_linked_ssh_keys",
+     "list_directory",
+     "read_file",
+     "copy_node",
+     "create_dir",
+     "create_file",
+     "delete_node",
+     "download_file_through_id",
+     "download_file_through_url",
+     "git_clone",
+     "git_create_repo",
+     "git_pull",
+     "git_push",
+     "move_node",
+     "send_email",
+     "verify_github_account"
+    ],
+    "limits": {
+     "repository_writes": 6.0,
+     "tokens_total": 54497.0,
+     "total_tool_calls": 14.0
+    }
+   }
+  }
+ ],
+ "k": 5,
+ "quantile": 0.95
+}

@@ -1,0 +1,26 @@
+{
+  "models": {
+    "agent": {
+      "provider": "openai",
+      "id": "gpt_4_1"
+    },
+    "provisioner": {
+      "provider": "openai",
+      "id": "gpt_4_1"
+    }
+  },
+  "sampling": {
+    "temperature": 0,
+    "max_output_tokens": null
+  },
+  "runtime": {
+    "system_message": "default",
+    "tool_output_format": "yaml",
+    "attack_model_name_key": "gpt-4o-2024-08-06"
+  },
+  "suites": [
+    "shopping",
+    "github",
+    "dailylife"
+  ]
+}

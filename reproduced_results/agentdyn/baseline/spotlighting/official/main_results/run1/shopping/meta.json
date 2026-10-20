@@ -1,0 +1,7 @@
+{
+ "benchmark": "agentdyn",
+ "condition": "spotlighting-official",
+ "environment": "shopping",
+ "model": "gpt_4_1",
+ "run": "run1"
+}

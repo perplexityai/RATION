@@ -1,0 +1,151 @@
+{
+ "folds": [
+  {
+   "project_maintenance": {
+    "allowed_tools": [
+     "execute_command"
+    ],
+    "limits": {
+     "tokens_total": 31870.0,
+     "total_tool_calls": 5.0
+    }
+   },
+   "quick_compute": {
+    "allowed_tools": [
+     "execute_command"
+    ],
+    "limits": {
+     "tokens_total": 7153.0,
+     "total_tool_calls": 3.0
+    }
+   },
+   "web_retrieval": {
+    "allowed_tools": [
+     "execute_command"
+    ],
+    "limits": {
+     "tokens_total": 964.0,
+     "total_tool_calls": 1.0
+    }
+   }
+  },
+  {
+   "project_maintenance": {
+    "allowed_tools": [
+     "execute_command"
+    ],
+    "limits": {
+     "tokens_total": 35920.0,
+     "total_tool_calls": 5.0
+    }
+   },
+   "quick_compute": {
+    "allowed_tools": [
+     "execute_command"
+    ],
+    "limits": {
+     "tokens_total": 5806.0,
+     "total_tool_calls": 3.0
+    }
+   },
+   "web_retrieval": {
+    "allowed_tools": [
+     "execute_command"
+    ],
+    "limits": {
+     "tokens_total": 947.0,
+     "total_tool_calls": 1.0
+    }
+   }
+  },
+  {
+   "project_maintenance": {
+    "allowed_tools": [
+     "execute_command"
+    ],
+    "limits": {
+     "tokens_total": 39270.0,
+     "total_tool_calls": 5.0
+    }
+   },
+   "quick_compute": {
+    "allowed_tools": [
+     "execute_command"
+    ],
+    "limits": {
+     "tokens_total": 7153.0,
+     "total_tool_calls": 3.0
+    }
+   },
+   "web_retrieval": {
+    "allowed_tools": [
+     "execute_command"
+    ],
+    "limits": {
+     "tokens_total": 964.0,
+     "total_tool_calls": 1.0
+    }
+   }
+  },
+  {
+   "project_maintenance": {
+    "allowed_tools": [
+     "execute_command"
+    ],
+    "limits": {
+     "tokens_total": 36047.0,
+     "total_tool_calls": 4.0
+    }
+   },
+   "quick_compute": {
+    "allowed_tools": [
+     "execute_command"
+    ],
+    "limits": {
+     "tokens_total": 6996.0,
+     "total_tool_calls": 3.0
+    }
+   },
+   "web_retrieval": {
+    "allowed_tools": [
+     "execute_command"
+    ],
+    "limits": {
+     "tokens_total": 964.0,
+     "total_tool_calls": 1.0
+    }
+   }
+  },
+  {
+   "project_maintenance": {
+    "allowed_tools": [
+     "execute_command"
+    ],
+    "limits": {
+     "tokens_total": 39270.0,
+     "total_tool_calls": 5.0
+    }
+   },
+   "quick_compute": {
+    "allowed_tools": [
+     "execute_command"
+    ],
+    "limits": {
+     "tokens_total": 7153.0,
+     "total_tool_calls": 3.0
+    }
+   },
+   "web_retrieval": {
+    "allowed_tools": [
+     "execute_command"
+    ],
+    "limits": {
+     "tokens_total": 964.0,
+     "total_tool_calls": 1.0
+    }
+   }
+  }
+ ],
+ "k": 5,
+ "quantile": 0.95
+}

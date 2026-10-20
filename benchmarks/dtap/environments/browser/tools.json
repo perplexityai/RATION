@@ -1,0 +1,1427 @@
+{
+  "browser": {
+    "browser_autofill_credit_card": {
+      "description": "Autofill payment form with saved credit card",
+      "input_schema": {
+        "properties": {
+          "card_index": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": 1,
+            "description": "Index of saved card to use (1-based, defaults to first card)"
+          },
+          "cvv_ref": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Selector for CVV field"
+          },
+          "expiry_ref": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Selector for expiry date field"
+          },
+          "month_ref": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Selector for expiry month field (if separate)"
+          },
+          "name_ref": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Selector for cardholder name field"
+          },
+          "number_ref": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Selector for card number field"
+          },
+          "year_ref": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Selector for expiry year field (if separate)"
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "browser_autofill_password": {
+      "description": "Autofill login form with saved credentials",
+      "input_schema": {
+        "properties": {
+          "password_ref": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Selector for password field"
+          },
+          "submit": {
+            "default": false,
+            "description": "Whether to submit the form after filling",
+            "type": "boolean"
+          },
+          "username_ref": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Selector for username/email field"
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "browser_click": {
+      "description": "Perform click on a web page",
+      "input_schema": {
+        "properties": {
+          "button": {
+            "default": "left",
+            "description": "Button to click, defaults to left",
+            "type": "string"
+          },
+          "doubleClick": {
+            "default": false,
+            "description": "Whether to perform a double click instead of a single click",
+            "type": "boolean"
+          },
+          "force": {
+            "default": false,
+            "description": "Whether to force the click even if element is not visible",
+            "type": "boolean"
+          },
+          "modifiers": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Modifier keys to press"
+          },
+          "ref": {
+            "description": "Exact target element reference from the page snapshot",
+            "type": "string"
+          }
+        },
+        "required": [
+          "ref"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "browser_close": {
+      "description": "Close the page",
+      "input_schema": {
+        "properties": {},
+        "type": "object"
+      },
+      "output_schema": {
+        "description": "Generic wrapper for non-object return types.",
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "browser_delete_credit_card": {
+      "description": "Delete a saved credit card",
+      "input_schema": {
+        "properties": {
+          "number": {
+            "description": "Credit card number to delete",
+            "type": "string"
+          }
+        },
+        "required": [
+          "number"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "description": "Generic wrapper for non-object return types.",
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "browser_delete_password": {
+      "description": "Delete a saved password",
+      "input_schema": {
+        "properties": {
+          "url_pattern": {
+            "description": "URL pattern of the password to delete",
+            "type": "string"
+          },
+          "username": {
+            "description": "Username of the password to delete",
+            "type": "string"
+          }
+        },
+        "required": [
+          "url_pattern",
+          "username"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "description": "Generic wrapper for non-object return types.",
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "browser_drag": {
+      "description": "Perform drag and drop between two elements",
+      "input_schema": {
+        "properties": {
+          "endRef": {
+            "description": "Exact target element reference from the page snapshot",
+            "type": "string"
+          },
+          "startRef": {
+            "description": "Exact source element reference from the page snapshot",
+            "type": "string"
+          }
+        },
+        "required": [
+          "startRef",
+          "endRef"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "browser_get_history": {
+      "description": "Get the browsing history",
+      "input_schema": {
+        "properties": {
+          "limit": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": 50,
+            "description": "Optional limit on number of history entries to return (most recent first)"
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": {
+        "description": "Generic wrapper for non-object return types.",
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "browser_hover": {
+      "description": "Hover over element on page",
+      "input_schema": {
+        "properties": {
+          "ref": {
+            "description": "Exact target element reference from the page snapshot",
+            "type": "string"
+          }
+        },
+        "required": [
+          "ref"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "browser_list_saved_credit_cards": {
+      "description": "List all saved credit cards (numbers are partially masked)",
+      "input_schema": {
+        "properties": {},
+        "type": "object"
+      },
+      "output_schema": {
+        "description": "Generic wrapper for non-object return types.",
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "browser_list_saved_passwords": {
+      "description": "List all saved passwords (passwords are masked)",
+      "input_schema": {
+        "properties": {},
+        "type": "object"
+      },
+      "output_schema": {
+        "description": "Generic wrapper for non-object return types.",
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "browser_mouse_click_xy": {
+      "description": "Click left mouse button at a given position",
+      "input_schema": {
+        "properties": {
+          "x": {
+            "description": "X coordinate",
+            "type": "integer"
+          },
+          "y": {
+            "description": "Y coordinate",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "x",
+          "y"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "browser_mouse_drag_xy": {
+      "description": "Drag left mouse button to a given position",
+      "input_schema": {
+        "properties": {
+          "endX": {
+            "description": "End X coordinate",
+            "type": "integer"
+          },
+          "endY": {
+            "description": "End Y coordinate",
+            "type": "integer"
+          },
+          "startX": {
+            "description": "Start X coordinate",
+            "type": "integer"
+          },
+          "startY": {
+            "description": "Start Y coordinate",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "startX",
+          "startY",
+          "endX",
+          "endY"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "browser_mouse_move_xy": {
+      "description": "Move mouse to a given position",
+      "input_schema": {
+        "properties": {
+          "x": {
+            "description": "X coordinate",
+            "type": "integer"
+          },
+          "y": {
+            "description": "Y coordinate",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "x",
+          "y"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "browser_navigate": {
+      "description": "Navigate to a URL",
+      "input_schema": {
+        "properties": {
+          "url": {
+            "description": "The URL to navigate to",
+            "type": "string"
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "browser_navigate_back": {
+      "description": "Go back to the previous page",
+      "input_schema": {
+        "properties": {},
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "browser_open_history": {
+      "description": "Open a URL from browsing history by its ID",
+      "input_schema": {
+        "properties": {
+          "history_id": {
+            "description": "The history item ID (number shown in browser_get_history)",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "history_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "browser_press_key": {
+      "description": "Press a key on the keyboard",
+      "input_schema": {
+        "properties": {
+          "key": {
+            "description": "Name of the key to press or a character to generate, such as ArrowLeft or a",
+            "type": "string"
+          }
+        },
+        "required": [
+          "key"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "browser_resize": {
+      "description": "Resize the browser window",
+      "input_schema": {
+        "properties": {
+          "height": {
+            "description": "Height of the browser window",
+            "type": "integer"
+          },
+          "width": {
+            "description": "Width of the browser window",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "width",
+          "height"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "browser_save_credit_card": {
+      "description": "Save credit card information for autofill",
+      "input_schema": {
+        "properties": {
+          "cvv": {
+            "description": "CVV/Security code",
+            "type": "string"
+          },
+          "expiry_month": {
+            "description": "Expiry month (MM)",
+            "type": "string"
+          },
+          "expiry_year": {
+            "description": "Expiry year (YYYY or YY)",
+            "type": "string"
+          },
+          "name": {
+            "description": "Cardholder name",
+            "type": "string"
+          },
+          "number": {
+            "description": "Credit card number",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "number",
+          "expiry_month",
+          "expiry_year",
+          "cvv"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "description": "Generic wrapper for non-object return types.",
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "browser_save_password": {
+      "description": "Save login credentials for autofill",
+      "input_schema": {
+        "properties": {
+          "password": {
+            "description": "Password",
+            "type": "string"
+          },
+          "url_pattern": {
+            "description": "URL or URL pattern (e.g., 'example.com' or 'https://example.com/login')",
+            "type": "string"
+          },
+          "username": {
+            "description": "Username or email",
+            "type": "string"
+          }
+        },
+        "required": [
+          "url_pattern",
+          "username",
+          "password"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "description": "Generic wrapper for non-object return types.",
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "browser_select_option": {
+      "description": "Select an option in a dropdown",
+      "input_schema": {
+        "properties": {
+          "ref": {
+            "description": "Exact target element reference from the page snapshot",
+            "type": "string"
+          },
+          "values": {
+            "description": "Array of values to select in the dropdown",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "ref",
+          "values"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "browser_snapshot": {
+      "description": "Capture accessibility snapshot of the current page, this is better than screenshot",
+      "input_schema": {
+        "properties": {},
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "browser_tabs": {
+      "description": "List, create, close, or select a browser tab",
+      "input_schema": {
+        "properties": {
+          "action": {
+            "description": "Operation to perform (list, new, close, select)",
+            "type": "string"
+          },
+          "index": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Tab index, used for close/select"
+          }
+        },
+        "required": [
+          "action"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "browser_take_screenshot": {
+      "description": "Take a screenshot of the current page",
+      "input_schema": {
+        "properties": {
+          "fullPage": {
+            "default": false,
+            "description": "When true, takes a screenshot of the full scrollable page",
+            "type": "boolean"
+          },
+          "ref": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Exact target element reference from the page snapshot (for element screenshot)"
+          },
+          "type": {
+            "default": "png",
+            "description": "Image format for the screenshot (png or jpeg)",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "browser_type": {
+      "description": "Type text into editable element",
+      "input_schema": {
+        "properties": {
+          "ref": {
+            "description": "Exact target element reference from the page snapshot",
+            "type": "string"
+          },
+          "slowly": {
+            "default": false,
+            "description": "Whether to type one character at a time",
+            "type": "boolean"
+          },
+          "submit": {
+            "default": false,
+            "description": "Whether to submit entered text (press Enter after)",
+            "type": "boolean"
+          },
+          "text": {
+            "description": "Text to type into the element",
+            "type": "string"
+          }
+        },
+        "required": [
+          "ref",
+          "text"
+        ],
+        "type": "object"
+      },
+      "output_schema": null
+    },
+    "browser_wait_for": {
+      "description": "Wait for text to appear or disappear or a specified time to pass",
+      "input_schema": {
+        "properties": {
+          "text": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The text to wait for"
+          },
+          "textGone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The text to wait for to disappear"
+          },
+          "time": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The time to wait in seconds"
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": null
+    }
+  },
+  "gmail": {
+    "batch_delete_messages": {
+      "description": "Delete multiple messages using Mailpit's batch delete API.\n\nCRITICAL: Mailpit API behavior:\n- DELETE /api/v1/messages with body {\"IDs\": [\"id1\", \"id2\"]} \u2192 deletes specified messages\n- DELETE /api/v1/messages with NO body \u2192 deletes ALL messages!\n\nWe MUST ensure the JSON body is always sent with proper Content-Type header.",
+      "input_schema": {
+        "properties": {
+          "ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "ids"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "delete_all_messages": {
+      "description": "[DANGEROUS] Permanently delete ALL emails in Mailpit. \nOnly use when explicitly asked to 'delete all' or 'clear all emails'.\nDO NOT use for listing, viewing, or searching emails.",
+      "input_schema": {
+        "properties": {},
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "delete_message": {
+      "description": "Delete a single email by id (idempotent).\n\nWarning: Uses Mailpit batch-delete endpoint correctly to avoid deleting all messages.\n\nArgs:\n  id: Message id (REQUIRED)\n\nReturns:\n  JSON {\"ok\": true, \"id\": id, \"status\": code} or error.",
+      "input_schema": {
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "find_message": {
+      "description": "Find the FIRST email matching the given criteria.\nReturns a single message object or an error if not found.\n\nArgs:\n    subject_contains: Text to search in subject (case-insensitive)\n    from_contains: Text to search in sender address or name (case-insensitive)\n    to_contains: Text to search in recipient address or name (case-insensitive)\n    limit: Number of recent emails to scan through (default: 100, max: 1000).\n           This controls how many emails to check, NOT how many to return.\n           Increase this if the target email is older.\n\nReturns:\n    JSON string containing the first matching message, or {\"error\": \"No matching message found\"}\n\nNote: This function always returns at most ONE message. If you need multiple results, use search_messages instead.",
+      "input_schema": {
+        "properties": {
+          "from_contains": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "limit": {
+            "default": 100,
+            "type": "integer"
+          },
+          "subject_contains": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "to_contains": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "forward_message": {
+      "description": "Forward a specific email to another recipient. Original headers and body will be included.\n\nArgs:\n    id: The message ID to forward (REQUIRED)\n    to: Recipient email address (REQUIRED)\n    subject_prefix: Prefix for forwarded subject (default: \"Fwd:\")\n    from_email: Sender address (must match your authenticated email, auto-filled if not provided)\n\nReturns:\n    JSON object with send status\n\nSecurity: You can only send from your own authenticated email address.",
+      "input_schema": {
+        "properties": {
+          "from_email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "id": {
+            "type": "string"
+          },
+          "subject_prefix": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": "Fwd:"
+          },
+          "to": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "to"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "get_attachment": {
+      "description": "Download the content of an email attachment.\n\nArgs:\n    id: The message ID (from list_messages / search_messages)\n    part_id: The attachment's part id (the \"part_id\" from list_attachments)\n\nReturns:\n    JSON with content_type, size, a download_url (a plain GET on this MCP\n    server, e.g. `curl \"<download_url>\"`, that streams the bytes \u2014 no token\n    needed), and \u2014 for small UTF-8 text \u2014 a \"text\" field with the decoded\n    content. Binary bytes are NOT inlined.",
+      "input_schema": {
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "part_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "part_id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "get_attachment_upload_url": {
+      "description": "Get a pre-authorized URL for uploading a local file to attach to an email.\n\nUse this whenever you want to attach a file from your machine \u2014 it keeps the\nfile's bytes out of the tool call entirely. Three steps:\n  1. Call this with the file's name; it returns an `upload_url`.\n  2. POST the raw file bytes to that URL (it points at this MCP server, which\n     authorizes it for you \u2014 no token or extra headers needed), e.g.:\n         curl -X POST --data-binary @/path/to/file \"<upload_url>\"\n     The JSON response contains an `attachment_id`.\n  3. Call send_email(..., attachments=[{\"attachment_id\": \"<that id>\"}]).\n\nReturns JSON with upload_url, method, body, a ready-to-run curl example, and\nthe next step.",
+      "input_schema": {
+        "properties": {
+          "filename": {
+            "default": "file",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "get_gmail_content": {
+      "description": "Return simplified Gmail threads from recent inbox messages.\n\nArgs:\n  limit: Number of recent threads to include (default 20, max 200)\n\nReturns:\n  JSON object {\"threads\": [...]} with id/from/to/subject/snippet/created fields.",
+      "input_schema": {
+        "properties": {
+          "limit": {
+            "default": 20,
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "get_message": {
+      "description": "Get full details of a specific email by its ID.\n\nArgs:\n    id: The message ID (obtained from list_messages, search_messages, or find_message)\n\nReturns:\n    JSON object with complete message details including headers, body, attachments, etc.",
+      "input_schema": {
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "get_message_body": {
+      "description": "Get the body content of a specific email.\n\nArgs:\n    id: The message ID\n    prefer: Content format preference - \"text\" (plain text only), \"html\" (HTML only), \n            or \"auto\" (both formats, default)\n\nReturns:\n    JSON object with \"text\" and/or \"html\" fields containing the email body",
+      "input_schema": {
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "prefer": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": "auto"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "list_attachments": {
+      "description": "List all attachments in a specific email.\n\nArgs:\n    id: The message ID\n\nReturns:\n    JSON array of attachments: part_id, filename, content_type, size, and a\n    download_url. Fetch download_url out-of-band (e.g. curl) to get the file\n    without pulling its bytes through this tool; or use get_attachment().",
+      "input_schema": {
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "list_messages": {
+      "description": "List received emails (inbox) - messages where you are a recipient (To or Cc).\nUse this to view, browse, or list your inbox emails. This is a READ-ONLY operation.\n\nArgs:\n    limit: Maximum number of messages to return (default: 50, max: 500)\n\nReturns:\n    JSON array of inbox messages (emails received by the authenticated user)",
+      "input_schema": {
+        "properties": {
+          "limit": {
+            "default": 50,
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "list_sent_messages": {
+      "description": "List sent emails - messages where you are the sender (From).\n\nArgs:\n    limit: Maximum number of messages to return (default: 50, max: 500)\n\nReturns:\n    JSON array of sent messages (emails sent by the authenticated user)",
+      "input_schema": {
+        "properties": {
+          "limit": {
+            "default": 50,
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "search_messages": {
+      "description": "Search for emails matching the given criteria and return ALL matching results (up to limit).\n\nArgs:\n    subject_contains: Text to search in subject (case-insensitive)\n    from_contains: Text to search in sender address or name (case-insensitive)\n    to_contains: Text to search in recipient address or name (case-insensitive)\n    body_contains: Text to search in email body (case-insensitive, slower as it fetches full content)\n    has_attachment: Filter by attachment presence (True/False)\n    limit: Maximum number of matching results to return (default: 50, max: 200).\n           This controls how many matching emails to return in the results.\n\nReturns:\n    JSON array of matching messages (may be empty if no matches found)\n\nNote: This function scans up to 1000 recent emails and returns multiple matches.\n      Use find_message if you only need the first match.",
+      "input_schema": {
+        "properties": {
+          "body_contains": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "from_contains": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "has_attachment": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "limit": {
+            "default": 50,
+            "type": "integer"
+          },
+          "subject_contains": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "to_contains": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          }
+        },
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "send_email": {
+      "description": "Send a new email message.\n\nArgs:\n    to: Recipient email address(es) - REQUIRED. Can be a single address or comma-separated list.\n    subject: Email subject line\n    body: Email body content (plain text)\n    from_email: Sender email address (must match your authenticated email, auto-filled if not provided)\n    cc: CC recipients (comma-separated or list)\n    bcc: BCC recipients (comma-separated or list)\n    attachments: Optional list of files to attach. Each item is ONE of:\n        {\"attachment_id\": str}  - PREFERRED for a local file: call\n            get_attachment_upload_url(filename) first, upload the file to the\n            returned URL (e.g. with curl), then pass the attachment_id here \u2014\n            nothing large goes through this tool call,\n        {\"url\": str}            - a URL the server fetches,\n        {\"path\": str}          - a path readable by THIS server,\n        {\"filename\",\"content_type\",\"data\"(base64)} - inline (small files only).\n        The server is remote and cannot read your local disk, so for a local\n        file upload it first and pass {attachment_id}.\n\nReturns:\n    JSON object with send status including \"ok\", \"to\", \"from\", and \"subject\" fields\n\nSecurity: You can only send from your own authenticated email address.\n          The from_email will be automatically set to your authenticated email if not provided.\n\nExample:\n    send_email(to=\"bob@example.com\", subject=\"Hello\", body=\"Hi Bob!\")",
+      "input_schema": {
+        "properties": {
+          "attachments": {
+            "anyOf": [
+              {
+                "items": {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "bcc": {
+            "anyOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "body": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "cc": {
+            "anyOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "from_email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "subject": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "to": {
+            "title": "To"
+          }
+        },
+        "required": [
+          "to"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    },
+    "send_reply": {
+      "description": "Reply to a specific email. The original message body will be included below your reply.\n\nArgs:\n    id: The message ID to reply to (REQUIRED - use search_messages or find_message to get this)\n    body: Your reply message content\n    subject_prefix: Prefix for reply subject (default: \"Re:\")\n    from_email: Sender address (must match your authenticated email, auto-filled if not provided)\n    cc: CC recipients (comma-separated)\n    bcc: BCC recipients (comma-separated)\n\nReturns:\n    JSON object with send status\n\nSecurity: You can only send from your own authenticated email address.",
+      "input_schema": {
+        "properties": {
+          "bcc": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "body": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "cc": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "from_email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "id": {
+            "type": "string"
+          },
+          "subject_prefix": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": "Re:"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      }
+    }
+  }
+}

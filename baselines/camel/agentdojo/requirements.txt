@@ -1,0 +1,6 @@
+camel @ git+https://github.com/google-research/camel-prompt-injection@f083b6b396399d3b3c7f2ddaf613a5945eaf32d8
+pydantic-ai==0.2.12
+opentelemetry-api==1.33.1
+jsonref==1.1.0
+openapi-pydantic==0.5.1
+tiktoken==0.9.0

@@ -1,0 +1,7 @@
+{
+ "benchmark": "agentdyn",
+ "condition": "sandwich-official",
+ "environment": "dailylife",
+ "model": "gpt_4_1",
+ "run": "run1"
+}

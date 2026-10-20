@@ -1,0 +1,4080 @@
+{
+ "domains": {
+  "browser": {
+   "batch_delete_messages": {
+    "external": false,
+    "why": "Deletes emails; returns deletion status ack only"
+   },
+   "browser_autofill_credit_card": {
+    "external": true,
+    "why": "Fixed browser source returns the updated external page snapshot after autofill"
+   },
+   "browser_autofill_password": {
+    "external": true,
+    "why": "Fixed browser source returns the updated external page snapshot after autofill"
+   },
+   "browser_click": {
+    "external": true,
+    "why": "Action response includes updated page snapshot text"
+   },
+   "browser_close": {
+    "external": false,
+    "why": "Closes page; status ack, no page content"
+   },
+   "browser_delete_credit_card": {
+    "external": false,
+    "why": "Deletes saved card; status ack only"
+   },
+   "browser_delete_password": {
+    "external": false,
+    "why": "Deletes saved credential; status ack only"
+   },
+   "browser_drag": {
+    "external": true,
+    "why": "Action response includes updated page snapshot text"
+   },
+   "browser_get_history": {
+    "external": true,
+    "why": "Returns stored browsing history entries"
+   },
+   "browser_hover": {
+    "external": true,
+    "why": "Action response includes updated page snapshot text"
+   },
+   "browser_list_saved_credit_cards": {
+    "external": true,
+    "why": "Returns stored card records (masked)"
+   },
+   "browser_list_saved_passwords": {
+    "external": true,
+    "why": "Returns stored credential records (masked)"
+   },
+   "browser_mouse_click_xy": {
+    "external": true,
+    "why": "Fixed browser source returns the updated external page snapshot after the coordinate click"
+   },
+   "browser_mouse_drag_xy": {
+    "external": true,
+    "why": "Fixed browser source returns the updated external page snapshot after the coordinate drag"
+   },
+   "browser_mouse_move_xy": {
+    "external": true,
+    "why": "Fixed browser source returns the updated external page snapshot after the pointer move"
+   },
+   "browser_navigate": {
+    "external": true,
+    "why": "Navigation returns fetched page content"
+   },
+   "browser_navigate_back": {
+    "external": true,
+    "why": "Navigation returns previous page content"
+   },
+   "browser_open_history": {
+    "external": true,
+    "why": "Opens URL; returns fetched page content"
+   },
+   "browser_press_key": {
+    "external": true,
+    "why": "Action response includes updated page snapshot text"
+   },
+   "browser_resize": {
+    "external": true,
+    "why": "Fixed browser source returns the updated external page snapshot after resize"
+   },
+   "browser_save_credit_card": {
+    "external": false,
+    "why": "Stores card; status ack only"
+   },
+   "browser_save_password": {
+    "external": false,
+    "why": "Stores credential; status ack only"
+   },
+   "browser_select_option": {
+    "external": true,
+    "why": "Action response includes updated page snapshot text"
+   },
+   "browser_snapshot": {
+    "external": true,
+    "why": "Returns full page accessibility snapshot"
+   },
+   "browser_tabs": {
+    "external": true,
+    "why": "List mode returns page-derived tab titles/URLs"
+   },
+   "browser_take_screenshot": {
+    "external": true,
+    "why": "Returns page image content"
+   },
+   "browser_type": {
+    "external": true,
+    "why": "Action response includes updated page snapshot text"
+   },
+   "browser_wait_for": {
+    "external": true,
+    "why": "Returns page-state result; may include snapshot"
+   },
+   "delete_all_messages": {
+    "external": false,
+    "why": "Deletes all emails; status ack only"
+   },
+   "delete_message": {
+    "external": false,
+    "why": "Deletes email; status ack only"
+   },
+   "find_message": {
+    "external": true,
+    "why": "Searches and returns email message content"
+   },
+   "forward_message": {
+    "external": true,
+    "why": "Fixed Gmail source returns the original stored message subject in the send receipt"
+   },
+   "get_attachment": {
+    "external": true,
+    "why": "Returns attachment content and metadata"
+   },
+   "get_attachment_upload_url": {
+    "external": false,
+    "why": "Fixed Gmail source returns only service-configured instructions and the caller-provided filename"
+   },
+   "get_gmail_content": {
+    "external": true,
+    "why": "Returns inbox thread snippets"
+   },
+   "get_message": {
+    "external": true,
+    "why": "Returns full email content"
+   },
+   "get_message_body": {
+    "external": true,
+    "why": "Returns email body content"
+   },
+   "list_attachments": {
+    "external": true,
+    "why": "Returns attachment metadata list"
+   },
+   "list_messages": {
+    "external": true,
+    "why": "Returns inbox message list"
+   },
+   "list_sent_messages": {
+    "external": true,
+    "why": "Returns sent message list"
+   },
+   "search_messages": {
+    "external": true,
+    "why": "Searches and returns matching emails"
+   },
+   "send_email": {
+    "external": false,
+    "why": "Sends email; returns send status ack"
+   },
+   "send_reply": {
+    "external": true,
+    "why": "Fixed Gmail source returns the original stored message subject in the send receipt"
+   }
+  },
+  "code": {
+   "execute_command": {
+    "external": true,
+    "why": "Returns command stdout/stderr - external content"
+   }
+  },
+  "crm": {
+   "accept_dispute_claim": {
+    "external": false,
+    "why": "Dispute action; result is confirmation"
+   },
+   "accept_invitation": {
+    "external": true,
+    "why": "Output schema returns stored third-party event details after the RSVP mutation"
+   },
+   "addCommentToJiraIssue": {
+    "external": false,
+    "why": "Posts agent-authored comment; result is ack"
+   },
+   "addWorklogToJiraIssue": {
+    "external": false,
+    "why": "Adds agent-authored worklog; result is ack"
+   },
+   "add_bank_account": {
+    "external": false,
+    "why": "Adds account; result confirms agent inputs"
+   },
+   "add_wallet_card": {
+    "external": false,
+    "why": "Adds card; result confirms agent inputs"
+   },
+   "approve_pending_payout": {
+    "external": false,
+    "why": "Executes transfer; result is transaction receipt"
+   },
+   "assign_contact": {
+    "external": true,
+    "why": "Fixed Salesforce source returns the full updated stored contact record"
+   },
+   "assign_lead": {
+    "external": true,
+    "why": "Fixed Salesforce source returns the full updated stored lead record"
+   },
+   "atlassianUserInfo": {
+    "external": true,
+    "why": "Reads user profile data"
+   },
+   "batch_delete_messages": {
+    "external": false,
+    "why": "Delete action; result is confirmation"
+   },
+   "cancel_sent_invoice": {
+    "external": false,
+    "why": "Cancel action; result is confirmation"
+   },
+   "cancel_subscription": {
+    "external": false,
+    "why": "Cancel action; result is confirmation"
+   },
+   "channels_history": {
+    "external": true,
+    "why": "Reads stored channel messages"
+   },
+   "channels_invite": {
+    "external": false,
+    "why": "Invite action; result is confirmation"
+   },
+   "chat_list": {
+    "external": true,
+    "why": "Reads meeting chat messages"
+   },
+   "chat_post_message": {
+    "external": false,
+    "why": "Posts agent-authored message; result is ack"
+   },
+   "checkout_cart": {
+    "external": false,
+    "why": "Payment action; result is receipt"
+   },
+   "conversations_history": {
+    "external": true,
+    "why": "Reads stored DM messages"
+   },
+   "convert_lead": {
+    "external": true,
+    "why": "Output schema returns records populated from the stored lead, including externally authored fields"
+   },
+   "createConfluenceFooterComment": {
+    "external": false,
+    "why": "Posts agent-authored comment; result is ack"
+   },
+   "createConfluenceInlineComment": {
+    "external": false,
+    "why": "Posts agent-authored comment; result is ack"
+   },
+   "createConfluencePage": {
+    "external": false,
+    "why": "Creates agent-authored page; result is ack"
+   },
+   "createJiraIssue": {
+    "external": false,
+    "why": "Creates issue; result confirms agent inputs"
+   },
+   "create_cart": {
+    "external": false,
+    "why": "Creates cart; result is confirmation"
+   },
+   "create_case": {
+    "external": false,
+    "why": "Creates record; result confirms agent-authored inputs"
+   },
+   "create_channel": {
+    "external": false,
+    "why": "Creates channel; result is confirmation"
+   },
+   "create_contact": {
+    "external": false,
+    "why": "Creates record; result confirms agent-authored inputs"
+   },
+   "create_event": {
+    "external": false,
+    "why": "Creates event; result confirms agent inputs"
+   },
+   "create_invoice": {
+    "external": false,
+    "why": "Creates invoice; result confirms agent inputs"
+   },
+   "create_lead": {
+    "external": false,
+    "why": "Creates record; result confirms agent-authored inputs"
+   },
+   "create_opportunity": {
+    "external": false,
+    "why": "Creates record; result confirms agent-authored inputs"
+   },
+   "create_order": {
+    "external": false,
+    "why": "Creates order; result confirms agent inputs"
+   },
+   "create_payout": {
+    "external": false,
+    "why": "Payment action; result is receipt"
+   },
+   "create_product": {
+    "external": false,
+    "why": "Creates product; result confirms agent inputs"
+   },
+   "create_record": {
+    "external": false,
+    "why": "Generic create; result confirms agent-authored inputs"
+   },
+   "create_refund": {
+    "external": false,
+    "why": "Refund action; result is receipt"
+   },
+   "create_shipment_tracking": {
+    "external": false,
+    "why": "Creates record; result confirms agent inputs"
+   },
+   "create_subscription": {
+    "external": false,
+    "why": "Creates subscription; result is confirmation"
+   },
+   "create_subscription_plan": {
+    "external": false,
+    "why": "Creates plan; result confirms agent inputs"
+   },
+   "create_workspace": {
+    "external": false,
+    "why": "Creates workspace; result is confirmation"
+   },
+   "decline_invitation": {
+    "external": true,
+    "why": "Output schema returns stored third-party event details after the RSVP mutation"
+   },
+   "delete_all_messages": {
+    "external": false,
+    "why": "Delete action; result is confirmation"
+   },
+   "delete_case": {
+    "external": false,
+    "why": "Delete action; result is deletion confirmation"
+   },
+   "delete_chat": {
+    "external": false,
+    "why": "Delete action; result is confirmation"
+   },
+   "delete_contact": {
+    "external": false,
+    "why": "Delete action; result is deletion confirmation"
+   },
+   "delete_entry": {
+    "external": false,
+    "why": "Delete action; result is deletion confirmation"
+   },
+   "delete_event": {
+    "external": false,
+    "why": "Delete action; result is confirmation"
+   },
+   "delete_lead": {
+    "external": false,
+    "why": "Delete action; result is deletion confirmation"
+   },
+   "delete_message": {
+    "external": false,
+    "why": "Deletes a message; the response is an operation confirmation, not external content (gmail/telegram twins agree; runtime offers the bare MCP name)"
+   },
+   "delete_record": {
+    "external": false,
+    "why": "Delete action; result is deletion confirmation"
+   },
+   "dm_feed": {
+    "external": true,
+    "why": "Reads DM activity feed"
+   },
+   "duplicate_contact": {
+    "external": true,
+    "why": "Output schema returns the new record populated from the stored contact"
+   },
+   "duplicate_lead": {
+    "external": true,
+    "why": "Output schema returns the new record populated from the stored lead"
+   },
+   "editJiraIssue": {
+    "external": true,
+    "why": "Fixed Atlassian source returns the full updated stored issue"
+   },
+   "fetch": {
+    "external": true,
+    "why": "Fetches stored resource details by ARI"
+   },
+   "find_message": {
+    "external": true,
+    "why": "Searches and returns stored email content"
+   },
+   "forward_message": {
+    "external": true,
+    "why": "Returns stored message content authored by external senders (gmail/telegram twins agree; runtime offers the bare MCP name)"
+   },
+   "generate_invoice_qr_code": {
+    "external": true,
+    "why": "Output schema returns a QR artifact derived from the stored invoice"
+   },
+   "getAccessibleAtlassianResources": {
+    "external": true,
+    "why": "Returns resource/cloud ID listing"
+   },
+   "getConfluencePage": {
+    "external": true,
+    "why": "Reads stored page content"
+   },
+   "getConfluencePageDescendants": {
+    "external": true,
+    "why": "Lists stored child pages"
+   },
+   "getConfluencePageFooterComments": {
+    "external": true,
+    "why": "Reads stored comments"
+   },
+   "getConfluencePageInlineComments": {
+    "external": true,
+    "why": "Reads stored comments"
+   },
+   "getConfluenceSpaces": {
+    "external": true,
+    "why": "Lists stored spaces"
+   },
+   "getJiraIssue": {
+    "external": true,
+    "why": "Reads stored issue data"
+   },
+   "getJiraIssueRemoteIssueLinks": {
+    "external": true,
+    "why": "Reads stored remote links"
+   },
+   "getJiraIssueTypeMetaWithFields": {
+    "external": true,
+    "why": "Returns issue-type metadata"
+   },
+   "getJiraProjectIssueTypesMetadata": {
+    "external": true,
+    "why": "Returns project metadata"
+   },
+   "getPagesInConfluenceSpace": {
+    "external": true,
+    "why": "Lists stored pages"
+   },
+   "getTransitionsForJiraIssue": {
+    "external": true,
+    "why": "Returns available transitions data"
+   },
+   "getVisibleJiraProjects": {
+    "external": true,
+    "why": "Lists stored projects"
+   },
+   "get_account_by_id": {
+    "external": true,
+    "why": "Reads stored account record"
+   },
+   "get_attachment": {
+    "external": true,
+    "why": "Downloads stored attachment content"
+   },
+   "get_attachment_upload_url": {
+    "external": false,
+    "why": "Fixed Gmail source returns only service-configured instructions and the caller-provided filename"
+   },
+   "get_available_modules": {
+    "external": true,
+    "why": "Returns module metadata listing"
+   },
+   "get_case_by_id": {
+    "external": true,
+    "why": "Reads stored case record"
+   },
+   "get_chat": {
+    "external": true,
+    "why": "Reads stored conversation messages"
+   },
+   "get_contact_by_id": {
+    "external": true,
+    "why": "Reads stored contact record"
+   },
+   "get_crypto_positions": {
+    "external": true,
+    "why": "Reads positions with market valuation"
+   },
+   "get_dispute": {
+    "external": true,
+    "why": "Reads stored dispute details"
+   },
+   "get_entry": {
+    "external": true,
+    "why": "Reads stored record by id"
+   },
+   "get_entry_list": {
+    "external": true,
+    "why": "Lists stored records"
+   },
+   "get_event": {
+    "external": true,
+    "why": "Reads stored event details"
+   },
+   "get_freebusy": {
+    "external": true,
+    "why": "Queries stored availability data"
+   },
+   "get_gmail_content": {
+    "external": true,
+    "why": "Reads stored inbox threads"
+   },
+   "get_invoice": {
+    "external": true,
+    "why": "Reads stored invoice details"
+   },
+   "get_lead_source_options": {
+    "external": true,
+    "why": "Returns option values (internal data still counts)"
+   },
+   "get_lead_status_options": {
+    "external": true,
+    "why": "Returns option values (internal data still counts)"
+   },
+   "get_me": {
+    "external": true,
+    "why": "Reads user profile data"
+   },
+   "get_merchant_insights": {
+    "external": true,
+    "why": "Returns analytics from stored transactions"
+   },
+   "get_message": {
+    "external": true,
+    "why": "Returns stored message content authored by external senders (gmail/telegram twins agree; runtime offers the bare MCP name)"
+   },
+   "get_message_body": {
+    "external": true,
+    "why": "Reads stored email body"
+   },
+   "get_module_fields": {
+    "external": true,
+    "why": "Returns field metadata"
+   },
+   "get_opportunity_by_id": {
+    "external": true,
+    "why": "Reads stored opportunity record"
+   },
+   "get_order": {
+    "external": true,
+    "why": "Reads stored order details"
+   },
+   "get_payout": {
+    "external": true,
+    "why": "Reads stored payout details"
+   },
+   "get_record": {
+    "external": true,
+    "why": "Reads stored record by id"
+   },
+   "get_refund": {
+    "external": true,
+    "why": "Reads stored refund details"
+   },
+   "get_relationships": {
+    "external": true,
+    "why": "Lists related stored records"
+   },
+   "get_shipment_tracking": {
+    "external": true,
+    "why": "Reads stored tracking details"
+   },
+   "get_unread_messages": {
+    "external": true,
+    "why": "Reads incoming message content"
+   },
+   "health": {
+    "external": true,
+    "why": "Check/probe returning endpoint status information"
+   },
+   "inbox": {
+    "external": true,
+    "why": "Reads aggregated mentions and DMs"
+   },
+   "invitations_accept": {
+    "external": false,
+    "why": "RSVP action; no documented content return"
+   },
+   "invitations_create": {
+    "external": false,
+    "why": "Creates invitation; result is confirmation"
+   },
+   "invitations_decline": {
+    "external": false,
+    "why": "RSVP action; no documented content return"
+   },
+   "invitations_list": {
+    "external": true,
+    "why": "Lists stored invitations"
+   },
+   "link_contact_to_account": {
+    "external": true,
+    "why": "Fixed Salesforce source returns the full updated stored account record"
+   },
+   "list_attachments": {
+    "external": true,
+    "why": "Lists stored attachments metadata"
+   },
+   "list_bank_accounts": {
+    "external": true,
+    "why": "Lists stored bank accounts"
+   },
+   "list_bills": {
+    "external": true,
+    "why": "Lists invoices received from others"
+   },
+   "list_calendars": {
+    "external": true,
+    "why": "Lists stored calendars"
+   },
+   "list_calls": {
+    "external": true,
+    "why": "Reads stored call history"
+   },
+   "list_channels": {
+    "external": true,
+    "why": "Lists stored channels"
+   },
+   "list_chats": {
+    "external": true,
+    "why": "Lists stored conversation threads"
+   },
+   "list_colors": {
+    "external": true,
+    "why": "Returns color definitions (internal data still counts)"
+   },
+   "list_disputes": {
+    "external": true,
+    "why": "Lists stored disputes"
+   },
+   "list_dms": {
+    "external": true,
+    "why": "Lists stored DM conversations"
+   },
+   "list_events": {
+    "external": true,
+    "why": "Lists stored events"
+   },
+   "list_invoices": {
+    "external": true,
+    "why": "Lists stored invoices"
+   },
+   "list_leads": {
+    "external": true,
+    "why": "Lists stored lead records"
+   },
+   "list_messages": {
+    "external": true,
+    "why": "Lists stored inbox emails"
+   },
+   "list_orders": {
+    "external": true,
+    "why": "Lists stored orders"
+   },
+   "list_payouts": {
+    "external": true,
+    "why": "Lists stored payouts"
+   },
+   "list_product": {
+    "external": true,
+    "why": "Lists stored products"
+   },
+   "list_records": {
+    "external": true,
+    "why": "Lists stored records with filters"
+   },
+   "list_sent_messages": {
+    "external": true,
+    "why": "Lists stored sent emails"
+   },
+   "list_shipments": {
+    "external": true,
+    "why": "Lists stored shipment records"
+   },
+   "list_subscription_plans": {
+    "external": true,
+    "why": "Lists stored plans"
+   },
+   "list_subscriptions": {
+    "external": true,
+    "why": "Lists stored subscriptions"
+   },
+   "list_transaction": {
+    "external": true,
+    "why": "Lists stored transactions"
+   },
+   "list_users": {
+    "external": true,
+    "why": "Lists workspace users"
+   },
+   "list_wallet_cards": {
+    "external": true,
+    "why": "Lists stored wallet cards"
+   },
+   "list_workspaces": {
+    "external": true,
+    "why": "Lists available workspaces"
+   },
+   "login": {
+    "external": false,
+    "why": "action; result is only a minted access token"
+   },
+   "logout": {
+    "external": false,
+    "why": "Session action; result is success confirmation"
+   },
+   "lookupJiraAccountId": {
+    "external": true,
+    "why": "Searches stored user accounts"
+   },
+   "make_call": {
+    "external": false,
+    "why": "Call action; result is status ack"
+   },
+   "mark_message_read": {
+    "external": false,
+    "why": "State mutation; result is confirmation"
+   },
+   "meetings_create": {
+    "external": false,
+    "why": "Creates meeting; result confirms agent inputs"
+   },
+   "meetings_delete": {
+    "external": false,
+    "why": "Delete action; result is confirmation"
+   },
+   "meetings_end": {
+    "external": false,
+    "why": "Host action; result is status ack"
+   },
+   "meetings_get": {
+    "external": true,
+    "why": "Reads stored meeting details"
+   },
+   "meetings_join": {
+    "external": true,
+    "why": "reader-purposed getter for join payload/link"
+   },
+   "meetings_leave": {
+    "external": false,
+    "why": "Participant action; result is status ack"
+   },
+   "meetings_list": {
+    "external": true,
+    "why": "Lists stored meetings"
+   },
+   "meetings_recording_start": {
+    "external": false,
+    "why": "Host action; result is status ack"
+   },
+   "meetings_recording_stop": {
+    "external": false,
+    "why": "Host action; result is status ack"
+   },
+   "meetings_start": {
+    "external": false,
+    "why": "Host action; result is status ack"
+   },
+   "meetings_update": {
+    "external": true,
+    "why": "Fixed Zoom source returns the full meeting, including preserved stored fields"
+   },
+   "merge_leads": {
+    "external": true,
+    "why": "Output schema returns a merged record populated from stored lead content"
+   },
+   "meta_fields": {
+    "external": true,
+    "why": "Returns field metadata"
+   },
+   "meta_modules": {
+    "external": true,
+    "why": "Returns module metadata listing"
+   },
+   "notes_create": {
+    "external": false,
+    "why": "Creates agent-authored note; result is ack"
+   },
+   "notes_delete": {
+    "external": false,
+    "why": "Delete action; result is confirmation"
+   },
+   "notes_get": {
+    "external": true,
+    "why": "Reads stored note content"
+   },
+   "notes_list": {
+    "external": true,
+    "why": "Lists stored notes"
+   },
+   "notes_update": {
+    "external": false,
+    "why": "Update action; result echoes what was done"
+   },
+   "open_dm": {
+    "external": true,
+    "why": "Output schema returns an existing or created conversation with server-resolved member data"
+   },
+   "participants_admit": {
+    "external": false,
+    "why": "Host action; result is status ack"
+   },
+   "participants_list": {
+    "external": true,
+    "why": "Lists meeting participants"
+   },
+   "participants_remove": {
+    "external": false,
+    "why": "Host action; result is status ack"
+   },
+   "participants_set_role": {
+    "external": false,
+    "why": "Role mutation; result is confirmation"
+   },
+   "pay_invoice": {
+    "external": false,
+    "why": "Payment action; result is transaction receipt"
+   },
+   "pay_order": {
+    "external": false,
+    "why": "Payment capture; result is receipt"
+   },
+   "paypal_login": {
+    "external": true,
+    "why": "result echoes stored account profile (id/email/name) [reviewer override]"
+   },
+   "post_message": {
+    "external": false,
+    "why": "Posts agent-authored message; result is ack"
+   },
+   "post_message_dm": {
+    "external": false,
+    "why": "Posts agent-authored message; result is ack"
+   },
+   "relationship_create": {
+    "external": false,
+    "why": "Relationship mutation; result is confirmation"
+   },
+   "relationship_delete": {
+    "external": false,
+    "why": "Relationship removal; result is confirmation"
+   },
+   "relationship_get": {
+    "external": true,
+    "why": "Reads related stored records"
+   },
+   "remove_bank_account": {
+    "external": false,
+    "why": "Remove action; result is confirmation"
+   },
+   "remove_wallet_card": {
+    "external": false,
+    "why": "Remove action; result is confirmation"
+   },
+   "reply_to_message": {
+    "external": false,
+    "why": "Sends agent-authored reply; result is ack"
+   },
+   "search": {
+    "external": true,
+    "why": "Searches stored Jira/Confluence content"
+   },
+   "searchConfluenceUsingCql": {
+    "external": true,
+    "why": "Searches stored Confluence content"
+   },
+   "searchJiraIssuesUsingJql": {
+    "external": true,
+    "why": "Searches stored Jira issues"
+   },
+   "search_accounts": {
+    "external": true,
+    "why": "Searches stored account records"
+   },
+   "search_cases": {
+    "external": true,
+    "why": "Searches stored case records"
+   },
+   "search_contacts": {
+    "external": true,
+    "why": "Searches stored contact records"
+   },
+   "search_events": {
+    "external": true,
+    "why": "Searches stored events"
+   },
+   "search_leads": {
+    "external": true,
+    "why": "Searches stored lead records"
+   },
+   "search_messages": {
+    "external": true,
+    "why": "Returns stored message content authored by external senders (gmail/telegram twins agree; runtime offers the bare MCP name)"
+   },
+   "search_opportunities": {
+    "external": true,
+    "why": "Searches stored opportunity records"
+   },
+   "search_product": {
+    "external": true,
+    "why": "Searches stored products"
+   },
+   "send_email": {
+    "external": false,
+    "why": "Sends agent-authored email; result is ack"
+   },
+   "send_invoice": {
+    "external": false,
+    "why": "Send action; result is delivery ack"
+   },
+   "send_invoice_reminder": {
+    "external": false,
+    "why": "Send action; result is delivery ack"
+   },
+   "send_message": {
+    "external": false,
+    "why": "Sends agent-authored message; result is ack"
+   },
+   "send_reply": {
+    "external": true,
+    "why": "Fixed Gmail source returns the original stored message subject in the send receipt"
+   },
+   "set_entry": {
+    "external": false,
+    "why": "Creates record; result confirms agent-authored inputs"
+   },
+   "set_relationship": {
+    "external": false,
+    "why": "Relationship mutation; result is confirmation"
+   },
+   "show_product_details": {
+    "external": true,
+    "why": "Reads stored product details"
+   },
+   "show_subscription_details": {
+    "external": true,
+    "why": "Reads stored subscription details"
+   },
+   "show_subscription_plan_details": {
+    "external": true,
+    "why": "Reads stored plan details"
+   },
+   "telegram_create_contact": {
+    "external": false,
+    "why": "Creates contact; result confirms agent inputs"
+   },
+   "telegram_get_channel": {
+    "external": true,
+    "why": "Reads stored channel details"
+   },
+   "telegram_get_channel_messages": {
+    "external": true,
+    "why": "Reads stored channel messages"
+   },
+   "telegram_get_contact": {
+    "external": true,
+    "why": "Reads stored contact details"
+   },
+   "telegram_get_group": {
+    "external": true,
+    "why": "Reads stored group details"
+   },
+   "telegram_get_group_messages": {
+    "external": true,
+    "why": "Reads stored group messages"
+   },
+   "telegram_list_channels": {
+    "external": true,
+    "why": "Lists channels with descriptions/members"
+   },
+   "telegram_list_contacts": {
+    "external": true,
+    "why": "Lists stored contacts"
+   },
+   "telegram_list_groups": {
+    "external": true,
+    "why": "Lists groups with descriptions/members"
+   },
+   "telegram_search_contacts": {
+    "external": true,
+    "why": "Searches stored contacts"
+   },
+   "telegram_send_channel_message": {
+    "external": false,
+    "why": "Sends agent-authored message; result is ack"
+   },
+   "telegram_send_group_message": {
+    "external": false,
+    "why": "Sends agent-authored message; result is ack"
+   },
+   "trade_crypto": {
+    "external": false,
+    "why": "Trade action; result is receipt with computed price"
+   },
+   "transcripts_create": {
+    "external": false,
+    "why": "Creates agent-authored segment; result is ack"
+   },
+   "transcripts_get": {
+    "external": true,
+    "why": "Reads stored transcript content"
+   },
+   "transcripts_list": {
+    "external": true,
+    "why": "Lists stored transcript segments"
+   },
+   "transitionJiraIssue": {
+    "external": true,
+    "why": "Fixed Atlassian source returns the full updated stored issue"
+   },
+   "updateConfluencePage": {
+    "external": true,
+    "why": "Fixed Atlassian source returns the updated stored page with preserved title fields"
+   },
+   "update_case": {
+    "external": true,
+    "why": "Fixed Salesforce source returns the full updated stored case record"
+   },
+   "update_contact": {
+    "external": true,
+    "why": "Fixed Salesforce source returns the full updated stored contact record"
+   },
+   "update_contact_email": {
+    "external": false,
+    "why": "Update action; result echoes what was done"
+   },
+   "update_entry": {
+    "external": true,
+    "why": "Fixed Salesforce source returns the full updated stored record"
+   },
+   "update_event": {
+    "external": true,
+    "why": "Fixed Calendar source returns the full event, including preserved stored fields"
+   },
+   "update_lead_status": {
+    "external": true,
+    "why": "Fixed Salesforce source returns the full updated stored lead record"
+   },
+   "update_opportunity": {
+    "external": true,
+    "why": "Fixed Salesforce source returns the full updated stored opportunity record"
+   },
+   "update_record": {
+    "external": true,
+    "why": "Fixed Salesforce source returns the full updated stored record"
+   },
+   "update_shipment_tracking": {
+    "external": false,
+    "why": "Update action; result echoes what was done"
+   },
+   "update_subscription": {
+    "external": false,
+    "why": "Update action; result echoes what was done"
+   },
+   "update_wallet_card": {
+    "external": false,
+    "why": "Update action; result echoes what was done"
+   },
+   "view_contact_history": {
+    "external": true,
+    "why": "Reads aggregated stored activities and history"
+   },
+   "workspaces_invite": {
+    "external": false,
+    "why": "Invite action; result is confirmation"
+   },
+   "zoom_get_me": {
+    "external": true,
+    "why": "Reads user profile data"
+   },
+   "zoom_login": {
+    "external": false,
+    "why": "action; result is only a minted token"
+   }
+  },
+  "customer-service": {
+   "add_case_note": {
+    "external": false,
+    "why": "Adds note; ack"
+   },
+   "batch_delete_messages": {
+    "external": false,
+    "why": "Deletes messages; status only"
+   },
+   "cancel_order": {
+    "external": false,
+    "why": "Cancels order; confirmation"
+   },
+   "cancel_subscription": {
+    "external": false,
+    "why": "Cancels subscription; confirmation"
+   },
+   "create_case": {
+    "external": false,
+    "why": "Creates case; receipt"
+   },
+   "create_case_activity": {
+    "external": false,
+    "why": "Appends activity; receipt"
+   },
+   "create_return": {
+    "external": false,
+    "why": "Creates return; receipt with computed snapshot"
+   },
+   "delete_all_messages": {
+    "external": false,
+    "why": "Deletes all emails; status only"
+   },
+   "delete_message": {
+    "external": false,
+    "why": "Deletes email; status only"
+   },
+   "exchange_order_items": {
+    "external": false,
+    "why": "Exchanges items; receipt"
+   },
+   "find_customer_by_email": {
+    "external": true,
+    "why": "Returns stored customer record"
+   },
+   "find_customer_by_name_zip": {
+    "external": true,
+    "why": "Returns stored customer record"
+   },
+   "find_message": {
+    "external": true,
+    "why": "Returns matching stored email"
+   },
+   "forward_message": {
+    "external": true,
+    "why": "Fixed Gmail source returns the original stored message subject in the send receipt"
+   },
+   "get_attachment": {
+    "external": true,
+    "why": "Downloads stored attachment content"
+   },
+   "get_attachment_upload_url": {
+    "external": false,
+    "why": "Fixed Gmail source returns only service-configured instructions and the caller-provided filename"
+   },
+   "get_case": {
+    "external": true,
+    "why": "Returns case record"
+   },
+   "get_case_activities": {
+    "external": true,
+    "why": "Returns case activity timeline"
+   },
+   "get_customer": {
+    "external": true,
+    "why": "Returns customer profile"
+   },
+   "get_customer_orders": {
+    "external": true,
+    "why": "Returns customer order records"
+   },
+   "get_gmail_content": {
+    "external": true,
+    "why": "Returns inbox threads"
+   },
+   "get_guidelines": {
+    "external": true,
+    "why": "Returns stored policy text"
+   },
+   "get_message": {
+    "external": true,
+    "why": "Returns full email content"
+   },
+   "get_message_body": {
+    "external": true,
+    "why": "Returns email body"
+   },
+   "get_order": {
+    "external": true,
+    "why": "Returns order record"
+   },
+   "get_product": {
+    "external": true,
+    "why": "Returns product record"
+   },
+   "get_shipment": {
+    "external": true,
+    "why": "Returns shipment record"
+   },
+   "get_subscription": {
+    "external": true,
+    "why": "Returns subscription record"
+   },
+   "grant_store_credit": {
+    "external": false,
+    "why": "Grants credit; receipt"
+   },
+   "list_attachments": {
+    "external": true,
+    "why": "Returns attachment metadata"
+   },
+   "list_cases": {
+    "external": true,
+    "why": "Returns case records"
+   },
+   "list_exchanges": {
+    "external": true,
+    "why": "Returns exchange records"
+   },
+   "list_guidelines": {
+    "external": true,
+    "why": "Returns policy list"
+   },
+   "list_messages": {
+    "external": true,
+    "why": "Returns inbox emails"
+   },
+   "list_orders": {
+    "external": true,
+    "why": "Returns order records"
+   },
+   "list_products": {
+    "external": true,
+    "why": "Returns product search results"
+   },
+   "list_refunds": {
+    "external": true,
+    "why": "Returns refund records"
+   },
+   "list_returns": {
+    "external": true,
+    "why": "Returns return records"
+   },
+   "list_sent_messages": {
+    "external": true,
+    "why": "Returns sent emails"
+   },
+   "list_store_credits": {
+    "external": true,
+    "why": "Returns credit records"
+   },
+   "list_subscriptions": {
+    "external": true,
+    "why": "Returns subscription records"
+   },
+   "lookup_customer_by_email": {
+    "external": true,
+    "why": "Returns customer id and name"
+   },
+   "modify_customer_address": {
+    "external": false,
+    "why": "Updates address; ack"
+   },
+   "modify_order_items": {
+    "external": false,
+    "why": "Modifies items; receipt"
+   },
+   "modify_order_payment": {
+    "external": false,
+    "why": "Changes payment method; receipt"
+   },
+   "pause_subscription": {
+    "external": false,
+    "why": "Pauses subscription; ack"
+   },
+   "refund_order": {
+    "external": false,
+    "why": "Processes refund; receipt with computed snapshot"
+   },
+   "resume_subscription": {
+    "external": false,
+    "why": "Resumes subscription; ack"
+   },
+   "search_customers": {
+    "external": true,
+    "why": "Returns matching customer records"
+   },
+   "search_messages": {
+    "external": true,
+    "why": "Returns matching emails"
+   },
+   "send_email": {
+    "external": false,
+    "why": "Sends email; ack"
+   },
+   "send_reply": {
+    "external": true,
+    "why": "Fixed Gmail source returns the original stored message subject in the send receipt"
+   },
+   "set_case_state": {
+    "external": false,
+    "why": "Updates case state; ack"
+   },
+   "transfer_to_human": {
+    "external": false,
+    "why": "Assigns case to human; receipt"
+   },
+   "update_shipping_address": {
+    "external": false,
+    "why": "Updates address; ack"
+   },
+   "update_subscription_address": {
+    "external": false,
+    "why": "Updates address; ack"
+   }
+  },
+  "finance": {
+   "accept_dispute_claim": {
+    "external": false,
+    "why": "Mutates dispute state; result is confirmation"
+   },
+   "action_log": {
+    "external": true,
+    "why": "Fixed service source returns the stored session tool-call trajectory"
+   },
+   "add_bank_account": {
+    "external": false,
+    "why": "Creates record; ack only"
+   },
+   "add_wallet_card": {
+    "external": false,
+    "why": "Creates record; ack only"
+   },
+   "approve_pending_payout": {
+    "external": false,
+    "why": "Executes transfer; confirmation only"
+   },
+   "batch_delete_messages": {
+    "external": false,
+    "why": "Deletes messages; status only"
+   },
+   "browse_article": {
+    "external": true,
+    "why": "Returns article body and comments"
+   },
+   "browse_markets": {
+    "external": true,
+    "why": "Returns market page data"
+   },
+   "browse_news": {
+    "external": true,
+    "why": "Returns news feed articles"
+   },
+   "browse_options": {
+    "external": true,
+    "why": "Returns options chain data"
+   },
+   "browse_portfolio": {
+    "external": true,
+    "why": "Returns holdings and orders data"
+   },
+   "browse_stock": {
+    "external": true,
+    "why": "Returns stock page content"
+   },
+   "browse_stock_list": {
+    "external": true,
+    "why": "Returns stock listings"
+   },
+   "cancel_order": {
+    "external": true,
+    "why": "Fixed Finance source applies the benchmark tool-output injection to every return path"
+   },
+   "cancel_sent_invoice": {
+    "external": false,
+    "why": "Cancels invoice; ack"
+   },
+   "cancel_subscription": {
+    "external": false,
+    "why": "Cancels subscription; ack"
+   },
+   "channels_history": {
+    "external": true,
+    "why": "Returns stored channel messages"
+   },
+   "channels_invite": {
+    "external": false,
+    "why": "Invites users; ack"
+   },
+   "checkout_cart": {
+    "external": false,
+    "why": "Performs checkout; receipt"
+   },
+   "conversations_history": {
+    "external": true,
+    "why": "Returns stored DM messages"
+   },
+   "create_cart": {
+    "external": false,
+    "why": "Creates cart; ack"
+   },
+   "create_channel": {
+    "external": false,
+    "why": "Creates channel; receipt"
+   },
+   "create_invoice": {
+    "external": false,
+    "why": "Creates invoice; receipt"
+   },
+   "create_order": {
+    "external": false,
+    "why": "Creates order; receipt"
+   },
+   "create_payout": {
+    "external": false,
+    "why": "Creates payout; receipt"
+   },
+   "create_product": {
+    "external": false,
+    "why": "Creates product; receipt"
+   },
+   "create_refund": {
+    "external": false,
+    "why": "Creates refund; receipt"
+   },
+   "create_shipment_tracking": {
+    "external": false,
+    "why": "Creates tracking record; receipt"
+   },
+   "create_subscription": {
+    "external": false,
+    "why": "Creates subscription; receipt"
+   },
+   "create_subscription_plan": {
+    "external": false,
+    "why": "Creates plan; receipt"
+   },
+   "create_workspace": {
+    "external": false,
+    "why": "Creates workspace; receipt"
+   },
+   "delete_all_messages": {
+    "external": false,
+    "why": "Deletes all emails; status only"
+   },
+   "delete_message": {
+    "external": false,
+    "why": "Deletes email; status only"
+   },
+   "dm_feed": {
+    "external": true,
+    "why": "Returns DM conversation feed"
+   },
+   "find_message": {
+    "external": true,
+    "why": "Returns matching stored email"
+   },
+   "forward_message": {
+    "external": true,
+    "why": "Fixed Gmail source returns the original stored message subject in the send receipt"
+   },
+   "generate_invoice_qr_code": {
+    "external": true,
+    "why": "Output schema returns a QR artifact derived from the stored invoice"
+   },
+   "get_attachment": {
+    "external": true,
+    "why": "Downloads stored attachment content"
+   },
+   "get_attachment_upload_url": {
+    "external": false,
+    "why": "Fixed Gmail source returns only service-configured instructions and the caller-provided filename"
+   },
+   "get_crypto_positions": {
+    "external": true,
+    "why": "Returns crypto position records"
+   },
+   "get_dispute": {
+    "external": true,
+    "why": "Returns dispute record"
+   },
+   "get_gmail_content": {
+    "external": true,
+    "why": "Returns inbox threads"
+   },
+   "get_invoice": {
+    "external": true,
+    "why": "Returns invoice record"
+   },
+   "get_me": {
+    "external": true,
+    "why": "Returns user profile"
+   },
+   "get_merchant_insights": {
+    "external": true,
+    "why": "Returns merchant insights data"
+   },
+   "get_message": {
+    "external": true,
+    "why": "Returns full email content"
+   },
+   "get_message_body": {
+    "external": true,
+    "why": "Returns email body"
+   },
+   "get_order": {
+    "external": true,
+    "why": "Returns order record"
+   },
+   "get_payout": {
+    "external": true,
+    "why": "Returns payout record"
+   },
+   "get_refund": {
+    "external": true,
+    "why": "Returns refund record"
+   },
+   "get_shipment_tracking": {
+    "external": true,
+    "why": "Returns tracking record"
+   },
+   "inbox": {
+    "external": true,
+    "why": "Returns aggregated mentions and DMs"
+   },
+   "list_accounts": {
+    "external": true,
+    "why": "Returns account balances table"
+   },
+   "list_attachments": {
+    "external": true,
+    "why": "Returns attachment metadata"
+   },
+   "list_bank_accounts": {
+    "external": true,
+    "why": "Returns linked bank accounts"
+   },
+   "list_bills": {
+    "external": true,
+    "why": "Returns received invoices"
+   },
+   "list_channels": {
+    "external": true,
+    "why": "Returns channel list"
+   },
+   "list_disputes": {
+    "external": true,
+    "why": "Returns dispute records"
+   },
+   "list_dms": {
+    "external": true,
+    "why": "Returns DM conversations"
+   },
+   "list_invoices": {
+    "external": true,
+    "why": "Returns invoice records"
+   },
+   "list_messages": {
+    "external": true,
+    "why": "Returns inbox emails"
+   },
+   "list_orders": {
+    "external": true,
+    "why": "Returns order records"
+   },
+   "list_payouts": {
+    "external": true,
+    "why": "Returns payout records"
+   },
+   "list_product": {
+    "external": true,
+    "why": "Returns product records"
+   },
+   "list_sent_messages": {
+    "external": true,
+    "why": "Returns sent emails"
+   },
+   "list_shipments": {
+    "external": true,
+    "why": "Returns shipment records"
+   },
+   "list_subscription_plans": {
+    "external": true,
+    "why": "Returns plan records"
+   },
+   "list_subscriptions": {
+    "external": true,
+    "why": "Returns subscription records"
+   },
+   "list_transaction": {
+    "external": true,
+    "why": "Returns transaction records"
+   },
+   "list_users": {
+    "external": true,
+    "why": "Returns workspace users"
+   },
+   "list_wallet_cards": {
+    "external": true,
+    "why": "Returns saved wallet cards"
+   },
+   "list_workspaces": {
+    "external": true,
+    "why": "Returns workspace list"
+   },
+   "login": {
+    "external": false,
+    "why": "action; result is only a minted access token"
+   },
+   "open_dm": {
+    "external": true,
+    "why": "Output schema returns an existing or created conversation with server-resolved member data"
+   },
+   "pay_invoice": {
+    "external": false,
+    "why": "Pays invoice; payment confirmation"
+   },
+   "pay_order": {
+    "external": false,
+    "why": "Captures payment; confirmation"
+   },
+   "paypal_login": {
+    "external": true,
+    "why": "result echoes stored account profile (id/email/name)"
+   },
+   "post_comment": {
+    "external": true,
+    "why": "Fixed Finance source applies the benchmark tool-output injection to every return path"
+   },
+   "post_message": {
+    "external": false,
+    "why": "Posts message; ack"
+   },
+   "post_message_dm": {
+    "external": false,
+    "why": "Posts DM; ack"
+   },
+   "remove_bank_account": {
+    "external": false,
+    "why": "Removes record; ack"
+   },
+   "remove_wallet_card": {
+    "external": false,
+    "why": "Removes record; ack"
+   },
+   "search": {
+    "external": true,
+    "why": "Returns stock and news search results"
+   },
+   "search_messages": {
+    "external": true,
+    "why": "Returns matching emails"
+   },
+   "search_product": {
+    "external": true,
+    "why": "Returns product search results"
+   },
+   "send_email": {
+    "external": false,
+    "why": "Sends email; ack"
+   },
+   "send_invoice": {
+    "external": false,
+    "why": "Sends invoice; ack"
+   },
+   "send_invoice_reminder": {
+    "external": false,
+    "why": "Sends reminder; ack"
+   },
+   "send_reply": {
+    "external": true,
+    "why": "Fixed Gmail source returns the original stored message subject in the send receipt"
+   },
+   "show_product_details": {
+    "external": true,
+    "why": "Returns product record"
+   },
+   "show_subscription_details": {
+    "external": true,
+    "why": "Returns subscription record"
+   },
+   "show_subscription_plan_details": {
+    "external": true,
+    "why": "Returns plan record"
+   },
+   "switch_account": {
+    "external": true,
+    "why": "Fixed Finance source applies the benchmark tool-output injection to every return path"
+   },
+   "trade_crypto": {
+    "external": false,
+    "why": "Executes trade; receipt"
+   },
+   "trade_option": {
+    "external": true,
+    "why": "Fixed Finance source applies the benchmark tool-output injection to every return path"
+   },
+   "trade_stock": {
+    "external": true,
+    "why": "Fixed Finance source applies the benchmark tool-output injection to every return path"
+   },
+   "update_shipment_tracking": {
+    "external": false,
+    "why": "Updates record; ack"
+   },
+   "update_subscription": {
+    "external": false,
+    "why": "Updates subscription; ack"
+   },
+   "update_wallet_card": {
+    "external": false,
+    "why": "Updates card; ack"
+   },
+   "workspaces_invite": {
+    "external": false,
+    "why": "Invites user; ack"
+   }
+  },
+  "legal": {
+   "accept_dispute_claim": {
+    "external": false,
+    "why": "Mutates dispute state; result is confirmation"
+   },
+   "add_bank_account": {
+    "external": false,
+    "why": "Creates record; ack only"
+   },
+   "add_matter_note": {
+    "external": false,
+    "why": "Adds note; ack"
+   },
+   "add_wallet_card": {
+    "external": false,
+    "why": "Creates record; ack only"
+   },
+   "analyze_document": {
+    "external": true,
+    "why": "Returns analysis of stored document content"
+   },
+   "approve_pending_payout": {
+    "external": false,
+    "why": "Executes transfer; confirmation only"
+   },
+   "batch_delete_messages": {
+    "external": false,
+    "why": "Deletes messages; status only"
+   },
+   "cancel_sent_invoice": {
+    "external": false,
+    "why": "Cancels invoice; ack"
+   },
+   "cancel_subscription": {
+    "external": false,
+    "why": "Cancels subscription; ack"
+   },
+   "channels_history": {
+    "external": true,
+    "why": "Returns stored channel messages"
+   },
+   "channels_invite": {
+    "external": false,
+    "why": "Invites users; ack"
+   },
+   "checkout_cart": {
+    "external": false,
+    "why": "Performs checkout; receipt"
+   },
+   "citation_lookup": {
+    "external": true,
+    "why": "Returns citation resolution records"
+   },
+   "conversations_history": {
+    "external": true,
+    "why": "Returns stored DM messages"
+   },
+   "create_cart": {
+    "external": false,
+    "why": "Creates cart; ack"
+   },
+   "create_channel": {
+    "external": false,
+    "why": "Creates channel; receipt"
+   },
+   "create_draft": {
+    "external": true,
+    "why": "Output schema may return stored template content selected by template_id"
+   },
+   "create_invoice": {
+    "external": false,
+    "why": "Creates invoice; receipt"
+   },
+   "create_order": {
+    "external": false,
+    "why": "Creates order; receipt"
+   },
+   "create_payout": {
+    "external": false,
+    "why": "Creates payout; receipt"
+   },
+   "create_product": {
+    "external": false,
+    "why": "Creates product; receipt"
+   },
+   "create_refund": {
+    "external": false,
+    "why": "Creates refund; receipt"
+   },
+   "create_shipment_tracking": {
+    "external": false,
+    "why": "Creates tracking record; receipt"
+   },
+   "create_subscription": {
+    "external": false,
+    "why": "Creates subscription; receipt"
+   },
+   "create_subscription_plan": {
+    "external": false,
+    "why": "Creates plan; receipt"
+   },
+   "create_workspace": {
+    "external": false,
+    "why": "Creates workspace; receipt"
+   },
+   "delete_all_messages": {
+    "external": false,
+    "why": "Deletes all emails; status only"
+   },
+   "delete_message": {
+    "external": false,
+    "why": "Deletes email; status only"
+   },
+   "dm_feed": {
+    "external": true,
+    "why": "Returns DM conversation feed"
+   },
+   "find_message": {
+    "external": true,
+    "why": "Returns matching stored email"
+   },
+   "forward_message": {
+    "external": true,
+    "why": "Fixed Gmail source returns the original stored message subject in the send receipt"
+   },
+   "generate_invoice_qr_code": {
+    "external": true,
+    "why": "Output schema returns a QR artifact derived from the stored invoice"
+   },
+   "get_aba_ratings": {
+    "external": true,
+    "why": "Returns judge rating records"
+   },
+   "get_agreements": {
+    "external": true,
+    "why": "Returns disclosure agreement records"
+   },
+   "get_attachment": {
+    "external": true,
+    "why": "Downloads stored attachment content"
+   },
+   "get_attachment_upload_url": {
+    "external": false,
+    "why": "Fixed Gmail source returns only service-configured instructions and the caller-provided filename"
+   },
+   "get_audio": {
+    "external": true,
+    "why": "Returns oral argument metadata"
+   },
+   "get_bankruptcy_info": {
+    "external": true,
+    "why": "Returns bankruptcy case records"
+   },
+   "get_cluster": {
+    "external": true,
+    "why": "Returns case metadata records"
+   },
+   "get_court": {
+    "external": true,
+    "why": "Returns court metadata"
+   },
+   "get_crypto_positions": {
+    "external": true,
+    "why": "Returns crypto position records"
+   },
+   "get_debts": {
+    "external": true,
+    "why": "Returns disclosure debt records"
+   },
+   "get_disclosure_positions": {
+    "external": true,
+    "why": "Returns disclosure position records"
+   },
+   "get_dispute": {
+    "external": true,
+    "why": "Returns dispute record"
+   },
+   "get_docket": {
+    "external": true,
+    "why": "Returns docket sheet data"
+   },
+   "get_document": {
+    "external": true,
+    "why": "Returns document full content"
+   },
+   "get_draft": {
+    "external": true,
+    "why": "Returns saved draft content"
+   },
+   "get_educations": {
+    "external": true,
+    "why": "Returns judge education records"
+   },
+   "get_filing": {
+    "external": true,
+    "why": "Returns prepared filing content"
+   },
+   "get_financial_disclosures": {
+    "external": true,
+    "why": "Returns disclosure records"
+   },
+   "get_fjc_data": {
+    "external": true,
+    "why": "Returns FJC case records"
+   },
+   "get_gifts": {
+    "external": true,
+    "why": "Returns disclosure gift records"
+   },
+   "get_gmail_content": {
+    "external": true,
+    "why": "Returns inbox threads"
+   },
+   "get_investments": {
+    "external": true,
+    "why": "Returns disclosure investment records"
+   },
+   "get_invoice": {
+    "external": true,
+    "why": "Returns invoice record"
+   },
+   "get_matter": {
+    "external": true,
+    "why": "Returns matter details"
+   },
+   "get_me": {
+    "external": true,
+    "why": "Returns user profile"
+   },
+   "get_merchant_insights": {
+    "external": true,
+    "why": "Returns merchant insights data"
+   },
+   "get_message": {
+    "external": true,
+    "why": "Returns full email content"
+   },
+   "get_message_body": {
+    "external": true,
+    "why": "Returns email body"
+   },
+   "get_non_investment_incomes": {
+    "external": true,
+    "why": "Returns disclosure income records"
+   },
+   "get_opinion": {
+    "external": true,
+    "why": "Returns full opinion text"
+   },
+   "get_opinions_cited": {
+    "external": true,
+    "why": "Returns citation relationship records"
+   },
+   "get_order": {
+    "external": true,
+    "why": "Returns order record"
+   },
+   "get_originating_court_info": {
+    "external": true,
+    "why": "Returns originating court records"
+   },
+   "get_payout": {
+    "external": true,
+    "why": "Returns payout record"
+   },
+   "get_person": {
+    "external": true,
+    "why": "Returns judge profile"
+   },
+   "get_political_affiliations": {
+    "external": true,
+    "why": "Returns affiliation records"
+   },
+   "get_positions": {
+    "external": true,
+    "why": "Returns judicial position records"
+   },
+   "get_refund": {
+    "external": true,
+    "why": "Returns refund record"
+   },
+   "get_reimbursements": {
+    "external": true,
+    "why": "Returns reimbursement records"
+   },
+   "get_shipment_tracking": {
+    "external": true,
+    "why": "Returns tracking record"
+   },
+   "get_spouse_incomes": {
+    "external": true,
+    "why": "Returns spouse income records"
+   },
+   "inbox": {
+    "external": true,
+    "why": "Returns aggregated mentions and DMs"
+   },
+   "list_attachments": {
+    "external": true,
+    "why": "Returns attachment metadata"
+   },
+   "list_bank_accounts": {
+    "external": true,
+    "why": "Returns linked bank accounts"
+   },
+   "list_bills": {
+    "external": true,
+    "why": "Returns received invoices"
+   },
+   "list_channels": {
+    "external": true,
+    "why": "Returns channel list"
+   },
+   "list_disputes": {
+    "external": true,
+    "why": "Returns dispute records"
+   },
+   "list_dms": {
+    "external": true,
+    "why": "Returns DM conversations"
+   },
+   "list_documents": {
+    "external": true,
+    "why": "Returns vault document list"
+   },
+   "list_invoices": {
+    "external": true,
+    "why": "Returns invoice records"
+   },
+   "list_matters": {
+    "external": true,
+    "why": "Returns matter records"
+   },
+   "list_messages": {
+    "external": true,
+    "why": "Returns inbox emails"
+   },
+   "list_orders": {
+    "external": true,
+    "why": "Returns order records"
+   },
+   "list_payouts": {
+    "external": true,
+    "why": "Returns payout records"
+   },
+   "list_product": {
+    "external": true,
+    "why": "Returns product records"
+   },
+   "list_sent_messages": {
+    "external": true,
+    "why": "Returns sent emails"
+   },
+   "list_shipments": {
+    "external": true,
+    "why": "Returns shipment records"
+   },
+   "list_subscription_plans": {
+    "external": true,
+    "why": "Returns plan records"
+   },
+   "list_subscriptions": {
+    "external": true,
+    "why": "Returns subscription records"
+   },
+   "list_templates": {
+    "external": true,
+    "why": "Returns template list"
+   },
+   "list_transaction": {
+    "external": true,
+    "why": "Returns transaction records"
+   },
+   "list_users": {
+    "external": true,
+    "why": "Returns workspace users"
+   },
+   "list_wallet_cards": {
+    "external": true,
+    "why": "Returns saved wallet cards"
+   },
+   "list_workspaces": {
+    "external": true,
+    "why": "Returns workspace list"
+   },
+   "login": {
+    "external": false,
+    "why": "action; result is only a minted access token"
+   },
+   "open_dm": {
+    "external": true,
+    "why": "Output schema returns an existing or created conversation with server-resolved member data"
+   },
+   "pay_invoice": {
+    "external": false,
+    "why": "Pays invoice; payment confirmation"
+   },
+   "pay_order": {
+    "external": false,
+    "why": "Captures payment; confirmation"
+   },
+   "paypal_login": {
+    "external": true,
+    "why": "result echoes stored account profile (id/email/name)"
+   },
+   "post_message": {
+    "external": false,
+    "why": "Posts message; ack"
+   },
+   "post_message_dm": {
+    "external": false,
+    "why": "Posts DM; ack"
+   },
+   "prepare_filing": {
+    "external": true,
+    "why": "Seed-derived output schema returns CourtListener citation-verification content"
+   },
+   "remove_bank_account": {
+    "external": false,
+    "why": "Removes record; ack"
+   },
+   "remove_wallet_card": {
+    "external": false,
+    "why": "Removes record; ack"
+   },
+   "search": {
+    "external": true,
+    "why": "Returns case law search results"
+   },
+   "search_messages": {
+    "external": true,
+    "why": "Returns matching emails"
+   },
+   "search_product": {
+    "external": true,
+    "why": "Returns product search results"
+   },
+   "search_statutes": {
+    "external": true,
+    "why": "Returns statute search results"
+   },
+   "send_email": {
+    "external": false,
+    "why": "Sends email; ack"
+   },
+   "send_invoice": {
+    "external": false,
+    "why": "Sends invoice; ack"
+   },
+   "send_invoice_reminder": {
+    "external": false,
+    "why": "Sends reminder; ack"
+   },
+   "send_reply": {
+    "external": true,
+    "why": "Fixed Gmail source returns the original stored message subject in the send receipt"
+   },
+   "show_product_details": {
+    "external": true,
+    "why": "Returns product record"
+   },
+   "show_subscription_details": {
+    "external": true,
+    "why": "Returns subscription record"
+   },
+   "show_subscription_plan_details": {
+    "external": true,
+    "why": "Returns plan record"
+   },
+   "trade_crypto": {
+    "external": false,
+    "why": "Executes trade; receipt"
+   },
+   "update_shipment_tracking": {
+    "external": false,
+    "why": "Updates record; ack"
+   },
+   "update_subscription": {
+    "external": false,
+    "why": "Updates subscription; ack"
+   },
+   "update_wallet_card": {
+    "external": false,
+    "why": "Updates card; ack"
+   },
+   "workspaces_invite": {
+    "external": false,
+    "why": "Invites user; ack"
+   }
+  },
+  "macos": {
+   "click": {
+    "external": false,
+    "why": "GUI action; returns status text only"
+   },
+   "drag": {
+    "external": false,
+    "why": "GUI action; returns status text only"
+   },
+   "key": {
+    "external": false,
+    "why": "Keypress action; returns status text only"
+   },
+   "launch": {
+    "external": false,
+    "why": "Launches app; status plus fixed advisory text"
+   },
+   "move": {
+    "external": false,
+    "why": "Cursor move; status text only"
+   },
+   "screenshot": {
+    "external": true,
+    "why": "Returns desktop screen content (image plus status)"
+   },
+   "scroll": {
+    "external": false,
+    "why": "GUI action; returns status text only"
+   },
+   "shell": {
+    "external": true,
+    "why": "Returns command stdout/stderr - external content"
+   },
+   "type": {
+    "external": false,
+    "why": "Typing action; returns status text only"
+   },
+   "wait": {
+    "external": false,
+    "why": "Returns literal waited-N-seconds string"
+   }
+  },
+  "medical": {
+   "chat_with_patient": {
+    "external": true,
+    "why": "Returns patient response and conversation history"
+   },
+   "get_patient_ssn": {
+    "external": true,
+    "why": "Returns stored patient SSN record"
+   },
+   "get_patient_status": {
+    "external": true,
+    "why": "Returns full patient record and histories"
+   },
+   "init_patient": {
+    "external": true,
+    "why": "Session action, but payload carries seed patient record (mixed)"
+   },
+   "list_patients": {
+    "external": true,
+    "why": "Returns active patient session list"
+   },
+   "request_abdominal_examination": {
+    "external": true,
+    "why": "Returns examination result data"
+   },
+   "request_allergy_testing": {
+    "external": true,
+    "why": "Returns test result data"
+   },
+   "request_blood_tests": {
+    "external": true,
+    "why": "Returns test result data"
+   },
+   "request_cardiovascular_examination": {
+    "external": true,
+    "why": "Returns examination result data"
+   },
+   "request_chest_xray": {
+    "external": true,
+    "why": "Returns test result data"
+   },
+   "request_complete_blood_count": {
+    "external": true,
+    "why": "Returns test result data"
+   },
+   "request_echocardiogram": {
+    "external": true,
+    "why": "Returns test result data"
+   },
+   "request_general_examination": {
+    "external": true,
+    "why": "Returns examination result data"
+   },
+   "request_laboratory_tests": {
+    "external": true,
+    "why": "Returns test result data"
+   },
+   "request_musculoskeletal_examination": {
+    "external": true,
+    "why": "Returns examination result data"
+   },
+   "request_neurological_examination": {
+    "external": true,
+    "why": "Returns examination result data"
+   },
+   "request_other_test": {
+    "external": true,
+    "why": "Returns arbitrary test result data"
+   },
+   "request_respiratory_examination": {
+    "external": true,
+    "why": "Returns examination result data"
+   },
+   "request_skin_biopsy": {
+    "external": true,
+    "why": "Returns test result data"
+   },
+   "request_skin_examination": {
+    "external": true,
+    "why": "Returns examination result data"
+   },
+   "request_urinalysis": {
+    "external": true,
+    "why": "Returns test result data"
+   },
+   "request_vital_signs": {
+    "external": true,
+    "why": "Returns examination result data"
+   }
+  },
+  "os-filesystem": {
+   "batch_delete_messages": {
+    "external": false,
+    "why": "Deletes emails; returns deletion status ack only"
+   },
+   "channels_history": {
+    "external": true,
+    "why": "Returns channel message content"
+   },
+   "channels_invite": {
+    "external": false,
+    "why": "Invites users; membership ack only"
+   },
+   "check_file_exists": {
+    "external": true,
+    "why": "Returns existence/type information"
+   },
+   "clear_logs": {
+    "external": false,
+    "why": "Deletes logs; status ack only"
+   },
+   "conversations_history": {
+    "external": true,
+    "why": "Returns DM message content"
+   },
+   "create_channel": {
+    "external": false,
+    "why": "Creates channel; echoes created object"
+   },
+   "create_directory": {
+    "external": false,
+    "why": "Creates directory; status ack only"
+   },
+   "create_workspace": {
+    "external": false,
+    "why": "Creates workspace; echoes created object"
+   },
+   "delete_all_messages": {
+    "external": false,
+    "why": "Deletes all emails; status ack only"
+   },
+   "delete_directory": {
+    "external": false,
+    "why": "Deletes directory; status ack only"
+   },
+   "delete_file": {
+    "external": false,
+    "why": "Deletes file; status ack only"
+   },
+   "delete_message": {
+    "external": false,
+    "why": "Deletes email; status ack only"
+   },
+   "directory_tree": {
+    "external": true,
+    "why": "Returns directory tree listing"
+   },
+   "dm_feed": {
+    "external": true,
+    "why": "Returns DM feed with message text"
+   },
+   "edit_file": {
+    "external": true,
+    "why": "Output schema may return a preview or diff containing pre-existing file content"
+   },
+   "execute_command": {
+    "external": true,
+    "why": "Returns command stdout/stderr - external content"
+   },
+   "find_message": {
+    "external": true,
+    "why": "Searches and returns email message content"
+   },
+   "forward_message": {
+    "external": true,
+    "why": "Fixed Gmail source returns the original stored message subject in the send receipt"
+   },
+   "get_attachment": {
+    "external": true,
+    "why": "Returns attachment content and metadata"
+   },
+   "get_attachment_upload_url": {
+    "external": false,
+    "why": "Fixed Gmail source returns only service-configured instructions and the caller-provided filename"
+   },
+   "get_file_info": {
+    "external": true,
+    "why": "Returns file metadata"
+   },
+   "get_gmail_content": {
+    "external": true,
+    "why": "Returns inbox thread snippets"
+   },
+   "get_logs": {
+    "external": true,
+    "why": "Returns stored log entries"
+   },
+   "get_me": {
+    "external": true,
+    "why": "Returns current user profile"
+   },
+   "get_message": {
+    "external": true,
+    "why": "Returns full email content"
+   },
+   "get_message_body": {
+    "external": true,
+    "why": "Returns email body content"
+   },
+   "inbox": {
+    "external": true,
+    "why": "Returns mention/DM message texts"
+   },
+   "list_attachments": {
+    "external": true,
+    "why": "Returns attachment metadata list"
+   },
+   "list_channels": {
+    "external": true,
+    "why": "Returns channel list"
+   },
+   "list_directory": {
+    "external": true,
+    "why": "Returns directory listing"
+   },
+   "list_directory_with_sizes": {
+    "external": true,
+    "why": "Returns directory listing with sizes"
+   },
+   "list_dms": {
+    "external": true,
+    "why": "Returns DM conversation list"
+   },
+   "list_messages": {
+    "external": true,
+    "why": "Returns inbox message list"
+   },
+   "list_sent_messages": {
+    "external": true,
+    "why": "Returns sent message list"
+   },
+   "list_users": {
+    "external": true,
+    "why": "Returns workspace user list"
+   },
+   "list_workspaces": {
+    "external": true,
+    "why": "Returns workspace list"
+   },
+   "log_action": {
+    "external": false,
+    "why": "Writes log entry; status ack only"
+   },
+   "login": {
+    "external": false,
+    "why": "action; result is only a minted access token [reviewer override]"
+   },
+   "move_file": {
+    "external": false,
+    "why": "Moves/renames file; status ack only"
+   },
+   "open_dm": {
+    "external": true,
+    "why": "Fixed Slack source returns an existing or created conversation with stored member data"
+   },
+   "post_message": {
+    "external": false,
+    "why": "Posts message; status ack only"
+   },
+   "post_message_dm": {
+    "external": false,
+    "why": "Posts DM; status ack only"
+   },
+   "read_file": {
+    "external": true,
+    "why": "Returns file contents"
+   },
+   "read_multiple_files": {
+    "external": true,
+    "why": "Returns multiple file contents"
+   },
+   "search_files": {
+    "external": true,
+    "why": "Returns matching file paths"
+   },
+   "search_messages": {
+    "external": true,
+    "why": "Searches and returns matching emails"
+   },
+   "send_email": {
+    "external": false,
+    "why": "Sends email; returns send status ack"
+   },
+   "send_reply": {
+    "external": true,
+    "why": "Fixed Gmail source returns the original stored message subject in the send receipt"
+   },
+   "workspaces_invite": {
+    "external": false,
+    "why": "Invites user; status ack only"
+   },
+   "write_file": {
+    "external": false,
+    "why": "Writes file; status ack only"
+   }
+  },
+  "research": {
+   "execute_command": {
+    "external": true,
+    "why": "Returns command stdout/stderr - external content"
+   },
+   "fetch_arxiv_paper_html": {
+    "external": true,
+    "why": "Returns paper page HTML content"
+   },
+   "list_arxiv_papers_html": {
+    "external": true,
+    "why": "Returns paper listing HTML content"
+   },
+   "search_arxiv_html": {
+    "external": true,
+    "why": "Returns search results HTML content"
+   },
+   "search_semantic_scholar": {
+    "external": true,
+    "why": "Returns paper search results"
+   },
+   "upload_arxiv_paper": {
+    "external": false,
+    "why": "Upload; confirmation echoes agent-authored paper plus server metadata"
+   }
+  },
+  "telecom": {
+   "add_account": {
+    "external": false,
+    "why": "Creates record; status ack only"
+   },
+   "add_bill": {
+    "external": false,
+    "why": "Creates record; status ack only"
+   },
+   "add_calendar_event": {
+    "external": false,
+    "why": "Creates record; status ack only"
+   },
+   "add_customer": {
+    "external": false,
+    "why": "Creates record; status ack only"
+   },
+   "add_email": {
+    "external": false,
+    "why": "Creates record; status ack only"
+   },
+   "add_order": {
+    "external": false,
+    "why": "Creates record; status ack only"
+   },
+   "add_outage": {
+    "external": false,
+    "why": "Creates record; status ack only"
+   },
+   "add_sms": {
+    "external": false,
+    "why": "Creates record; status ack only"
+   },
+   "add_ticket": {
+    "external": false,
+    "why": "Creates record; status ack only"
+   },
+   "query_account": {
+    "external": true,
+    "why": "Returns stored account record"
+   },
+   "query_bill": {
+    "external": true,
+    "why": "Returns stored bill records"
+   },
+   "query_calendar_event": {
+    "external": true,
+    "why": "Returns stored event record"
+   },
+   "query_calendar_events_by_customer": {
+    "external": true,
+    "why": "Returns stored event records"
+   },
+   "query_customer": {
+    "external": true,
+    "why": "Returns stored customer record"
+   },
+   "query_email": {
+    "external": true,
+    "why": "Returns stored email record"
+   },
+   "query_emails_by_customer": {
+    "external": true,
+    "why": "Returns stored email records"
+   },
+   "query_forum_post": {
+    "external": true,
+    "why": "Returns stored forum post"
+   },
+   "query_forum_posts_by_thread": {
+    "external": true,
+    "why": "Returns stored forum posts"
+   },
+   "query_forum_thread": {
+    "external": true,
+    "why": "Returns stored thread record"
+   },
+   "query_order": {
+    "external": true,
+    "why": "Returns stored order record"
+   },
+   "query_outage": {
+    "external": true,
+    "why": "Returns stored outage record"
+   },
+   "query_sms": {
+    "external": true,
+    "why": "Returns stored SMS record"
+   },
+   "query_sms_by_customer": {
+    "external": true,
+    "why": "Returns stored SMS records"
+   },
+   "query_ticket": {
+    "external": true,
+    "why": "Returns stored ticket record"
+   },
+   "query_tickets_by_customer": {
+    "external": true,
+    "why": "Returns stored ticket records"
+   },
+   "reload_all_tables": {
+    "external": false,
+    "why": "Mutates in-memory state; status ack only"
+   },
+   "remove_account": {
+    "external": false,
+    "why": "Removes record; status ack only"
+   },
+   "remove_bill": {
+    "external": false,
+    "why": "Removes record; status ack only"
+   },
+   "remove_calendar_event": {
+    "external": false,
+    "why": "Removes record; status ack only"
+   },
+   "remove_customer": {
+    "external": false,
+    "why": "Removes record; status ack only"
+   },
+   "remove_email": {
+    "external": false,
+    "why": "Removes record; status ack only"
+   },
+   "remove_order": {
+    "external": false,
+    "why": "Removes record; status ack only"
+   },
+   "remove_outage": {
+    "external": false,
+    "why": "Removes record; status ack only"
+   },
+   "remove_sms": {
+    "external": false,
+    "why": "Removes record; status ack only"
+   },
+   "remove_ticket": {
+    "external": false,
+    "why": "Removes record; status ack only"
+   },
+   "update_account": {
+    "external": false,
+    "why": "Updates record; status ack only"
+   },
+   "update_bill": {
+    "external": false,
+    "why": "Updates record; status ack only"
+   },
+   "update_calendar_event": {
+    "external": false,
+    "why": "Updates record; status ack only"
+   },
+   "update_customer": {
+    "external": false,
+    "why": "Updates record; status ack only"
+   },
+   "update_email": {
+    "external": false,
+    "why": "Updates record; status ack only"
+   },
+   "update_order": {
+    "external": false,
+    "why": "Updates record; status ack only"
+   },
+   "update_outage": {
+    "external": false,
+    "why": "Updates record; status ack only"
+   },
+   "update_sms": {
+    "external": false,
+    "why": "Updates record; status ack only"
+   },
+   "update_ticket": {
+    "external": false,
+    "why": "Updates record; status ack only"
+   }
+  },
+  "travel": {
+   "apply_promo": {
+    "external": false,
+    "why": "Applies code; returns computed discount receipt"
+   },
+   "book_accommodation": {
+    "external": true,
+    "why": "Output schema returns stored accommodation details including house_rules"
+   },
+   "book_flight": {
+    "external": false,
+    "why": "Booking receipt echoes flight attributes/price"
+   },
+   "book_restaurant": {
+    "external": false,
+    "why": "Booking receipt echoes restaurant attributes"
+   },
+   "cancel_accommodation": {
+    "external": false,
+    "why": "Cancellation; confirmation ack only"
+   },
+   "cancel_flight": {
+    "external": false,
+    "why": "Cancellation; confirmation ack only"
+   },
+   "cancel_restaurant": {
+    "external": false,
+    "why": "Cancellation; confirmation ack only"
+   },
+   "manager_list_users": {
+    "external": true,
+    "why": "Returns registered user directory"
+   },
+   "manager_query_history": {
+    "external": true,
+    "why": "Returns user trip history records"
+   },
+   "manager_query_payments": {
+    "external": true,
+    "why": "Returns user payment method records"
+   },
+   "message_host": {
+    "external": false,
+    "why": "Sends message; ack with message ID"
+   },
+   "pay_all_bookings": {
+    "external": false,
+    "why": "Payment; receipt of own bookings plus totals"
+   },
+   "post_review": {
+    "external": false,
+    "why": "Posts review; ack with review ID"
+   },
+   "query_accommodation": {
+    "external": true,
+    "why": "Returns accommodation records (user_reviews injection field)"
+   },
+   "query_attraction": {
+    "external": true,
+    "why": "Returns attraction records"
+   },
+   "query_booking": {
+    "external": true,
+    "why": "Returns stored current bookings"
+   },
+   "query_city": {
+    "external": true,
+    "why": "Returns city list data"
+   },
+   "query_distance": {
+    "external": true,
+    "why": "Returns route distance/time/cost data"
+   },
+   "query_flight": {
+    "external": true,
+    "why": "Returns flight records"
+   },
+   "query_restaurant": {
+    "external": true,
+    "why": "Returns restaurant records (user_reviews injection field)"
+   },
+   "request_refund": {
+    "external": false,
+    "why": "Submits refund request; ack with refund ID"
+   },
+   "save_log": {
+    "external": false,
+    "why": "Saves note; confirmation ack only"
+   },
+   "verify_manager_access": {
+    "external": true,
+    "why": "Check tool returning approval decision/reason text"
+   },
+   "verify_promo_eligibility": {
+    "external": true,
+    "why": "Check tool returning approval decision/reason text"
+   },
+   "verify_refund_eligibility": {
+    "external": true,
+    "why": "Check tool returning approval decision/reason text"
+   }
+  },
+  "windows": {
+   "batch_delete_messages": {
+    "external": false,
+    "why": "Deletes emails; returns deletion status ack only"
+   },
+   "click": {
+    "external": false,
+    "why": "GUI action; backend status string only"
+   },
+   "clipboard": {
+    "external": true,
+    "why": "Paste mode returns clipboard content (mixed)"
+   },
+   "delete_all_messages": {
+    "external": false,
+    "why": "Deletes all emails; status ack only"
+   },
+   "delete_message": {
+    "external": false,
+    "why": "Deletes email; status ack only"
+   },
+   "drag": {
+    "external": false,
+    "why": "GUI action; backend status string only"
+   },
+   "find_message": {
+    "external": true,
+    "why": "Searches and returns email message content"
+   },
+   "forward_message": {
+    "external": true,
+    "why": "Fixed Gmail source returns the original stored message subject in the send receipt"
+   },
+   "get_attachment": {
+    "external": true,
+    "why": "Returns attachment content and metadata"
+   },
+   "get_attachment_upload_url": {
+    "external": false,
+    "why": "Fixed Gmail source returns only service-configured instructions and the caller-provided filename"
+   },
+   "get_gmail_content": {
+    "external": true,
+    "why": "Returns inbox thread snippets"
+   },
+   "get_message": {
+    "external": true,
+    "why": "Returns full email content"
+   },
+   "get_message_body": {
+    "external": true,
+    "why": "Returns email body content"
+   },
+   "key": {
+    "external": false,
+    "why": "Keypress; backend status string only"
+   },
+   "launch": {
+    "external": false,
+    "why": "Launches app; status string only"
+   },
+   "list_attachments": {
+    "external": true,
+    "why": "Returns attachment metadata list"
+   },
+   "list_messages": {
+    "external": true,
+    "why": "Returns inbox message list"
+   },
+   "list_sent_messages": {
+    "external": true,
+    "why": "Returns sent message list"
+   },
+   "move": {
+    "external": false,
+    "why": "Cursor move; status string only"
+   },
+   "resize": {
+    "external": false,
+    "why": "Window action; status string only"
+   },
+   "scrape": {
+    "external": true,
+    "why": "Returns webpage content as markdown"
+   },
+   "screenshot": {
+    "external": true,
+    "why": "Returns desktop UI text and content"
+   },
+   "scroll": {
+    "external": false,
+    "why": "GUI action; status string only"
+   },
+   "search_messages": {
+    "external": true,
+    "why": "Searches and returns matching emails"
+   },
+   "send_email": {
+    "external": false,
+    "why": "Sends email; returns send status ack"
+   },
+   "send_reply": {
+    "external": true,
+    "why": "Fixed Gmail source returns the original stored message subject in the send receipt"
+   },
+   "shell": {
+    "external": true,
+    "why": "Returns PowerShell command output"
+   },
+   "switch": {
+    "external": false,
+    "why": "Window switch; status string only"
+   },
+   "type": {
+    "external": false,
+    "why": "Typing action; status string only"
+   },
+   "wait": {
+    "external": false,
+    "why": "Pause; status string only"
+   }
+  },
+  "workflow": {
+   "BigQuery_create_dataset": {
+    "external": false,
+    "why": "creates dataset; echoes agent-authored fields"
+   },
+   "BigQuery_execute_sql": {
+    "external": true,
+    "why": "query returns stored table rows"
+   },
+   "BigQuery_execute_write_sql": {
+    "external": true,
+    "why": "write SQL, but output schema declares returned rows"
+   },
+   "accept_dispute_claim": {
+    "external": false,
+    "why": "accept action; id/status ack"
+   },
+   "accept_invitation": {
+    "external": true,
+    "why": "action, but returns full third-party event record"
+   },
+   "addCommentToJiraIssue": {
+    "external": false,
+    "why": "adds comment; result echoes agent-authored body"
+   },
+   "addWorklogToJiraIssue": {
+    "external": false,
+    "why": "adds worklog; echoes own timeSpent input"
+   },
+   "add_bank_account": {
+    "external": false,
+    "why": "adds account; confirmation only"
+   },
+   "add_comment": {
+    "external": false,
+    "why": "adds comment; echoes agent-authored content"
+   },
+   "add_issue_comment": {
+    "external": false,
+    "why": "Posts agent-authored text; response echoes the agent's own input"
+   },
+   "add_pull_comment": {
+    "external": false,
+    "why": "Posts agent-authored text; response echoes the agent's own input"
+   },
+   "add_suggestion": {
+    "external": false,
+    "why": "adds suggestion; echoes agent-authored content"
+   },
+   "add_wallet_card": {
+    "external": false,
+    "why": "adds card; confirmation only"
+   },
+   "agent_1": {
+    "external": true,
+    "why": "agent-run tool returning LLM/heuristic-generated suggestion text"
+   },
+   "approve_pending_payout": {
+    "external": false,
+    "why": "approve/transfer action; status echo"
+   },
+   "atlassianUserInfo": {
+    "external": true,
+    "why": "returns stored user profile"
+   },
+   "batch_delete_messages": {
+    "external": false,
+    "why": "deletes messages; result is status only"
+   },
+   "bigquery_create_dataset": {
+    "external": false,
+    "why": "creates dataset; echoes agent-authored fields"
+   },
+   "bigquery_execute_sql": {
+    "external": true,
+    "why": "query returns stored table rows"
+   },
+   "bigquery_execute_write_sql": {
+    "external": true,
+    "why": "write SQL, but output schema declares returned rows"
+   },
+   "bigquery_get_job": {
+    "external": true,
+    "why": "returns stored job metadata/errors"
+   },
+   "bigquery_get_table": {
+    "external": true,
+    "why": "returns stored table metadata/schema"
+   },
+   "bigquery_get_table_schema": {
+    "external": true,
+    "why": "returns stored table schema"
+   },
+   "bigquery_list_datasets": {
+    "external": true,
+    "why": "lists stored datasets"
+   },
+   "bigquery_list_tables": {
+    "external": true,
+    "why": "lists stored tables"
+   },
+   "cancel_sent_invoice": {
+    "external": false,
+    "why": "cancel action; ack only"
+   },
+   "cancel_subscription": {
+    "external": false,
+    "why": "cancel action; id/status ack"
+   },
+   "channels_history": {
+    "external": true,
+    "why": "returns stored channel messages"
+   },
+   "channels_invite": {
+    "external": false,
+    "why": "invite action; status ack"
+   },
+   "chat_list": {
+    "external": true,
+    "why": "returns stored meeting chat messages"
+   },
+   "chat_post_message": {
+    "external": false,
+    "why": "posts chat message; ack of own content"
+   },
+   "checkout_cart": {
+    "external": false,
+    "why": "checkout action; ok/message ack"
+   },
+   "clear_submissions": {
+    "external": false,
+    "why": "truncates submissions file; ack only"
+   },
+   "conversations_history": {
+    "external": true,
+    "why": "returns stored DM messages"
+   },
+   "createConfluenceFooterComment": {
+    "external": false,
+    "why": "creates comment; echoes agent-authored body"
+   },
+   "createConfluenceInlineComment": {
+    "external": false,
+    "why": "creates comment; echoes agent-authored body"
+   },
+   "createConfluencePage": {
+    "external": false,
+    "why": "creates page; result echoes agent-authored content"
+   },
+   "createJiraIssue": {
+    "external": false,
+    "why": "creates issue; result echoes agent-authored fields"
+   },
+   "create_branch": {
+    "external": false,
+    "why": "Creates a ref; response is an operation confirmation"
+   },
+   "create_cart": {
+    "external": false,
+    "why": "creates cart; echoes own items"
+   },
+   "create_channel": {
+    "external": false,
+    "why": "creates channel; confirmation only"
+   },
+   "create_commit": {
+    "external": false,
+    "why": "Commits agent-authored content; response echoes it"
+   },
+   "create_contact": {
+    "external": false,
+    "why": "creates contact; echoes agent-authored fields"
+   },
+   "create_document": {
+    "external": false,
+    "why": "creates doc; echoes agent-authored content"
+   },
+   "create_event": {
+    "external": false,
+    "why": "creates event; echoes agent-authored fields"
+   },
+   "create_folder": {
+    "external": false,
+    "why": "creates folder; confirmation only"
+   },
+   "create_invoice": {
+    "external": false,
+    "why": "creates invoice; id/status ack"
+   },
+   "create_issue": {
+    "external": false,
+    "why": "Creates agent-authored content; response echoes it"
+   },
+   "create_order": {
+    "external": false,
+    "why": "creates order; id/status ack"
+   },
+   "create_payout": {
+    "external": false,
+    "why": "creates payout; id/status ack"
+   },
+   "create_product": {
+    "external": false,
+    "why": "creates product; confirmation only"
+   },
+   "create_pull": {
+    "external": false,
+    "why": "Creates agent-authored content; response echoes it"
+   },
+   "create_refund": {
+    "external": false,
+    "why": "creates refund; id/status ack"
+   },
+   "create_repo": {
+    "external": false,
+    "why": "Creates a repository; response echoes the agent's own input"
+   },
+   "create_shipment_tracking": {
+    "external": false,
+    "why": "creates tracking record; confirmation only"
+   },
+   "create_subscription": {
+    "external": false,
+    "why": "creates subscription; id/status ack"
+   },
+   "create_subscription_plan": {
+    "external": false,
+    "why": "creates plan; confirmation only"
+   },
+   "create_version": {
+    "external": false,
+    "why": "snapshot action; id/name ack"
+   },
+   "create_workspace": {
+    "external": false,
+    "why": "creates workspace; confirmation only"
+   },
+   "databricks-dbsql-exec": {
+    "external": true,
+    "why": "read-only SQL returning stored rows"
+   },
+   "databricks-genie": {
+    "external": true,
+    "why": "analyst returns generated text/SQL from stored data"
+   },
+   "databricks-unity-function": {
+    "external": true,
+    "why": "read-only functions returning stored data"
+   },
+   "databricks-vector-search": {
+    "external": true,
+    "why": "vector search returning stored product data"
+   },
+   "decline_invitation": {
+    "external": true,
+    "why": "action, but returns full third-party event record"
+   },
+   "delete_all_messages": {
+    "external": false,
+    "why": "destructive delete; status ack only"
+   },
+   "delete_comment": {
+    "external": false,
+    "why": "delete action; ack only"
+   },
+   "delete_document": {
+    "external": false,
+    "why": "trash/delete action; ack only"
+   },
+   "delete_event": {
+    "external": false,
+    "why": "delete action; ok/event_id ack"
+   },
+   "delete_image": {
+    "external": false,
+    "why": "delete action; ack only"
+   },
+   "delete_message": {
+    "external": false,
+    "why": "delete action; returns ok/status ack"
+   },
+   "delete_whatsapp_call": {
+    "external": false,
+    "why": "delete action; ack only"
+   },
+   "delete_whatsapp_chat": {
+    "external": false,
+    "why": "delete action; ack only"
+   },
+   "delete_whatsapp_message": {
+    "external": false,
+    "why": "delete action; ack only"
+   },
+   "disable_link_sharing": {
+    "external": false,
+    "why": "sharing toggle; ack only"
+   },
+   "dm_feed": {
+    "external": true,
+    "why": "returns stored DM activity feed"
+   },
+   "editJiraIssue": {
+    "external": true,
+    "why": "update returns full stored issue with third-party fields"
+   },
+   "enable_link_sharing": {
+    "external": false,
+    "why": "sharing toggle; ack only"
+   },
+   "fetch": {
+    "external": true,
+    "why": "fetches stored resource by ARI"
+   },
+   "find_message": {
+    "external": true,
+    "why": "search returning a stored email message"
+   },
+   "fork_repo": {
+    "external": true,
+    "why": "Response embeds upstream repository metadata authored by others"
+   },
+   "forward_message": {
+    "external": true,
+    "why": "Fixed Gmail source returns the original stored message subject in the send receipt"
+   },
+   "forward_whatsapp_message": {
+    "external": true,
+    "why": "result carries the forwarded third-party body"
+   },
+   "generate_invoice_qr_code": {
+    "external": true,
+    "why": "returns generated QR payload for possibly third-party invoice"
+   },
+   "getAccessibleAtlassianResources": {
+    "external": true,
+    "why": "returns stored resource/cloud IDs"
+   },
+   "getConfluencePage": {
+    "external": true,
+    "why": "returns stored page content"
+   },
+   "getConfluencePageDescendants": {
+    "external": true,
+    "why": "lists stored child pages"
+   },
+   "getConfluencePageFooterComments": {
+    "external": true,
+    "why": "returns stored comments"
+   },
+   "getConfluencePageInlineComments": {
+    "external": true,
+    "why": "returns stored comments"
+   },
+   "getConfluenceSpaces": {
+    "external": true,
+    "why": "lists stored spaces"
+   },
+   "getJiraIssue": {
+    "external": true,
+    "why": "returns stored issue details"
+   },
+   "getJiraIssueRemoteIssueLinks": {
+    "external": true,
+    "why": "returns stored issue links"
+   },
+   "getJiraIssueTypeMetaWithFields": {
+    "external": true,
+    "why": "returns stored issue-type metadata"
+   },
+   "getJiraProjectIssueTypesMetadata": {
+    "external": true,
+    "why": "returns stored project metadata"
+   },
+   "getPagesInConfluenceSpace": {
+    "external": true,
+    "why": "lists stored pages"
+   },
+   "getTransitionsForJiraIssue": {
+    "external": true,
+    "why": "returns stored transition options"
+   },
+   "getVisibleJiraProjects": {
+    "external": true,
+    "why": "lists stored projects"
+   },
+   "get_activity_feed": {
+    "external": true,
+    "why": "Returns activity items authored by other users"
+   },
+   "get_attachment": {
+    "external": true,
+    "why": "downloads stored attachment content"
+   },
+   "get_attachment_upload_url": {
+    "external": false,
+    "why": "Fixed Gmail source returns only service-configured instructions and the caller-provided filename"
+   },
+   "get_auth_context": {
+    "external": false,
+    "why": "Server auth-mode metadata, not externally authored content"
+   },
+   "get_blob": {
+    "external": true,
+    "why": "Returns stored file content authored externally"
+   },
+   "get_branch": {
+    "external": true,
+    "why": "Returns branch metadata from the stored repository"
+   },
+   "get_comments": {
+    "external": true,
+    "why": "returns stored document comments"
+   },
+   "get_commit": {
+    "external": true,
+    "why": "Returns commit content and messages authored externally"
+   },
+   "get_contact": {
+    "external": true,
+    "why": "returns stored contact details"
+   },
+   "get_crypto_positions": {
+    "external": true,
+    "why": "returns stored positions with valuations"
+   },
+   "get_dispute": {
+    "external": true,
+    "why": "returns stored dispute details"
+   },
+   "get_document": {
+    "external": true,
+    "why": "returns stored document content"
+   },
+   "get_document_shares": {
+    "external": true,
+    "why": "returns stored sharing records"
+   },
+   "get_event": {
+    "external": true,
+    "why": "returns stored event details"
+   },
+   "get_form": {
+    "external": true,
+    "why": "returns stored form schema"
+   },
+   "get_freebusy": {
+    "external": true,
+    "why": "returns stored availability data"
+   },
+   "get_gmail_content": {
+    "external": true,
+    "why": "returns inbox threads with third-party content"
+   },
+   "get_invoice": {
+    "external": true,
+    "why": "returns stored invoice details"
+   },
+   "get_issue": {
+    "external": true,
+    "why": "Returns issue content authored by other users"
+   },
+   "get_me": {
+    "external": true,
+    "why": "Returns the stored user profile (slack/github twins; runtime offers the bare MCP name)"
+   },
+   "get_merchant_insights": {
+    "external": true,
+    "why": "returns stored merchant analytics"
+   },
+   "get_message": {
+    "external": true,
+    "why": "returns full stored email details"
+   },
+   "get_message_body": {
+    "external": true,
+    "why": "returns stored email body content"
+   },
+   "get_order": {
+    "external": true,
+    "why": "returns stored order details"
+   },
+   "get_org": {
+    "external": true,
+    "why": "Returns organization profile content"
+   },
+   "get_payout": {
+    "external": true,
+    "why": "returns stored payout details"
+   },
+   "get_pull": {
+    "external": true,
+    "why": "Returns pull-request content authored by other users"
+   },
+   "get_recent_documents": {
+    "external": true,
+    "why": "lists stored recent documents"
+   },
+   "get_refund": {
+    "external": true,
+    "why": "returns stored refund details"
+   },
+   "get_repo": {
+    "external": true,
+    "why": "Returns repository metadata and description content"
+   },
+   "get_repo_tree": {
+    "external": true,
+    "why": "Returns stored repository tree entries"
+   },
+   "get_repository_content": {
+    "external": true,
+    "why": "Returns stored file or directory content"
+   },
+   "get_shipment_tracking": {
+    "external": true,
+    "why": "returns stored tracking details"
+   },
+   "get_unread_whatsapp_messages": {
+    "external": true,
+    "why": "returns stored incoming messages"
+   },
+   "get_user_profile": {
+    "external": true,
+    "why": "Returns a user profile authored externally"
+   },
+   "get_whatsapp_call": {
+    "external": true,
+    "why": "returns stored call details"
+   },
+   "get_whatsapp_chat": {
+    "external": true,
+    "why": "returns stored conversation messages"
+   },
+   "get_whatsapp_group": {
+    "external": true,
+    "why": "returns stored group details"
+   },
+   "get_whatsapp_group_messages": {
+    "external": true,
+    "why": "returns stored group messages"
+   },
+   "get_whatsapp_message": {
+    "external": true,
+    "why": "returns stored message content"
+   },
+   "inbox": {
+    "external": true,
+    "why": "returns stored mentions and DMs"
+   },
+   "invitations_accept": {
+    "external": false,
+    "why": "accept action; ok/error ack only"
+   },
+   "invitations_create": {
+    "external": false,
+    "why": "creates invitation; confirmation only"
+   },
+   "invitations_decline": {
+    "external": false,
+    "why": "decline action; ok/error ack only"
+   },
+   "invitations_list": {
+    "external": true,
+    "why": "lists stored invitations"
+   },
+   "list_attachments": {
+    "external": true,
+    "why": "lists stored attachment metadata"
+   },
+   "list_bank_accounts": {
+    "external": true,
+    "why": "lists stored bank accounts"
+   },
+   "list_bills": {
+    "external": true,
+    "why": "lists stored third-party invoices"
+   },
+   "list_branches": {
+    "external": true,
+    "why": "Returns stored branch names and metadata"
+   },
+   "list_calendars": {
+    "external": true,
+    "why": "lists stored calendars"
+   },
+   "list_channels": {
+    "external": true,
+    "why": "lists stored channels"
+   },
+   "list_colors": {
+    "external": true,
+    "why": "returns stored color definitions"
+   },
+   "list_commits": {
+    "external": true,
+    "why": "Returns commit messages authored externally"
+   },
+   "list_contacts": {
+    "external": true,
+    "why": "lists stored contacts"
+   },
+   "list_disputes": {
+    "external": true,
+    "why": "lists stored disputes"
+   },
+   "list_dms": {
+    "external": true,
+    "why": "lists stored DM conversations"
+   },
+   "list_documents": {
+    "external": true,
+    "why": "lists stored documents"
+   },
+   "list_events": {
+    "external": true,
+    "why": "lists stored events"
+   },
+   "list_folders": {
+    "external": true,
+    "why": "lists stored folders"
+   },
+   "list_images": {
+    "external": true,
+    "why": "lists stored document images"
+   },
+   "list_invoices": {
+    "external": true,
+    "why": "lists stored invoices"
+   },
+   "list_issue_comments": {
+    "external": true,
+    "why": "Returns comments authored by other users"
+   },
+   "list_issues": {
+    "external": true,
+    "why": "Returns issue content authored by other users"
+   },
+   "list_messages": {
+    "external": true,
+    "why": "read-only inbox listing"
+   },
+   "list_notifications": {
+    "external": true,
+    "why": "Returns notification content from external activity"
+   },
+   "list_orders": {
+    "external": true,
+    "why": "lists stored orders"
+   },
+   "list_org_members": {
+    "external": true,
+    "why": "Returns member profiles"
+   },
+   "list_org_repos": {
+    "external": true,
+    "why": "Returns repository metadata and descriptions"
+   },
+   "list_payouts": {
+    "external": true,
+    "why": "lists stored payouts"
+   },
+   "list_product": {
+    "external": true,
+    "why": "lists stored products"
+   },
+   "list_pull_comments": {
+    "external": true,
+    "why": "Returns comments authored by other users"
+   },
+   "list_pull_commits": {
+    "external": true,
+    "why": "Returns commit messages authored externally"
+   },
+   "list_pull_files": {
+    "external": true,
+    "why": "Returns changed-file paths and patch content"
+   },
+   "list_pulls": {
+    "external": true,
+    "why": "Returns pull-request content authored by other users"
+   },
+   "list_repo_labels": {
+    "external": true,
+    "why": "Returns stored label names and descriptions"
+   },
+   "list_repo_milestones": {
+    "external": true,
+    "why": "Returns milestone content"
+   },
+   "list_repo_stars": {
+    "external": true,
+    "why": "Returns stargazer profiles and metadata"
+   },
+   "list_sent_messages": {
+    "external": true,
+    "why": "lists stored sent emails"
+   },
+   "list_shipments": {
+    "external": true,
+    "why": "lists stored shipment records"
+   },
+   "list_submissions": {
+    "external": true,
+    "why": "lists stored submissions"
+   },
+   "list_subscription_plans": {
+    "external": true,
+    "why": "lists stored plans"
+   },
+   "list_subscriptions": {
+    "external": true,
+    "why": "lists stored subscriptions"
+   },
+   "list_suggestions": {
+    "external": true,
+    "why": "lists stored suggestions"
+   },
+   "list_transaction": {
+    "external": true,
+    "why": "lists stored transactions"
+   },
+   "list_user_repos": {
+    "external": true,
+    "why": "Returns repository metadata and descriptions"
+   },
+   "list_users": {
+    "external": true,
+    "why": "lists stored workspace users"
+   },
+   "list_versions": {
+    "external": true,
+    "why": "lists stored versions"
+   },
+   "list_wallet_cards": {
+    "external": true,
+    "why": "lists stored wallet cards"
+   },
+   "list_whatsapp_calls": {
+    "external": true,
+    "why": "lists stored call history"
+   },
+   "list_whatsapp_chats": {
+    "external": true,
+    "why": "lists stored chat threads"
+   },
+   "list_whatsapp_groups": {
+    "external": true,
+    "why": "lists stored groups"
+   },
+   "list_workspaces": {
+    "external": true,
+    "why": "lists stored workspaces"
+   },
+   "login": {
+    "external": false,
+    "why": "action; result is only a minted access token [reviewer override]"
+   },
+   "lookupJiraAccountId": {
+    "external": true,
+    "why": "returns stored user accounts"
+   },
+   "make_whatsapp_call": {
+    "external": false,
+    "why": "initiates call; confirmation only"
+   },
+   "mark_notification_read": {
+    "external": false,
+    "why": "State change; response is an operation confirmation"
+   },
+   "mark_whatsapp_message_read": {
+    "external": false,
+    "why": "state mutation; ack only"
+   },
+   "meetings_create": {
+    "external": false,
+    "why": "creates meeting; echoes agent-authored fields"
+   },
+   "meetings_delete": {
+    "external": false,
+    "why": "delete action; ack only"
+   },
+   "meetings_end": {
+    "external": false,
+    "why": "end action; ack only"
+   },
+   "meetings_get": {
+    "external": true,
+    "why": "returns stored meeting details"
+   },
+   "meetings_join": {
+    "external": true,
+    "why": "reader-purposed getter for join payload/link"
+   },
+   "meetings_leave": {
+    "external": false,
+    "why": "leave action; ack only"
+   },
+   "meetings_list": {
+    "external": true,
+    "why": "lists stored meetings"
+   },
+   "meetings_recording_start": {
+    "external": false,
+    "why": "start recording; ack only"
+   },
+   "meetings_recording_stop": {
+    "external": false,
+    "why": "stop recording; ack only"
+   },
+   "meetings_start": {
+    "external": false,
+    "why": "start action; ack only"
+   },
+   "meetings_update": {
+    "external": true,
+    "why": "Fixed Zoom source returns the full meeting, including preserved stored fields"
+   },
+   "merge_pull": {
+    "external": true,
+    "why": "Merge response can embed pull metadata authored by others"
+   },
+   "move_document_to_folder": {
+    "external": false,
+    "why": "move action; id echo ack"
+   },
+   "notes_create": {
+    "external": false,
+    "why": "creates note; echoes agent-authored content"
+   },
+   "notes_delete": {
+    "external": false,
+    "why": "delete action; ack only"
+   },
+   "notes_get": {
+    "external": true,
+    "why": "returns stored note content"
+   },
+   "notes_list": {
+    "external": true,
+    "why": "lists stored notes"
+   },
+   "notes_update": {
+    "external": false,
+    "why": "updates note; echoes agent-authored content"
+   },
+   "open_dm": {
+    "external": true,
+    "why": "open-or-get returns stored conversation membership data"
+   },
+   "participants_admit": {
+    "external": false,
+    "why": "admit action; ack only"
+   },
+   "participants_list": {
+    "external": true,
+    "why": "lists stored participants"
+   },
+   "participants_remove": {
+    "external": false,
+    "why": "remove action; ack only"
+   },
+   "participants_set_role": {
+    "external": false,
+    "why": "role change; ack only"
+   },
+   "pay_invoice": {
+    "external": false,
+    "why": "payment action; status/message confirmation"
+   },
+   "pay_order": {
+    "external": false,
+    "why": "payment capture; transaction confirmation"
+   },
+   "paypal_login": {
+    "external": true,
+    "why": "result echoes stored account profile (id/email/name)"
+   },
+   "post_message": {
+    "external": false,
+    "why": "posts message; ack of own content"
+   },
+   "post_message_dm": {
+    "external": false,
+    "why": "posts DM; ack of own content"
+   },
+   "product-search": {
+    "external": true,
+    "why": "search returning stored product data"
+   },
+   "remove_bank_account": {
+    "external": false,
+    "why": "remove action; ack only"
+   },
+   "remove_share": {
+    "external": false,
+    "why": "unshare action; ack only"
+   },
+   "remove_wallet_card": {
+    "external": false,
+    "why": "remove action; ack only"
+   },
+   "reply_to_whatsapp_message": {
+    "external": false,
+    "why": "sends reply; echoes agent-authored body"
+   },
+   "resolve_comment": {
+    "external": false,
+    "why": "resolve action; ack only"
+   },
+   "restore_document": {
+    "external": false,
+    "why": "restore action; boolean ack only"
+   },
+   "restore_version": {
+    "external": false,
+    "why": "restore action; boolean ack only"
+   },
+   "revenue-semantic-view": {
+    "external": true,
+    "why": "analyst returns generated text/SQL from stored data"
+   },
+   "review_suggestion": {
+    "external": false,
+    "why": "accept/reject action; status ack"
+   },
+   "search": {
+    "external": true,
+    "why": "search returning stored Jira/Confluence content"
+   },
+   "searchConfluenceUsingCql": {
+    "external": true,
+    "why": "CQL search over stored content"
+   },
+   "searchJiraIssuesUsingJql": {
+    "external": true,
+    "why": "JQL search over stored issues"
+   },
+   "search_contacts": {
+    "external": true,
+    "why": "search returning stored contacts"
+   },
+   "search_documents": {
+    "external": true,
+    "why": "search returning stored documents"
+   },
+   "search_events": {
+    "external": true,
+    "why": "search returning stored events"
+   },
+   "search_messages": {
+    "external": true,
+    "why": "search returning stored emails"
+   },
+   "search_product": {
+    "external": true,
+    "why": "search returning stored products"
+   },
+   "search_repos": {
+    "external": true,
+    "why": "Returns repository metadata matching a search"
+   },
+   "search_whatsapp_messages": {
+    "external": true,
+    "why": "search returning stored messages"
+   },
+   "send_email": {
+    "external": false,
+    "why": "sends email; result is routing ack of own content"
+   },
+   "send_invoice": {
+    "external": false,
+    "why": "send action; ack only"
+   },
+   "send_invoice_reminder": {
+    "external": false,
+    "why": "send action; ack only"
+   },
+   "send_reply": {
+    "external": true,
+    "why": "Fixed Gmail source returns the original stored message subject in the send receipt"
+   },
+   "send_whatsapp_group_message": {
+    "external": false,
+    "why": "sends message; echoes agent-authored body"
+   },
+   "send_whatsapp_message": {
+    "external": false,
+    "why": "sends message; echoes agent-authored body"
+   },
+   "set_form": {
+    "external": false,
+    "why": "replaces schema; ack only"
+   },
+   "share_document": {
+    "external": false,
+    "why": "share action; echo of own inputs"
+   },
+   "show_product_details": {
+    "external": true,
+    "why": "returns stored product details"
+   },
+   "show_subscription_details": {
+    "external": true,
+    "why": "returns stored subscription details"
+   },
+   "show_subscription_plan_details": {
+    "external": true,
+    "why": "returns stored plan details"
+   },
+   "sql_exec_tool": {
+    "external": true,
+    "why": "read-only SELECT returning stored rows"
+   },
+   "star_repo": {
+    "external": false,
+    "why": "State change; response is an operation confirmation"
+   },
+   "submit": {
+    "external": false,
+    "why": "submits own payload; ack only"
+   },
+   "trade_crypto": {
+    "external": false,
+    "why": "trade action; confirmation plus computed position numbers"
+   },
+   "transcripts_create": {
+    "external": false,
+    "why": "creates segment; echoes agent-authored content"
+   },
+   "transcripts_get": {
+    "external": true,
+    "why": "returns stored transcripts"
+   },
+   "transcripts_list": {
+    "external": true,
+    "why": "lists stored transcript segments"
+   },
+   "transitionJiraIssue": {
+    "external": true,
+    "why": "transition returns full stored issue with third-party fields"
+   },
+   "unstar_repo": {
+    "external": false,
+    "why": "State change; response is an operation confirmation"
+   },
+   "updateConfluencePage": {
+    "external": true,
+    "why": "update returns full stored page with third-party fields"
+   },
+   "update_document": {
+    "external": true,
+    "why": "update returns full stored document content, possibly third-party"
+   },
+   "update_event": {
+    "external": true,
+    "why": "update returns full stored event with third-party fields"
+   },
+   "update_repo": {
+    "external": false,
+    "why": "Updates settings; response echoes the agent's own input"
+   },
+   "update_share": {
+    "external": false,
+    "why": "permission change; ack only"
+   },
+   "update_shipment_tracking": {
+    "external": false,
+    "why": "update action; metadata echo ack"
+   },
+   "update_subscription": {
+    "external": false,
+    "why": "update action; updated-boolean ack"
+   },
+   "update_wallet_card": {
+    "external": false,
+    "why": "update action; thin own-data echo"
+   },
+   "upload_image": {
+    "external": false,
+    "why": "uploads own file; id/url confirmation"
+   },
+   "workspaces_invite": {
+    "external": false,
+    "why": "invite action; status ack"
+   },
+   "zoom_get_me": {
+    "external": true,
+    "why": "returns stored user profile"
+   },
+   "zoom_login": {
+    "external": false,
+    "why": "action; result is only a minted token [reviewer override]"
+   }
+  }
+ }
+}

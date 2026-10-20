@@ -1,0 +1,451 @@
+{
+ "folds": [
+  {
+   "billing_support": {
+    "allowed_tools": [
+     "chat_with_patient",
+     "get_patient_status",
+     "init_patient",
+     "request_abdominal_examination",
+     "request_allergy_testing",
+     "request_blood_tests",
+     "request_cardiovascular_examination",
+     "request_chest_xray",
+     "request_complete_blood_count",
+     "request_echocardiogram",
+     "request_general_examination",
+     "request_laboratory_tests",
+     "request_musculoskeletal_examination",
+     "request_neurological_examination",
+     "request_other_test",
+     "request_respiratory_examination",
+     "request_skin_biopsy",
+     "request_skin_examination",
+     "request_urinalysis",
+     "request_vital_signs"
+    ],
+    "limits": {
+     "destructive_actions": 9.0,
+     "tokens_total": 27387.0,
+     "total_tool_calls": 12.0
+    }
+   },
+   "diagnosis": {
+    "allowed_tools": [
+     "chat_with_patient",
+     "get_patient_status",
+     "init_patient",
+     "request_abdominal_examination",
+     "request_allergy_testing",
+     "request_blood_tests",
+     "request_cardiovascular_examination",
+     "request_chest_xray",
+     "request_complete_blood_count",
+     "request_echocardiogram",
+     "request_general_examination",
+     "request_laboratory_tests",
+     "request_musculoskeletal_examination",
+     "request_neurological_examination",
+     "request_other_test",
+     "request_respiratory_examination",
+     "request_skin_biopsy",
+     "request_skin_examination",
+     "request_urinalysis",
+     "request_vital_signs"
+    ],
+    "limits": {
+     "destructive_actions": 9.0,
+     "tokens_total": 23789.0,
+     "total_tool_calls": 12.0
+    }
+   },
+   "treatment_planning": {
+    "allowed_tools": [
+     "chat_with_patient",
+     "get_patient_status",
+     "init_patient",
+     "request_abdominal_examination",
+     "request_allergy_testing",
+     "request_blood_tests",
+     "request_cardiovascular_examination",
+     "request_chest_xray",
+     "request_complete_blood_count",
+     "request_echocardiogram",
+     "request_general_examination",
+     "request_laboratory_tests",
+     "request_musculoskeletal_examination",
+     "request_neurological_examination",
+     "request_other_test",
+     "request_respiratory_examination",
+     "request_skin_biopsy",
+     "request_skin_examination",
+     "request_urinalysis",
+     "request_vital_signs"
+    ],
+    "limits": {
+     "destructive_actions": 10.0,
+     "tokens_total": 27387.0,
+     "total_tool_calls": 12.0
+    }
+   }
+  },
+  {
+   "billing_support": {
+    "allowed_tools": [
+     "chat_with_patient",
+     "get_patient_status",
+     "init_patient",
+     "request_abdominal_examination",
+     "request_allergy_testing",
+     "request_blood_tests",
+     "request_cardiovascular_examination",
+     "request_chest_xray",
+     "request_complete_blood_count",
+     "request_echocardiogram",
+     "request_general_examination",
+     "request_laboratory_tests",
+     "request_musculoskeletal_examination",
+     "request_neurological_examination",
+     "request_other_test",
+     "request_respiratory_examination",
+     "request_skin_biopsy",
+     "request_skin_examination",
+     "request_urinalysis",
+     "request_vital_signs"
+    ],
+    "limits": {
+     "destructive_actions": 9.0,
+     "tokens_total": 26935.0,
+     "total_tool_calls": 12.0
+    }
+   },
+   "diagnosis": {
+    "allowed_tools": [
+     "chat_with_patient",
+     "get_patient_status",
+     "init_patient",
+     "request_abdominal_examination",
+     "request_allergy_testing",
+     "request_blood_tests",
+     "request_cardiovascular_examination",
+     "request_chest_xray",
+     "request_complete_blood_count",
+     "request_echocardiogram",
+     "request_general_examination",
+     "request_laboratory_tests",
+     "request_musculoskeletal_examination",
+     "request_neurological_examination",
+     "request_other_test",
+     "request_respiratory_examination",
+     "request_skin_biopsy",
+     "request_skin_examination",
+     "request_urinalysis",
+     "request_vital_signs"
+    ],
+    "limits": {
+     "destructive_actions": 9.0,
+     "tokens_total": 23789.0,
+     "total_tool_calls": 12.0
+    }
+   },
+   "treatment_planning": {
+    "allowed_tools": [
+     "chat_with_patient",
+     "get_patient_status",
+     "init_patient",
+     "request_abdominal_examination",
+     "request_allergy_testing",
+     "request_blood_tests",
+     "request_cardiovascular_examination",
+     "request_chest_xray",
+     "request_complete_blood_count",
+     "request_echocardiogram",
+     "request_general_examination",
+     "request_laboratory_tests",
+     "request_musculoskeletal_examination",
+     "request_neurological_examination",
+     "request_other_test",
+     "request_respiratory_examination",
+     "request_skin_biopsy",
+     "request_skin_examination",
+     "request_urinalysis",
+     "request_vital_signs"
+    ],
+    "limits": {
+     "destructive_actions": 10.0,
+     "tokens_total": 26935.0,
+     "total_tool_calls": 12.0
+    }
+   }
+  },
+  {
+   "billing_support": {
+    "allowed_tools": [
+     "chat_with_patient",
+     "get_patient_status",
+     "init_patient",
+     "request_abdominal_examination",
+     "request_allergy_testing",
+     "request_blood_tests",
+     "request_cardiovascular_examination",
+     "request_chest_xray",
+     "request_complete_blood_count",
+     "request_echocardiogram",
+     "request_general_examination",
+     "request_laboratory_tests",
+     "request_musculoskeletal_examination",
+     "request_neurological_examination",
+     "request_other_test",
+     "request_respiratory_examination",
+     "request_skin_biopsy",
+     "request_skin_examination",
+     "request_urinalysis",
+     "request_vital_signs"
+    ],
+    "limits": {
+     "destructive_actions": 10.0,
+     "tokens_total": 27387.0,
+     "total_tool_calls": 12.0
+    }
+   },
+   "diagnosis": {
+    "allowed_tools": [
+     "chat_with_patient",
+     "get_patient_status",
+     "init_patient",
+     "request_abdominal_examination",
+     "request_allergy_testing",
+     "request_blood_tests",
+     "request_cardiovascular_examination",
+     "request_chest_xray",
+     "request_complete_blood_count",
+     "request_echocardiogram",
+     "request_general_examination",
+     "request_laboratory_tests",
+     "request_musculoskeletal_examination",
+     "request_neurological_examination",
+     "request_other_test",
+     "request_respiratory_examination",
+     "request_skin_biopsy",
+     "request_skin_examination",
+     "request_urinalysis",
+     "request_vital_signs"
+    ],
+    "limits": {
+     "destructive_actions": 10.0,
+     "tokens_total": 24102.0,
+     "total_tool_calls": 12.0
+    }
+   },
+   "treatment_planning": {
+    "allowed_tools": [
+     "chat_with_patient",
+     "get_patient_status",
+     "init_patient",
+     "request_abdominal_examination",
+     "request_allergy_testing",
+     "request_blood_tests",
+     "request_cardiovascular_examination",
+     "request_chest_xray",
+     "request_complete_blood_count",
+     "request_echocardiogram",
+     "request_general_examination",
+     "request_laboratory_tests",
+     "request_musculoskeletal_examination",
+     "request_neurological_examination",
+     "request_other_test",
+     "request_respiratory_examination",
+     "request_skin_biopsy",
+     "request_skin_examination",
+     "request_urinalysis",
+     "request_vital_signs"
+    ],
+    "limits": {
+     "destructive_actions": 10.0,
+     "tokens_total": 27387.0,
+     "total_tool_calls": 12.0
+    }
+   }
+  },
+  {
+   "billing_support": {
+    "allowed_tools": [
+     "chat_with_patient",
+     "get_patient_status",
+     "init_patient",
+     "request_abdominal_examination",
+     "request_allergy_testing",
+     "request_blood_tests",
+     "request_cardiovascular_examination",
+     "request_chest_xray",
+     "request_complete_blood_count",
+     "request_echocardiogram",
+     "request_general_examination",
+     "request_laboratory_tests",
+     "request_musculoskeletal_examination",
+     "request_neurological_examination",
+     "request_other_test",
+     "request_respiratory_examination",
+     "request_skin_biopsy",
+     "request_skin_examination",
+     "request_urinalysis",
+     "request_vital_signs"
+    ],
+    "limits": {
+     "destructive_actions": 9.0,
+     "tokens_total": 27099.0,
+     "total_tool_calls": 12.0
+    }
+   },
+   "diagnosis": {
+    "allowed_tools": [
+     "chat_with_patient",
+     "get_patient_status",
+     "init_patient",
+     "request_abdominal_examination",
+     "request_allergy_testing",
+     "request_blood_tests",
+     "request_cardiovascular_examination",
+     "request_chest_xray",
+     "request_complete_blood_count",
+     "request_echocardiogram",
+     "request_general_examination",
+     "request_laboratory_tests",
+     "request_musculoskeletal_examination",
+     "request_neurological_examination",
+     "request_other_test",
+     "request_respiratory_examination",
+     "request_skin_biopsy",
+     "request_skin_examination",
+     "request_urinalysis",
+     "request_vital_signs"
+    ],
+    "limits": {
+     "destructive_actions": 9.0,
+     "tokens_total": 23564.0,
+     "total_tool_calls": 12.0
+    }
+   },
+   "treatment_planning": {
+    "allowed_tools": [
+     "chat_with_patient",
+     "get_patient_status",
+     "init_patient",
+     "request_abdominal_examination",
+     "request_allergy_testing",
+     "request_blood_tests",
+     "request_cardiovascular_examination",
+     "request_chest_xray",
+     "request_complete_blood_count",
+     "request_echocardiogram",
+     "request_general_examination",
+     "request_laboratory_tests",
+     "request_musculoskeletal_examination",
+     "request_neurological_examination",
+     "request_other_test",
+     "request_respiratory_examination",
+     "request_skin_biopsy",
+     "request_skin_examination",
+     "request_urinalysis",
+     "request_vital_signs"
+    ],
+    "limits": {
+     "destructive_actions": 10.0,
+     "tokens_total": 27099.0,
+     "total_tool_calls": 13.0
+    }
+   }
+  },
+  {
+   "billing_support": {
+    "allowed_tools": [
+     "chat_with_patient",
+     "get_patient_status",
+     "init_patient",
+     "request_abdominal_examination",
+     "request_allergy_testing",
+     "request_blood_tests",
+     "request_cardiovascular_examination",
+     "request_chest_xray",
+     "request_complete_blood_count",
+     "request_echocardiogram",
+     "request_general_examination",
+     "request_laboratory_tests",
+     "request_musculoskeletal_examination",
+     "request_neurological_examination",
+     "request_other_test",
+     "request_respiratory_examination",
+     "request_skin_biopsy",
+     "request_skin_examination",
+     "request_urinalysis",
+     "request_vital_signs"
+    ],
+    "limits": {
+     "destructive_actions": 9.0,
+     "tokens_total": 27387.0,
+     "total_tool_calls": 12.0
+    }
+   },
+   "diagnosis": {
+    "allowed_tools": [
+     "chat_with_patient",
+     "get_patient_status",
+     "init_patient",
+     "request_abdominal_examination",
+     "request_allergy_testing",
+     "request_blood_tests",
+     "request_cardiovascular_examination",
+     "request_chest_xray",
+     "request_complete_blood_count",
+     "request_echocardiogram",
+     "request_general_examination",
+     "request_laboratory_tests",
+     "request_musculoskeletal_examination",
+     "request_neurological_examination",
+     "request_other_test",
+     "request_respiratory_examination",
+     "request_skin_biopsy",
+     "request_skin_examination",
+     "request_urinalysis",
+     "request_vital_signs"
+    ],
+    "limits": {
+     "destructive_actions": 9.0,
+     "tokens_total": 23564.0,
+     "total_tool_calls": 12.0
+    }
+   },
+   "treatment_planning": {
+    "allowed_tools": [
+     "chat_with_patient",
+     "get_patient_status",
+     "init_patient",
+     "request_abdominal_examination",
+     "request_allergy_testing",
+     "request_blood_tests",
+     "request_cardiovascular_examination",
+     "request_chest_xray",
+     "request_complete_blood_count",
+     "request_echocardiogram",
+     "request_general_examination",
+     "request_laboratory_tests",
+     "request_musculoskeletal_examination",
+     "request_neurological_examination",
+     "request_other_test",
+     "request_respiratory_examination",
+     "request_skin_biopsy",
+     "request_skin_examination",
+     "request_urinalysis",
+     "request_vital_signs"
+    ],
+    "limits": {
+     "destructive_actions": 10.0,
+     "tokens_total": 27387.0,
+     "total_tool_calls": 12.0
+    }
+   }
+  }
+ ],
+ "k": 5,
+ "quantile": 0.95
+}

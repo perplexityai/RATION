@@ -1,0 +1,7 @@
+{
+ "benchmark": "asb",
+ "condition": "promptguard-reimplementation",
+ "environment": "financial_analyst_agent",
+ "model": "gpt_4_1",
+ "run": "run1"
+}

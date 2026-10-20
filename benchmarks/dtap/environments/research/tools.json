@@ -1,0 +1,277 @@
+{
+ "Research": {
+  "execute_command": {
+   "description": "Execute a command in the terminal Docker environment (for code execution and programming tasks).\n    \n    Args:\n        command: The command to execute (e.g., \"ls\", \"pwd\", \"python script.py\", \"git clone ...\")\n        timeout: Timeout in seconds (default: 180, max: 300)\n    \n    Returns:\n        JSON string containing the command output, stderr, return code, and success status\n        \n    Example:\n        execute_command(\"ls -la\") -> Returns directory listing\n        execute_command(\"python script.py\") -> Executes Python script\n        execute_command(\"git clone https://github.com/user/repo.git\") -> Clones repository\n    ",
+   "input_schema": {
+    "properties": {
+     "command": {
+      "title": "Command",
+      "type": "string"
+     },
+     "timeout": {
+      "default": 180,
+      "title": "Timeout",
+      "type": "integer"
+     }
+    },
+    "required": [
+     "command"
+    ],
+    "title": "execute_commandArguments",
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "title": "Result",
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "title": "execute_commandOutput",
+    "type": "object"
+   }
+  },
+  "fetch_arxiv_paper_html": {
+   "description": "Fetch paper abstract page as HTML from local ArXiv (like real arXiv website).\n    \n    This tool returns the full HTML content of a paper's abstract page,\n    including title, authors, abstract, metadata, and styling.\n    \n    Args:\n        paper_id: ArXiv paper ID (e.g., \"2301.12345\" or \"arxiv:2301.12345\")\n        base_url: Base URL for ArXiv (default: \"http://localhost:8034\")\n    \n    Returns:\n        JSON string containing the HTML content, paper URL, and success status\n        \n    Example:\n        fetch_arxiv_paper_html(\"2308.03298\") -> Returns full HTML page for the paper\n    ",
+   "input_schema": {
+    "properties": {
+     "base_url": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null,
+      "title": "Base Url"
+     },
+     "paper_id": {
+      "title": "Paper Id",
+      "type": "string"
+     }
+    },
+    "required": [
+     "paper_id"
+    ],
+    "title": "fetch_arxiv_paper_htmlArguments",
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "title": "Result",
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "title": "fetch_arxiv_paper_htmlOutput",
+    "type": "object"
+   }
+  },
+  "list_arxiv_papers_html": {
+   "description": "List recent arXiv papers as HTML page.\n    \n    This tool returns a list of recent papers formatted as an HTML page.\n    \n    Args:\n        category: Optional category filter (e.g., \"cs\", \"math\", \"physics\")\n        limit: Maximum number of results (default: 20, max: 100)\n    \n    Returns:\n        JSON string containing the HTML content\n        \n    Example:\n        list_arxiv_papers_html(category=\"cs\", limit=15)\n    ",
+   "input_schema": {
+    "properties": {
+     "category": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null,
+      "title": "Category"
+     },
+     "limit": {
+      "default": 20,
+      "title": "Limit",
+      "type": "integer"
+     }
+    },
+    "title": "list_arxiv_papers_htmlArguments",
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "title": "Result",
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "title": "list_arxiv_papers_htmlOutput",
+    "type": "object"
+   }
+  },
+  "search_arxiv_html": {
+   "description": "Search arXiv and get results as HTML page (like real arXiv search results).\n    \n    This tool returns search results formatted as an HTML page with paper listings,\n    similar to the real arXiv website.\n    \n    Args:\n        query: Search query (searches in title, abstract, authors)\n        category: Optional category filter (e.g., \"cs\", \"math\", \"physics\")\n        limit: Maximum number of results (default: 20, max: 100)\n    \n    Returns:\n        JSON string containing the HTML content and search metadata\n        \n    Example:\n        search_arxiv_html(\"transformer\", category=\"cs\", limit=10)\n    ",
+   "input_schema": {
+    "properties": {
+     "category": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null,
+      "title": "Category"
+     },
+     "limit": {
+      "default": 20,
+      "title": "Limit",
+      "type": "integer"
+     },
+     "query": {
+      "title": "Query",
+      "type": "string"
+     }
+    },
+    "required": [
+     "query"
+    ],
+    "title": "search_arxiv_htmlArguments",
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "title": "Result",
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "title": "search_arxiv_htmlOutput",
+    "type": "object"
+   }
+  },
+  "search_semantic_scholar": {
+   "description": "Search Semantic Scholar for academic papers.\n    \n    Args:\n        query: Search query (e.g., \"quantum computing\", \"machine learning\")\n        limit: Maximum number of results (default: 10, max: 100)\n    \n    Returns:\n        JSON string containing Semantic Scholar search results\n        \n    Example:\n        search_semantic_scholar(\"quantum computing\", limit=5) -> Returns Semantic Scholar papers\n    ",
+   "input_schema": {
+    "properties": {
+     "limit": {
+      "default": 10,
+      "title": "Limit",
+      "type": "integer"
+     },
+     "query": {
+      "title": "Query",
+      "type": "string"
+     }
+    },
+    "required": [
+     "query"
+    ],
+    "title": "search_semantic_scholarArguments",
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "title": "Result",
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "title": "search_semantic_scholarOutput",
+    "type": "object"
+   }
+  },
+  "upload_arxiv_paper": {
+   "description": "Upload a new paper to arXiv (local sandbox).\n    \n    This tool allows the agent to submit/upload a new paper to the local arXiv database.\n    Useful for testing paper submission workflows or populating the database.\n    \n    Args:\n        paper_id: Paper ID (e.g., \"2401.12345\", should be unique)\n        title: Paper title\n        authors: List of author names (e.g., [\"John Doe\", \"Jane Smith\"])\n        abstract: Paper abstract/summary\n        categories: List of arXiv categories (e.g., [\"cs.AI\", \"cs.LG\"])\n        submitted_date: Submission date in ISO format (default: current date)\n        pdf_url: Optional PDF URL (default: auto-generated)\n    \n    Returns:\n        JSON string containing the uploaded paper info and success status\n        \n    Example:\n        upload_arxiv_paper(\n            paper_id=\"2401.99999\",\n            title=\"A Novel Approach to Machine Learning\",\n            authors=[\"John Doe\", \"Jane Smith\"],\n            abstract=\"This paper presents...\",\n            categories=[\"cs.LG\", \"cs.AI\"]\n        )\n    ",
+   "input_schema": {
+    "properties": {
+     "abstract": {
+      "title": "Abstract",
+      "type": "string"
+     },
+     "authors": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Authors",
+      "type": "array"
+     },
+     "categories": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Categories",
+      "type": "array"
+     },
+     "paper_id": {
+      "title": "Paper Id",
+      "type": "string"
+     },
+     "pdf_url": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null,
+      "title": "Pdf Url"
+     },
+     "submitted_date": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null,
+      "title": "Submitted Date"
+     },
+     "title": {
+      "title": "Title",
+      "type": "string"
+     }
+    },
+    "required": [
+     "paper_id",
+     "title",
+     "authors",
+     "abstract",
+     "categories"
+    ],
+    "title": "upload_arxiv_paperArguments",
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "title": "Result",
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "title": "upload_arxiv_paperOutput",
+    "type": "object"
+   }
+  }
+ }
+}

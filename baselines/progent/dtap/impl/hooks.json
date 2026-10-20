@@ -1,0 +1,3 @@
+{
+  "hooks": ["progent_hook:ProgentHook"]
+}

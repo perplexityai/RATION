@@ -1,0 +1,270 @@
+{
+ "servers": {
+  "gmail": {
+   "path": "gmail/main.py",
+   "environment": [
+    "gmail"
+   ]
+  },
+  "salesforce": {
+   "path": "salesforce/main.py",
+   "environment": [
+    "salesforce"
+   ]
+  },
+  "calendar": {
+   "path": "calendar/main.py",
+   "environment": [
+    "calendar"
+   ]
+  },
+  "zoom": {
+   "path": "zoom/main.py",
+   "environment": [
+    "zoom"
+   ]
+  },
+  "slack": {
+   "path": "slack/main.py",
+   "environment": [
+    "slack"
+   ]
+  },
+  "snowflake": {
+   "path": "snowflake/main.py",
+   "environment": [
+    "snowflake"
+   ]
+  },
+  "databricks": {
+   "path": "databricks/main.py",
+   "environment": [
+    "databricks"
+   ]
+  },
+  "paypal": {
+   "path": "paypal/main.py",
+   "environment": [
+    "paypal"
+   ]
+  },
+  "ers": {
+   "path": "ers/main.py",
+   "environment": [
+    "ers"
+   ]
+  },
+  "macos-os": {
+   "path": "macos/mcp_server.py",
+   "environment": [
+    "macos"
+   ]
+  },
+  "windows-os": {
+   "path": "windows/mcp_server.py",
+   "environment": [
+    "windows"
+   ]
+  },
+  "browser": {
+   "path": "browser/main.py",
+   "environment": [
+    "ecommerce",
+    "custom-website"
+   ]
+  },
+  "OS-filesystem": {
+   "path": "os-filesystem/main.py",
+   "environment": [
+    "os-filesystem"
+   ]
+  },
+  "google-form": {
+   "path": "google_form/main.py",
+   "environment": [
+    "google-form"
+   ]
+  },
+  "googlesheets": {
+   "path": "googlesheets/main.py",
+   "environment": [
+    "googlesheets"
+   ]
+  },
+  "googledrive": {
+   "path": "googledrive/main.py",
+   "environment": [
+    "googledrive"
+   ]
+  },
+  "travel-suite": {
+   "path": "travel/mcp_server.py",
+   "environment": [
+    "travel"
+   ]
+  },
+  "atlassian": {
+   "path": "atlassian/main.py",
+   "environment": [
+    "atlassian"
+   ]
+  },
+  "terminal": {
+   "path": "terminal/main.py",
+   "environment": [
+    "terminal"
+   ]
+  },
+  "Research": {
+   "path": "research/main.py",
+   "environment": [
+    "research",
+    "arxiv"
+   ]
+  },
+  "telecom": {
+   "path": "telecom/mcp_server.py",
+   "environment": [
+    "telecom"
+   ]
+  },
+  "github": {
+   "path": "github/main.py",
+   "environment": [
+    "github"
+   ]
+  },
+  "gitlab": {
+   "path": "gitlab/main.py",
+   "environment": [
+    "gitlab"
+   ]
+  },
+  "HospitalClient": {
+   "path": "hospital/mcp_server.py",
+   "environment": [
+    "hospital"
+   ]
+  },
+  "finance": {
+   "path": "finance/main.py",
+   "environment": [
+    "finance"
+   ]
+  },
+  "telegram": {
+   "path": "telegram/main.py",
+   "environment": [
+    "telegram"
+   ]
+  },
+  "legal": {
+   "path": "legal/main.py",
+   "environment": [
+    "legal"
+   ]
+  },
+  "customer_service": {
+   "path": "customer_service/main.py",
+   "environment": [
+    "customer_service"
+   ]
+  },
+  "bigquery": {
+   "path": "bigquery/main.py",
+   "environment": [
+    "bigquery"
+   ]
+  },
+  "chase": {
+   "path": "chase/main.py",
+   "environment": [
+    "chase"
+   ]
+  },
+  "linkedin": {
+   "path": "linkedin/main.py",
+   "environment": [
+    "linkedin"
+   ]
+  },
+  "x": {
+   "path": "x/main.py",
+   "environment": [
+    "x"
+   ]
+  },
+  "notion": {
+   "path": "notion/main.py",
+   "environment": [
+    "notion"
+   ]
+  },
+  "reddit": {
+   "path": "reddit/main.py",
+   "environment": [
+    "reddit"
+   ]
+  },
+  "robinhood": {
+   "path": "robinhood/main.py",
+   "environment": [
+    "robinhood"
+   ]
+  },
+  "dropbox": {
+   "path": "dropbox/main.py",
+   "environment": [
+    "dropbox"
+   ]
+  },
+  "doordash": {
+   "path": "doordash/main.py",
+   "environment": [
+    "doordash"
+   ]
+  },
+  "united": {
+   "path": "united/main.py",
+   "environment": [
+    "united"
+   ]
+  },
+  "southwest": {
+   "path": "southwest/main.py",
+   "environment": [
+    "southwest"
+   ]
+  },
+  "enterprise": {
+   "path": "enterprise/main.py",
+   "environment": [
+    "enterprise"
+   ]
+  },
+  "expedia": {
+   "path": "expedia/main.py",
+   "environment": [
+    "expedia"
+   ]
+  },
+  "booking": {
+   "path": "booking/main.py",
+   "environment": [
+    "booking"
+   ]
+  },
+  "whatsapp": {
+   "path": "whatsapp/main.py",
+   "environment": [
+    "whatsapp"
+   ]
+  },
+  "googledocs": {
+   "path": "googledocs/main.py",
+   "environment": [
+    "googledocs"
+   ]
+  }
+ }
+}

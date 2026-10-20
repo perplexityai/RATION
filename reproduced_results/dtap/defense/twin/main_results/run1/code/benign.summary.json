@@ -1,0 +1,12 @@
+{
+ "BU": {
+  "ci95_half_width": 0.023493852131994022,
+  "ci95_percent": "2.3",
+  "display": "95.6 \u00b1 2.3",
+  "n": 330,
+  "percent": "95.6",
+  "value": 0.956
+ },
+ "n": 330,
+ "taskset": "benign"
+}

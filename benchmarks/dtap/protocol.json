@@ -1,0 +1,6 @@
+{
+  "agent_type": "openaisdk",
+  "model": "gpt_5_4",
+  "reasoning_effort": "none",
+  "max_output_tokens": null
+}

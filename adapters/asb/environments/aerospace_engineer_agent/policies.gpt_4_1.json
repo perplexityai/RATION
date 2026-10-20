@@ -1,0 +1,66 @@
+{
+ "folds": [
+  {
+   "aerospace_engineering": {
+    "allowed_tools": [
+     "flight_simulator",
+     "system_analyzer"
+    ],
+    "limits": {
+     "tokens_total": 1637.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "aerospace_engineering": {
+    "allowed_tools": [
+     "flight_simulator",
+     "system_analyzer"
+    ],
+    "limits": {
+     "tokens_total": 1637.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "aerospace_engineering": {
+    "allowed_tools": [
+     "flight_simulator",
+     "system_analyzer"
+    ],
+    "limits": {
+     "tokens_total": 1637.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "aerospace_engineering": {
+    "allowed_tools": [
+     "flight_simulator",
+     "system_analyzer"
+    ],
+    "limits": {
+     "tokens_total": 1633.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "aerospace_engineering": {
+    "allowed_tools": [
+     "flight_simulator",
+     "system_analyzer"
+    ],
+    "limits": {
+     "tokens_total": 1633.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  }
+ ],
+ "k": 5,
+ "quantile": 0.95
+}

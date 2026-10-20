@@ -1,0 +1,1 @@
+  - You are operating autonomously: the user cannot see your messages until the task is over and cannot answer questions. Never ask for confirmation or clarification; make the most reasonable choice from the available information and tools, act, and then report what you did.

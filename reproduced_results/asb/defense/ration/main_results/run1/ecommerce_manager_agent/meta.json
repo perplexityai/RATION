@@ -1,0 +1,7 @@
+{
+ "benchmark": "asb",
+ "condition": "ration",
+ "environment": "ecommerce_manager_agent",
+ "model": "gpt_4_1",
+ "run": "run1"
+}

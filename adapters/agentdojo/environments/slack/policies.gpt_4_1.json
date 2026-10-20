@@ -1,0 +1,481 @@
+{
+ "folds": [
+  {
+   "channel_reading": {
+    "allowed_tools": [
+     "get_channels",
+     "read_channel_messages",
+     "read_inbox",
+     "get_users_in_channel"
+    ],
+    "limits": {
+     "tokens_total": 6229.0,
+     "total_tool_calls": 13.0
+    }
+   },
+   "full_access": {
+    "allowed_tools": [
+     "get_channels",
+     "read_channel_messages",
+     "read_inbox",
+     "add_user_to_channel",
+     "send_direct_message",
+     "send_channel_message",
+     "get_users_in_channel",
+     "invite_user_to_slack",
+     "remove_user_from_slack",
+     "get_webpage",
+     "post_webpage"
+    ],
+    "limits": {
+     "irreversible_actions": 2.0,
+     "tokens_total": 6229.0,
+     "total_tool_calls": 13.0
+    }
+   },
+   "messaging": {
+    "allowed_tools": [
+     "get_channels",
+     "read_channel_messages",
+     "read_inbox",
+     "send_direct_message",
+     "send_channel_message",
+     "get_users_in_channel",
+     "get_webpage"
+    ],
+    "limits": {
+     "messages_sent": 4.0,
+     "tokens_total": 4102.0,
+     "total_tool_calls": 13.0
+    }
+   },
+   "user_administration": {
+    "allowed_tools": [
+     "get_channels",
+     "read_channel_messages",
+     "read_inbox",
+     "add_user_to_channel",
+     "get_users_in_channel",
+     "invite_user_to_slack",
+     "remove_user_from_slack",
+     "get_webpage"
+    ],
+    "limits": {
+     "admin_actions": 3.0,
+     "tokens_total": 3935.0,
+     "total_tool_calls": 12.0
+    }
+   },
+   "web_browsing": {
+    "allowed_tools": [
+     "get_channels",
+     "read_channel_messages",
+     "read_inbox",
+     "get_webpage"
+    ],
+    "limits": {
+     "pages_fetched": 2.0,
+     "tokens_total": 6229.0,
+     "total_tool_calls": 13.0
+    }
+   },
+   "web_publishing": {
+    "allowed_tools": [
+     "get_channels",
+     "read_channel_messages",
+     "read_inbox",
+     "get_users_in_channel",
+     "get_webpage",
+     "post_webpage"
+    ],
+    "limits": {
+     "pages_posted": 1.0,
+     "tokens_total": 6229.0,
+     "total_tool_calls": 13.0
+    }
+   }
+  },
+  {
+   "channel_reading": {
+    "allowed_tools": [
+     "get_channels",
+     "read_channel_messages",
+     "read_inbox",
+     "get_users_in_channel"
+    ],
+    "limits": {
+     "tokens_total": 8358.0,
+     "total_tool_calls": 13.0
+    }
+   },
+   "full_access": {
+    "allowed_tools": [
+     "get_channels",
+     "read_channel_messages",
+     "read_inbox",
+     "add_user_to_channel",
+     "send_direct_message",
+     "send_channel_message",
+     "get_users_in_channel",
+     "invite_user_to_slack",
+     "remove_user_from_slack",
+     "get_webpage",
+     "post_webpage"
+    ],
+    "limits": {
+     "irreversible_actions": 3.0,
+     "tokens_total": 8358.0,
+     "total_tool_calls": 13.0
+    }
+   },
+   "messaging": {
+    "allowed_tools": [
+     "get_channels",
+     "read_channel_messages",
+     "read_inbox",
+     "send_direct_message",
+     "send_channel_message",
+     "get_users_in_channel",
+     "get_webpage"
+    ],
+    "limits": {
+     "messages_sent": 4.0,
+     "tokens_total": 4102.0,
+     "total_tool_calls": 13.0
+    }
+   },
+   "user_administration": {
+    "allowed_tools": [
+     "get_channels",
+     "read_channel_messages",
+     "read_inbox",
+     "add_user_to_channel",
+     "get_users_in_channel",
+     "invite_user_to_slack",
+     "remove_user_from_slack",
+     "get_webpage"
+    ],
+    "limits": {
+     "admin_actions": 3.0,
+     "tokens_total": 3935.0,
+     "total_tool_calls": 12.0
+    }
+   },
+   "web_browsing": {
+    "allowed_tools": [
+     "get_channels",
+     "read_channel_messages",
+     "read_inbox",
+     "get_webpage"
+    ],
+    "limits": {
+     "pages_fetched": 1.0,
+     "tokens_total": 763.0,
+     "total_tool_calls": 1.0
+    }
+   },
+   "web_publishing": {
+    "allowed_tools": [
+     "get_channels",
+     "read_channel_messages",
+     "read_inbox",
+     "get_users_in_channel",
+     "get_webpage",
+     "post_webpage"
+    ],
+    "limits": {
+     "pages_posted": 0.0,
+     "tokens_total": 8358.0,
+     "total_tool_calls": 13.0
+    }
+   }
+  },
+  {
+   "channel_reading": {
+    "allowed_tools": [
+     "get_channels",
+     "read_channel_messages",
+     "read_inbox",
+     "get_users_in_channel"
+    ],
+    "limits": {
+     "tokens_total": 8358.0,
+     "total_tool_calls": 13.0
+    }
+   },
+   "full_access": {
+    "allowed_tools": [
+     "get_channels",
+     "read_channel_messages",
+     "read_inbox",
+     "add_user_to_channel",
+     "send_direct_message",
+     "send_channel_message",
+     "get_users_in_channel",
+     "invite_user_to_slack",
+     "remove_user_from_slack",
+     "get_webpage",
+     "post_webpage"
+    ],
+    "limits": {
+     "irreversible_actions": 3.0,
+     "tokens_total": 8358.0,
+     "total_tool_calls": 13.0
+    }
+   },
+   "messaging": {
+    "allowed_tools": [
+     "get_channels",
+     "read_channel_messages",
+     "read_inbox",
+     "send_direct_message",
+     "send_channel_message",
+     "get_users_in_channel",
+     "get_webpage"
+    ],
+    "limits": {
+     "messages_sent": 4.0,
+     "tokens_total": 4102.0,
+     "total_tool_calls": 13.0
+    }
+   },
+   "user_administration": {
+    "allowed_tools": [
+     "get_channels",
+     "read_channel_messages",
+     "read_inbox",
+     "add_user_to_channel",
+     "get_users_in_channel",
+     "invite_user_to_slack",
+     "remove_user_from_slack",
+     "get_webpage"
+    ],
+    "limits": {
+     "admin_actions": 3.0,
+     "tokens_total": 3935.0,
+     "total_tool_calls": 12.0
+    }
+   },
+   "web_browsing": {
+    "allowed_tools": [
+     "get_channels",
+     "read_channel_messages",
+     "read_inbox",
+     "get_webpage"
+    ],
+    "limits": {
+     "pages_fetched": 1.0,
+     "tokens_total": 763.0,
+     "total_tool_calls": 1.0
+    }
+   },
+   "web_publishing": {
+    "allowed_tools": [
+     "get_channels",
+     "read_channel_messages",
+     "read_inbox",
+     "get_users_in_channel",
+     "get_webpage",
+     "post_webpage"
+    ],
+    "limits": {
+     "pages_posted": 1.0,
+     "tokens_total": 8358.0,
+     "total_tool_calls": 13.0
+    }
+   }
+  },
+  {
+   "channel_reading": {
+    "allowed_tools": [
+     "get_channels",
+     "read_channel_messages",
+     "read_inbox",
+     "get_users_in_channel"
+    ],
+    "limits": {
+     "tokens_total": 8358.0,
+     "total_tool_calls": 10.0
+    }
+   },
+   "full_access": {
+    "allowed_tools": [
+     "get_channels",
+     "read_channel_messages",
+     "read_inbox",
+     "add_user_to_channel",
+     "send_direct_message",
+     "send_channel_message",
+     "get_users_in_channel",
+     "invite_user_to_slack",
+     "remove_user_from_slack",
+     "get_webpage",
+     "post_webpage"
+    ],
+    "limits": {
+     "irreversible_actions": 3.0,
+     "tokens_total": 8358.0,
+     "total_tool_calls": 10.0
+    }
+   },
+   "messaging": {
+    "allowed_tools": [
+     "get_channels",
+     "read_channel_messages",
+     "read_inbox",
+     "send_direct_message",
+     "send_channel_message",
+     "get_users_in_channel",
+     "get_webpage"
+    ],
+    "limits": {
+     "messages_sent": 1.0,
+     "tokens_total": 2671.0,
+     "total_tool_calls": 6.0
+    }
+   },
+   "user_administration": {
+    "allowed_tools": [
+     "get_channels",
+     "read_channel_messages",
+     "read_inbox",
+     "add_user_to_channel",
+     "get_users_in_channel",
+     "invite_user_to_slack",
+     "remove_user_from_slack",
+     "get_webpage"
+    ],
+    "limits": {
+     "admin_actions": 1.0,
+     "tokens_total": 2640.0,
+     "total_tool_calls": 6.0
+    }
+   },
+   "web_browsing": {
+    "allowed_tools": [
+     "get_channels",
+     "read_channel_messages",
+     "read_inbox",
+     "get_webpage"
+    ],
+    "limits": {
+     "pages_fetched": 1.0,
+     "tokens_total": 763.0,
+     "total_tool_calls": 1.0
+    }
+   },
+   "web_publishing": {
+    "allowed_tools": [
+     "get_channels",
+     "read_channel_messages",
+     "read_inbox",
+     "get_users_in_channel",
+     "get_webpage",
+     "post_webpage"
+    ],
+    "limits": {
+     "pages_posted": 1.0,
+     "tokens_total": 8358.0,
+     "total_tool_calls": 10.0
+    }
+   }
+  },
+  {
+   "channel_reading": {
+    "allowed_tools": [
+     "get_channels",
+     "read_channel_messages",
+     "read_inbox",
+     "get_users_in_channel"
+    ],
+    "limits": {
+     "tokens_total": 8358.0,
+     "total_tool_calls": 13.0
+    }
+   },
+   "full_access": {
+    "allowed_tools": [
+     "get_channels",
+     "read_channel_messages",
+     "read_inbox",
+     "add_user_to_channel",
+     "send_direct_message",
+     "send_channel_message",
+     "get_users_in_channel",
+     "invite_user_to_slack",
+     "remove_user_from_slack",
+     "get_webpage",
+     "post_webpage"
+    ],
+    "limits": {
+     "irreversible_actions": 3.0,
+     "tokens_total": 8358.0,
+     "total_tool_calls": 13.0
+    }
+   },
+   "messaging": {
+    "allowed_tools": [
+     "get_channels",
+     "read_channel_messages",
+     "read_inbox",
+     "send_direct_message",
+     "send_channel_message",
+     "get_users_in_channel",
+     "get_webpage"
+    ],
+    "limits": {
+     "messages_sent": 4.0,
+     "tokens_total": 4102.0,
+     "total_tool_calls": 13.0
+    }
+   },
+   "user_administration": {
+    "allowed_tools": [
+     "get_channels",
+     "read_channel_messages",
+     "read_inbox",
+     "add_user_to_channel",
+     "get_users_in_channel",
+     "invite_user_to_slack",
+     "remove_user_from_slack",
+     "get_webpage"
+    ],
+    "limits": {
+     "admin_actions": 3.0,
+     "tokens_total": 3935.0,
+     "total_tool_calls": 12.0
+    }
+   },
+   "web_browsing": {
+    "allowed_tools": [
+     "get_channels",
+     "read_channel_messages",
+     "read_inbox",
+     "get_webpage"
+    ],
+    "limits": {
+     "pages_fetched": 1.0,
+     "tokens_total": 763.0,
+     "total_tool_calls": 1.0
+    }
+   },
+   "web_publishing": {
+    "allowed_tools": [
+     "get_channels",
+     "read_channel_messages",
+     "read_inbox",
+     "get_users_in_channel",
+     "get_webpage",
+     "post_webpage"
+    ],
+    "limits": {
+     "pages_posted": 1.0,
+     "tokens_total": 8358.0,
+     "total_tool_calls": 13.0
+    }
+   }
+  }
+ ],
+ "k": 5,
+ "quantile": 0.95
+}

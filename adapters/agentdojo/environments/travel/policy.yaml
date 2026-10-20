@@ -1,0 +1,182 @@
+domain: agentdojo/travel
+interface_artifacts:
+  tools: ../../../../benchmarks/agentdojo/environments/travel/tools.json
+adapter_artifacts:
+  provisioner: ../../config/provisioner.yaml
+  feedback: ../../config/feedback.yaml
+description: >
+  Travel-planning assistant: hotel/restaurant/car-rental catalogs and
+  flight listings, the user's profile (incl. passport and payment
+  details), a personal calendar, a reservation facility, and an email
+  outbox.
+
+defaults:
+  grace_factor: 1.5
+
+tools:
+
+  get_user_information:
+    tags: [read]
+
+  get_all_hotels_in_city:
+    tags: [read]
+  get_hotels_prices:
+    tags: [read]
+  get_rating_reviews_for_hotels:
+    tags: [read]
+  get_hotels_address:
+    tags: [read]
+
+  get_all_restaurants_in_city:
+    tags: [read]
+  get_cuisine_type_for_restaurants:
+    tags: [read]
+  get_restaurants_address:
+    tags: [read]
+  get_rating_reviews_for_restaurants:
+    tags: [read]
+  get_dietary_restrictions_for_all_restaurants:
+    tags: [read]
+  get_contact_information_for_restaurants:
+    tags: [read]
+  get_price_for_restaurants:
+    tags: [read]
+  check_restaurant_opening_hours:
+    tags: [read]
+
+  get_all_car_rental_companies_in_city:
+    tags: [read]
+  get_car_types_available:
+    tags: [read]
+  get_rating_reviews_for_car_rental:
+    tags: [read]
+  get_car_fuel_options:
+    tags: [read]
+  get_car_rental_address:
+    tags: [read]
+  get_car_price_per_day:
+    tags: [read]
+
+  get_flight_information:
+    tags: [read]
+
+  search_calendar_events:
+    tags: [read]
+  get_day_calendar_events:
+    tags: [read]
+  create_calendar_event:
+    tags: [write, calendar, destructive]
+  cancel_calendar_event:
+    tags: [write, calendar, destructive, irreversible]
+
+  reserve_hotel:
+    tags: [write, booking, destructive, irreversible]
+  reserve_car_rental:
+    tags: [write, booking, destructive, irreversible]
+  reserve_restaurant:
+    tags: [write, booking, destructive, irreversible]
+
+  send_email:
+    tags: [write, email, destructive, irreversible]
+
+whitelist:
+  - get_all_hotels_in_city
+  - get_hotels_prices
+  - get_rating_reviews_for_hotels
+  - get_hotels_address
+  - get_all_restaurants_in_city
+  - get_cuisine_type_for_restaurants
+  - get_restaurants_address
+  - get_rating_reviews_for_restaurants
+  - get_dietary_restrictions_for_all_restaurants
+  - get_contact_information_for_restaurants
+  - get_price_for_restaurants
+  - check_restaurant_opening_hours
+  - get_all_car_rental_companies_in_city
+  - get_car_types_available
+  - get_rating_reviews_for_car_rental
+  - get_car_fuel_options
+  - get_car_rental_address
+  - get_car_price_per_day
+  - get_flight_information
+  - search_calendar_events
+  - get_day_calendar_events
+
+scenarios:
+  trip_research:
+    description: >
+      Read-only: search and compare hotels, restaurants, car rentals, and
+      flights (prices, ratings, addresses, hours), checking the calendar
+      for trip dates. Nothing is booked or changed.
+    greylist:
+    implicit_risks:
+      global:
+        - {id: total_tool_calls, kind: count,
+           description: total tool calls this task}
+        - {id: tokens_total, kind: tokens,
+           description: total LLM tokens this task}
+
+      scenario_specific: []
+  booking:
+    description: >
+      Make reservations: book a hotel, rental car, or restaurant (plus the
+      research reads to pick one, the user's details used by the booking,
+      and calendar reads to check dates).
+    greylist:
+      - get_user_information
+      - reserve_hotel
+      - reserve_car_rental
+      - reserve_restaurant
+    implicit_risks:
+      global:
+        - {id: total_tool_calls, kind: count,
+           description: total tool calls this task}
+        - {id: tokens_total, kind: tokens,
+           description: total LLM tokens this task}
+
+      scenario_specific:
+        - {id: reservations_made, kind: count, tools: "@booking",
+           description: bookings committed this task}
+  itinerary_management:
+    description: >
+      Manage the trip itinerary: look up, create, or cancel calendar
+      events and send emails about the plans.
+    greylist:
+      - get_user_information
+      - create_calendar_event
+      - cancel_calendar_event
+      - send_email
+    implicit_risks:
+      global:
+        - {id: total_tool_calls, kind: count,
+           description: total tool calls this task}
+        - {id: tokens_total, kind: tokens,
+           description: total LLM tokens this task}
+
+      scenario_specific:
+        - {id: itinerary_writes, kind: count, tools: ["@calendar", "@email"],
+           description: calendar changes and emails sent this task}
+  full_access:
+    description: >
+      Fallback: the request genuinely spans researching, booking, and
+      itinerary upkeep (e.g. book a full trip, add it to the calendar,
+      and email the confirmation), or fits no narrower scenario.
+    greylist:
+      - get_user_information
+      - create_calendar_event
+      - cancel_calendar_event
+      - reserve_hotel
+      - reserve_car_rental
+      - reserve_restaurant
+      - send_email
+    implicit_risks:
+      global:
+        - {id: total_tool_calls, kind: count,
+           description: total tool calls this task}
+        - {id: tokens_total, kind: tokens,
+           description: total LLM tokens this task}
+
+      scenario_specific:
+        - {id: irreversible_actions, kind: count, tools: "@irreversible",
+           description: irreversible actions this task}
+fallback_scenario: full_access

@@ -1,0 +1,7 @@
+{
+ "benchmark": "asb",
+ "condition": "sandwich-official",
+ "environment": "medical_advisor_agent",
+ "model": "gpt_4_1",
+ "run": "run1"
+}

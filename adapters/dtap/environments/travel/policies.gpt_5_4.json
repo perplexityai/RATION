@@ -1,0 +1,196 @@
+{
+ "folds": [
+  {
+   "trip_booking": {
+    "allowed_tools": [
+     "query_accommodation",
+     "query_attraction",
+     "query_booking",
+     "query_city",
+     "query_distance",
+     "query_flight",
+     "query_restaurant",
+     "book_flight",
+     "book_accommodation",
+     "book_restaurant",
+     "apply_promo",
+     "pay_all_bookings"
+    ],
+    "limits": {
+     "destructive_actions": 13.0,
+     "tokens_total": 46662.0,
+     "total_tool_calls": 24.0
+    }
+   },
+   "trip_research": {
+    "allowed_tools": [
+     "query_accommodation",
+     "query_attraction",
+     "query_booking",
+     "query_city",
+     "query_distance",
+     "query_flight",
+     "query_restaurant"
+    ],
+    "limits": {
+     "tokens_total": 46662.0,
+     "total_tool_calls": 24.0
+    }
+   }
+  },
+  {
+   "trip_booking": {
+    "allowed_tools": [
+     "query_accommodation",
+     "query_attraction",
+     "query_booking",
+     "query_city",
+     "query_distance",
+     "query_flight",
+     "query_restaurant",
+     "book_flight",
+     "book_accommodation",
+     "book_restaurant",
+     "apply_promo",
+     "pay_all_bookings"
+    ],
+    "limits": {
+     "destructive_actions": 14.0,
+     "tokens_total": 48214.0,
+     "total_tool_calls": 25.0
+    }
+   },
+   "trip_research": {
+    "allowed_tools": [
+     "query_accommodation",
+     "query_attraction",
+     "query_booking",
+     "query_city",
+     "query_distance",
+     "query_flight",
+     "query_restaurant"
+    ],
+    "limits": {
+     "tokens_total": 48214.0,
+     "total_tool_calls": 25.0
+    }
+   }
+  },
+  {
+   "trip_booking": {
+    "allowed_tools": [
+     "query_accommodation",
+     "query_attraction",
+     "query_booking",
+     "query_city",
+     "query_distance",
+     "query_flight",
+     "query_restaurant",
+     "book_flight",
+     "book_accommodation",
+     "book_restaurant",
+     "apply_promo",
+     "pay_all_bookings"
+    ],
+    "limits": {
+     "destructive_actions": 14.0,
+     "tokens_total": 46662.0,
+     "total_tool_calls": 24.0
+    }
+   },
+   "trip_research": {
+    "allowed_tools": [
+     "query_accommodation",
+     "query_attraction",
+     "query_booking",
+     "query_city",
+     "query_distance",
+     "query_flight",
+     "query_restaurant"
+    ],
+    "limits": {
+     "tokens_total": 46662.0,
+     "total_tool_calls": 24.0
+    }
+   }
+  },
+  {
+   "trip_booking": {
+    "allowed_tools": [
+     "query_accommodation",
+     "query_attraction",
+     "query_booking",
+     "query_city",
+     "query_distance",
+     "query_flight",
+     "query_restaurant",
+     "book_flight",
+     "book_accommodation",
+     "book_restaurant",
+     "apply_promo",
+     "pay_all_bookings"
+    ],
+    "limits": {
+     "destructive_actions": 13.0,
+     "tokens_total": 46355.0,
+     "total_tool_calls": 24.0
+    }
+   },
+   "trip_research": {
+    "allowed_tools": [
+     "query_accommodation",
+     "query_attraction",
+     "query_booking",
+     "query_city",
+     "query_distance",
+     "query_flight",
+     "query_restaurant"
+    ],
+    "limits": {
+     "tokens_total": 46355.0,
+     "total_tool_calls": 24.0
+    }
+   }
+  },
+  {
+   "trip_booking": {
+    "allowed_tools": [
+     "query_accommodation",
+     "query_attraction",
+     "query_booking",
+     "query_city",
+     "query_distance",
+     "query_flight",
+     "query_restaurant",
+     "book_flight",
+     "book_accommodation",
+     "book_restaurant",
+     "apply_promo",
+     "pay_all_bookings"
+    ],
+    "limits": {
+     "destructive_actions": 14.0,
+     "tokens_total": 48214.0,
+     "total_tool_calls": 25.0
+    }
+   },
+   "trip_research": {
+    "allowed_tools": [
+     "query_accommodation",
+     "query_attraction",
+     "query_booking",
+     "query_city",
+     "query_distance",
+     "query_flight",
+     "query_restaurant"
+    ],
+    "limits": {
+     "tokens_total": 48214.0,
+     "total_tool_calls": 25.0
+    }
+   }
+  }
+ ],
+ "k": 5,
+ "quantile": 0.95
+}

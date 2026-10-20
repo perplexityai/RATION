@@ -1,0 +1,10 @@
+{
+ "environment": "travel",
+ "dataset_mounts": [
+  "travel-suite"
+ ],
+ "services": [
+  "travel"
+ ],
+ "benign_categories": {}
+}

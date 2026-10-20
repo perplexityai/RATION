@@ -1,0 +1,308 @@
+{
+ "macos-os": {
+  "click": {
+   "description": "Click on UI elements at specific coordinates. Supports left/right/middle mouse buttons and single/double clicks. Use coordinates from screenshot output.",
+   "input_schema": {
+    "properties": {
+     "button": {
+      "default": "left",
+      "enum": [
+       "left",
+       "right",
+       "middle"
+      ],
+      "type": "string"
+     },
+     "clicks": {
+      "default": 1,
+      "type": "integer"
+     },
+     "loc": {
+      "items": {
+       "type": "integer"
+      },
+      "type": "array"
+     }
+    },
+    "required": [
+     "loc"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "drag": {
+   "description": "Drag and drop from source to destination coordinates.",
+   "input_schema": {
+    "properties": {
+     "from_loc": {
+      "items": {
+       "type": "integer"
+      },
+      "type": "array"
+     },
+     "to_loc": {
+      "items": {
+       "type": "integer"
+      },
+      "type": "array"
+     }
+    },
+    "required": [
+     "from_loc",
+     "to_loc"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "key": {
+   "description": "Press keys, key combinations, or type text into the currently focused element. Use \"+\" to combine keys (e.g., \"cmd+c\" for copy, \"cmd+tab\" for app switching). Single special keys: \"enter\", \"escape\", \"tab\", \"space\", \"backspace\", \"delete\", arrow keys, function keys. For plain text (e.g., a filename or command), just pass the text string directly.",
+   "input_schema": {
+    "properties": {
+     "key": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "key"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "launch": {
+   "description": "Launch an application on macOS by name, path, or bundle ID (e.g., \"Terminal\", \"Safari\", \"Finder\").",
+   "input_schema": {
+    "properties": {
+     "name": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "name"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "move": {
+   "description": "Move mouse cursor to specific coordinates without clicking.",
+   "input_schema": {
+    "properties": {
+     "to_loc": {
+      "items": {
+       "type": "integer"
+      },
+      "type": "array"
+     }
+    },
+    "required": [
+     "to_loc"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "screenshot": {
+   "description": "Capture a screenshot of the macOS desktop. Returns visual screenshot image and text status.",
+   "input_schema": {
+    "properties": {
+     "use_vision": {
+      "default": false,
+      "type": "boolean"
+     }
+    },
+    "type": "object"
+   },
+   "output_schema": null
+  },
+  "scroll": {
+   "description": "Scroll at specific coordinates. Use wheel_times to control scroll amount.",
+   "input_schema": {
+    "properties": {
+     "direction": {
+      "default": "down",
+      "enum": [
+       "up",
+       "down"
+      ],
+      "type": "string"
+     },
+     "loc": {
+      "default": null,
+      "items": {
+       "type": "integer"
+      },
+      "type": "array"
+     },
+     "wheel_times": {
+      "default": 1,
+      "type": "integer"
+     }
+    },
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "shell": {
+   "description": "Execute shell commands on the macOS VM via SSH and return the output. Note: AppleScript GUI scripting (osascript with System Events / tell process) is rejected here because the SSH session is not bound to the GUI aqua session and such commands hang. Use the dedicated screenshot/click/type/key tools instead.",
+   "input_schema": {
+    "properties": {
+     "command": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "command"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "type": {
+   "description": "Type text into input fields, text areas, or focused elements. Optionally provide loc coordinates to click and focus a target element first. If loc is omitted, types into the currently focused element. Set clear=True to replace existing text.",
+   "input_schema": {
+    "properties": {
+     "clear": {
+      "default": false,
+      "type": "boolean"
+     },
+     "loc": {
+      "default": null,
+      "items": {
+       "type": "integer"
+      },
+      "type": "array"
+     },
+     "press_enter": {
+      "default": false,
+      "type": "boolean"
+     },
+     "text": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "text"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  },
+  "wait": {
+   "description": "Pause execution for specified duration in seconds.",
+   "input_schema": {
+    "properties": {
+     "duration": {
+      "type": "integer"
+     }
+    },
+    "required": [
+     "duration"
+    ],
+    "type": "object"
+   },
+   "output_schema": {
+    "properties": {
+     "result": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "type": "object",
+    "x-fastmcp-wrap-result": true
+   }
+  }
+ }
+}

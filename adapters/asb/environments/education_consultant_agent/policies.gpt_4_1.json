@@ -1,0 +1,66 @@
+{
+ "folds": [
+  {
+   "education_consulting": {
+    "allowed_tools": [
+     "course_selector",
+     "performance_evaluator"
+    ],
+    "limits": {
+     "tokens_total": 1829.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "education_consulting": {
+    "allowed_tools": [
+     "course_selector",
+     "performance_evaluator"
+    ],
+    "limits": {
+     "tokens_total": 1829.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "education_consulting": {
+    "allowed_tools": [
+     "course_selector",
+     "performance_evaluator"
+    ],
+    "limits": {
+     "tokens_total": 1827.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "education_consulting": {
+    "allowed_tools": [
+     "course_selector",
+     "performance_evaluator"
+    ],
+    "limits": {
+     "tokens_total": 1827.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "education_consulting": {
+    "allowed_tools": [
+     "course_selector",
+     "performance_evaluator"
+    ],
+    "limits": {
+     "tokens_total": 1829.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  }
+ ],
+ "k": 5,
+ "quantile": 0.95
+}

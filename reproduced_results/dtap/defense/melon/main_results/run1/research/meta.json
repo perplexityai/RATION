@@ -1,0 +1,7 @@
+{
+ "benchmark": "dtap",
+ "condition": "melon",
+ "environment": "research",
+ "model": "gpt_5_4",
+ "run": "run1"
+}

@@ -1,0 +1,15 @@
+camel @ git+https://github.com/google-research/camel-prompt-injection@f083b6b396399d3b3c7f2ddaf613a5945eaf32d8
+
+pydantic-ai==0.2.12
+pydantic-ai-slim==0.2.12
+pydantic-graph==0.2.12
+pydantic-evals==0.2.12
+griffe==1.7.3
+colorama==0.4.6
+eval-type-backport==0.2.2
+opentelemetry-api==1.33.1
+deprecated==1.2.18
+importlib-metadata==8.6.1
+zipp==3.22.0
+jsonref==1.1.0
+openapi-pydantic==0.5.1

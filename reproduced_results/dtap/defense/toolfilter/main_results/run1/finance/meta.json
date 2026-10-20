@@ -1,0 +1,7 @@
+{
+ "benchmark": "dtap",
+ "condition": "toolfilter",
+ "environment": "finance",
+ "model": "gpt_5_4",
+ "run": "run1"
+}

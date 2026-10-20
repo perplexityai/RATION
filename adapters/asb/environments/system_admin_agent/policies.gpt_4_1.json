@@ -1,0 +1,66 @@
+{
+ "folds": [
+  {
+   "system_administration": {
+    "allowed_tools": [
+     "sys_monitor",
+     "update_manager"
+    ],
+    "limits": {
+     "tokens_total": 1745.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "system_administration": {
+    "allowed_tools": [
+     "sys_monitor",
+     "update_manager"
+    ],
+    "limits": {
+     "tokens_total": 1745.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "system_administration": {
+    "allowed_tools": [
+     "sys_monitor",
+     "update_manager"
+    ],
+    "limits": {
+     "tokens_total": 1745.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "system_administration": {
+    "allowed_tools": [
+     "sys_monitor",
+     "update_manager"
+    ],
+    "limits": {
+     "tokens_total": 1745.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "system_administration": {
+    "allowed_tools": [
+     "sys_monitor",
+     "update_manager"
+    ],
+    "limits": {
+     "tokens_total": 1745.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  }
+ ],
+ "k": 5,
+ "quantile": 0.95
+}

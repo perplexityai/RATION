@@ -1,0 +1,21 @@
+{
+ "recipient_keys": [
+  "recipient",
+  "recipients",
+  "to",
+  "channel",
+  "user",
+  "email",
+  "address",
+  "cc",
+  "bcc",
+  "emails",
+  "names",
+  "channel_name",
+  "phone_number",
+  "to_phone_number",
+  "invitee_email",
+  "accommodation_name",
+  "entity_name"
+ ]
+}

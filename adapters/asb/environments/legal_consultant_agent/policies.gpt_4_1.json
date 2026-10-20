@@ -1,0 +1,66 @@
+{
+ "folds": [
+  {
+   "legal_consulting": {
+    "allowed_tools": [
+     "compliance_checker",
+     "legal_doc_review"
+    ],
+    "limits": {
+     "tokens_total": 2830.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "legal_consulting": {
+    "allowed_tools": [
+     "compliance_checker",
+     "legal_doc_review"
+    ],
+    "limits": {
+     "tokens_total": 2846.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "legal_consulting": {
+    "allowed_tools": [
+     "compliance_checker",
+     "legal_doc_review"
+    ],
+    "limits": {
+     "tokens_total": 2830.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "legal_consulting": {
+    "allowed_tools": [
+     "compliance_checker",
+     "legal_doc_review"
+    ],
+    "limits": {
+     "tokens_total": 2846.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  },
+  {
+   "legal_consulting": {
+    "allowed_tools": [
+     "compliance_checker",
+     "legal_doc_review"
+    ],
+    "limits": {
+     "tokens_total": 2846.0,
+     "total_tool_calls": 2.0
+    }
+   }
+  }
+ ],
+ "k": 5,
+ "quantile": 0.95
+}

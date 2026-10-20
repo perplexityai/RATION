@@ -1,0 +1,7 @@
+{
+ "benchmark": "agentdojo",
+ "condition": "progent-official",
+ "environment": "slack",
+ "model": "gpt_4_1",
+ "run": "run1"
+}

@@ -1,0 +1,7 @@
+{
+ "benchmark": "agentdojo",
+ "condition": "melon-reimplementation",
+ "environment": "slack",
+ "model": "gpt_4_1",
+ "run": "run1"
+}
