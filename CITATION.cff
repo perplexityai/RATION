@@ -2,6 +2,7 @@ cff-version: 1.2.0
 message: "If you use RATION, please cite the paper."
 title: "RATION"
 url: "https://github.com/perplexityai/RATION"
+license: MIT
 authors:
   - name: "Perplexity AI, Inc."
 preferred-citation:

@@ -144,6 +144,11 @@ and [ASB](https://github.com/agiresearch/ASB). The baselines build on the releas
 [PI Detector](https://huggingface.co/protectai/deberta-v3-base-prompt-injection-v2) and AgentDojo's
 built-in defenses.
 
+## License
+
+RATION is released under the [MIT License](LICENSE). Some code, prompts and data come from other
+projects and keep their original licenses; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
 ## Citation
 
 ```bibtex
