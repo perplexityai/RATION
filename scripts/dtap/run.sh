@@ -4,6 +4,9 @@ ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)
 cd "$ROOT"
 if [ -f .env ]; then set -a; . ./.env; set +a; fi
 PROXY_PORT="${PROXY_PORT:-8903}"
+# The medical environment's hospital container reaches the proxy through host.docker.internal,
+# so it listens on all interfaces by default. Set PROXY_HOST=127.0.0.1 when that is not needed.
+PROXY_HOST="${PROXY_HOST:-0.0.0.0}"
 PROXY="http://127.0.0.1:$PROXY_PORT/openrouter.ai/v1"
 export EVAL_TASK_TIMEOUT="${EVAL_TASK_TIMEOUT:-1800}"
 PY="$ROOT/.dtap-venv/bin/python"
@@ -37,7 +40,7 @@ start_proxy() {
   mkdir -p runs
   local aliases
   aliases=$("$PY" scripts/dtap/protocol.py)
-  PROXY_MODEL_ALIASES_JSON="$aliases" nohup "$PY" -m scripts.common.openai_proxy --host 0.0.0.0 \
+  PROXY_MODEL_ALIASES_JSON="$aliases" nohup "$PY" -m scripts.common.openai_proxy --host "$PROXY_HOST" \
     --port "$PROXY_PORT" >> "runs/openai_proxy_$PROXY_PORT.log" 2>&1 &
   for _ in $(seq 1 50); do proxy_up && return 0; sleep 0.2; done
   echo "the proxy did not start; see runs/openai_proxy_$PROXY_PORT.log" >&2

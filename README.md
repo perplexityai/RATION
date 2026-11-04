@@ -90,6 +90,13 @@ medical browser os-filesystem customer-service finance crm legal workflow window
 vendor/dtap/dt_arena/envs/windows/windows` and `hf download AI-Secure/decodingtrust-macos-qcow2
 --repo-type dataset --local-dir vendor/dtap/dt_arena/envs/macos/macos`.
 
+`run` starts a local OpenAI-compatible proxy on port 8903 that forwards every request to the OpenAI
+API with your `OPENAI_API_KEY`. The `openrouter.ai/v1` segment in its URL is only a path the proxy
+accepts; no request goes to OpenRouter. The proxy has no authentication and listens on all
+interfaces (`0.0.0.0`) so that the `medical` environment's Docker container can reach it. Run DTap
+on a trusted network or behind a firewall, or set `PROXY_HOST=127.0.0.1` when you do not run
+`medical`.
+
 ### AgentDyn
 
 ```bash
