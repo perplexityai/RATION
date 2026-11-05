@@ -1,6 +1,8 @@
 # RATION: Towards Quantitative Risk-Based Access Control for AI Agents
 
-[Paper](https://arxiv.org/abs/2610.24311) · [Method](docs/method.md) · [Policy files](docs/policies.md) · [Quick start](#quick-start) · [Reproduce the results](#reproduce-the-results) · [Citation](#citation)
+Yuntao Du<sup>1,2</sup>, Harsh Chaudhari<sup>1</sup>, Yuetian Chen<sup>1,2</sup>, Ron Heichman<sup>1</sup>, Ashish Jayamohan<sup>1</sup>, Kumar Pallav<sup>1</sup>, Mahim Patel<sup>1</sup>, Kaiyuan Zhang<sup>1,3</sup>, Kyle Polley<sup>1</sup>, Jerry Ma<sup>1</sup>, Ninghui Li<sup>1,2</sup>
+
+<sup>1</sup>Perplexity, <sup>2</sup>Purdue University, and <sup>3</sup>Rutgers University
 
 > [!WARNING]
 > This is a research artifact released to reproduce the results in our paper. This is **not** a Perplexity product, and we are not planning to provide support for and/or maintain this codebase.
