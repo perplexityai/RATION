@@ -2,6 +2,9 @@
 
 [Paper](https://arxiv.org/abs/2610.24311) · [Method](docs/method.md) · [Policy files](docs/policies.md) · [Quick start](#quick-start) · [Reproduce the results](#reproduce-the-results) · [Citation](#citation)
 
+> [!WARNING]
+> This is a research artifact released to reproduce the results in our paper. This is **not** a Perplexity product, and we are not planning to provide support for and/or maintain this codebase.
+
 RATION protects tool-using AI agents against indirect prompt injection (IPI). Instead of restricting
 individual actions, it regulates the measurable risks that accumulate during task execution.
 
